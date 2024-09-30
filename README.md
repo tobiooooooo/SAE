@@ -26,6 +26,7 @@ le volume conséquent d'informations contenu sur le site nous avons trouvé judi
 - un menu secondaire vertical permettant d'avoir accès aux archives et à diverses autres fonctionnalités
 De plus, nous avons décidé d'inclure la fonctionnalité "faire un don" dans chaque page car elle est vitale pour l'association et que le site
 sert en grande partie à pouvoir gérer les donations.
+
 Enfin, nous avons conçu une page newsletter avec un formulaire afin de pouvoir recevoir via sa boîte mail des nouvelles de l'association
 comme les dates des différentes actions mis en place par celle-ci.
 A part les fonctionnalités ci-dessus notre site internet ne diffère pas des autres au niveau de l'utilisation.
