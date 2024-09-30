@@ -2,7 +2,7 @@
 
 ## À propos
 
-[Nous nous sommes vus chargé la refonte d'un site web appartenant à l'association PRIARTERM (lutte contre l'électrosensibilité) à l'occasion de cette SAE.]
+Nous nous sommes vus chargé la refonte d'un site web appartenant à l'association PRIARTERM (lutte contre l'électrosensibilité) à l'occasion de cette SAE.
 
 ## Table des matières
 
