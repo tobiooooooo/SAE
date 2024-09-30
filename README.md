@@ -2,7 +2,7 @@
 
 ## À propos
 
-Nous nous sommes vus chargé la refonte d'un site web appartenant à l'association PRIARTERM (lutte contre l'électrosensibilité) à l'occasion de cette SAE.
+Nous avons décidé de nous charger la refonte d'un site web appartenant à l'association PRIARTERM (lutte contre l'électrosensibilité) à l'occasion de cette SAE.
 
 ## Table des matières
 
@@ -15,7 +15,7 @@ Nous nous sommes vus chargé la refonte d'un site web appartenant à l'associati
 
 Pour cette refonte de site web , nous utiliserons les outils suivants:
 -Trello pour pouvoir lister les différentes missions à réaliser afin d'avoir une synchronisation optimale et donc suivre l'avancé du projet
--Figma pour avoir un aperçu de la version finale du site internet notammment grâce aux maquettes que nous allons réaliser grâce à celui-ci
+-Figma pour avoir un aperçu de la version finale du site internet notamment grâce aux maquettes que nous allons réaliser grâce à celui-ci
 -PhpStorm pour finalement coder le site internet en bon et dû forme.
 
 ## Utilisation
