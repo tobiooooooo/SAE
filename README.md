@@ -1,8 +1,8 @@
-# [Titre]
+# [R3.O1 DEV WEB SAE]
 
 ## À propos
 
-[Courte description à propos de pourquoi le projet existe]
+[Nous nous sommes vus chargé la refonte d'un site web appartenant à l'association PRIARTERM (lutte contre l'électrosensibilité) à l'occasion de cette SAE.]
 
 ## Table des matières
 
@@ -18,7 +18,7 @@
 
 ## Prérequis
 
-[Liste de tous les éléments nécessaires pour le bon fonctionnement du projet avec description + lien vers la documentation]
+[Pour cette refonte de site web , nous utiliserons les outils suivants:]
 
 ## Installation
 
