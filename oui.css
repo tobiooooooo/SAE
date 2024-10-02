@@ -3,18 +3,16 @@
     padding: 0;
     box-sizing: border-box;
     font-family: Arial, sans-serif;
-}
 
-body {
-    background-color: #e0f2f8;
 }
-
+html{
+    background-image: url("./images/background.png");
+}
 header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 20px;
-    background-color: #f7fbfc;
 }
 
 .logo img {
@@ -67,7 +65,6 @@ nav ul li a:hover {
 .hero {
     text-align: center;
     padding: 50px 20px;
-    background: linear-gradient(to bottom, #ffffff, #e0f2f8);
 }
 
 .hero h1 {
