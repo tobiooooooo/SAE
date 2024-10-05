@@ -3,11 +3,13 @@
     padding: 0;
     box-sizing: border-box;
     font-family: Arial, sans-serif;
-
 }
-html{
+
+html {
     background-image: url("./images/background.png");
 }
+
+/* Styles de l'en-tête */
 header {
     display: flex;
     justify-content: space-between;
@@ -51,7 +53,7 @@ nav ul li a:hover {
     background-color: #0056b3;
 }
 
-/* Burger menu styles */
+/* Styles du menu burger */
 .burger-menu {
     display: none;
 }
@@ -61,7 +63,7 @@ nav ul li a:hover {
     cursor: pointer;
 }
 
-/* Hero section */
+/* Section Héros */
 .hero {
     text-align: center;
     padding: 50px 20px;
@@ -84,24 +86,22 @@ nav ul li a:hover {
     color: #777;
 }
 
+/* Styles des articles */
 .articles {
-    max-width:70%;
-
+    max-width: 70%;
     padding: 50px 50px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin:100px auto ;
-    background-color:#A3D8F4;
+    margin: 100px auto;
+    background-color: #A3D8F4;
     border-radius: 8px;
 }
 
 .row {
-
     display: flex;
     justify-content: space-around;
     gap: 150px;
-
 }
 
 .article-card {
@@ -111,6 +111,11 @@ nav ul li a:hover {
     width: 300px;
     padding: 20px;
     text-align: center;
+    transition: transform 0.3s ease-in-out; /* Effet au survol */
+}
+
+.article-card:hover {
+    transform: scale(1.05); /* Légère animation au survol */
 }
 
 .article-card img {
@@ -132,6 +137,7 @@ nav ul li a:hover {
     background-color: #0056b3;
 }
 
+/* Corps de la page */
 html, body {
     height: 100%;
     margin: 0;
@@ -140,6 +146,7 @@ html, body {
     flex-direction: column;
 }
 
+/* Footer */
 .footer {
     margin-top: 100px; /* Pousse le footer en bas */
     display: flex;
@@ -153,7 +160,6 @@ html, body {
 .footer .social-media {
     display: flex;
     flex-direction: row;
-
 }
 
 .footer .social-media a {
@@ -194,16 +200,13 @@ html, body {
     background-color: #005f6a;
 }
 
-
-
-
-/* Media Queries for Burger Menu */
+/* Media Queries pour le menu burger */
 @media (max-width: 768px) {
     .burger-menu {
         display: block;
     }
 
-    nav {
+    nav ul {
         display: none;
         flex-direction: column;
         position: absolute;
@@ -214,7 +217,38 @@ html, body {
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     }
 
-    nav.active {
+    nav ul.active {
         display: flex;
     }
+
+
+    .articles {
+        padding: 20px;
+        margin: 50px auto;
+        background-color: #A3D8F4;
+        border-radius: 8px;
+        width: 95%;
+    }
+
+    /* Styles pour les petits écrans */
+    .article-card {
+        width: 90%; /* Ajuste la largeur des articles */
+        margin-bottom: 20px;
+    }
+    .footer {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .support-button {
+        width: 100%;
+        margin-top: 20px;
+    }
+
+    .row {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+
 }
