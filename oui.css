@@ -1,3 +1,4 @@
+/* Global Styles */
 * {
     margin: 0;
     padding: 0;
@@ -9,7 +10,6 @@ html {
     background-image: url("./images/background.png");
 }
 
-/* Styles de l'en-tête */
 header {
     display: flex;
     justify-content: space-between;
@@ -53,14 +53,48 @@ nav ul li a:hover {
     background-color: #0056b3;
 }
 
-/* Styles du menu burger */
-.burger-menu {
-    display: none;
+/* Style pour le menu burger à gauche sous le logo */
+.side-burger-menu {
+    position: fixed;
+    top: 120px; /* Espace ajusté en dessous du logo */
+    left: 40px;
+    z-index: 1000;
+    cursor: pointer;
 }
 
-.burger-menu img {
+.side-burger-menu img {
     width: 40px;
     cursor: pointer;
+}
+
+.side-menu {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+}
+
+.side-menu a {
+    padding: 10px 15px;
+    text-decoration: none;
+    font-size: 18px;
+    color: #fff;
+    display: block;
+    transition: 0.3s;
+}
+
+.side-menu a:hover {
+    background-color: #575757;
+}
+
+/* Lorsqu'on clique sur le bouton burger */
+.side-menu.active {
+    width: 250px;
 }
 
 /* Section Héros */
@@ -98,6 +132,10 @@ nav ul li a:hover {
     border-radius: 8px;
 }
 
+.burger-menu {
+    display: none;
+}
+
 .row {
     display: flex;
     justify-content: space-around;
@@ -111,11 +149,11 @@ nav ul li a:hover {
     width: 300px;
     padding: 20px;
     text-align: center;
-    transition: transform 0.3s ease-in-out; /* Effet au survol */
+    transition: transform 0.3s ease-in-out;
 }
 
 .article-card:hover {
-    transform: scale(1.05); /* Légère animation au survol */
+    transform: scale(1.05);
 }
 
 .article-card img {
@@ -137,29 +175,18 @@ nav ul li a:hover {
     background-color: #0056b3;
 }
 
-/* Corps de la page */
-html, body {
-    height: 100%;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-}
-
 /* Footer */
 .footer {
-    margin-top: 100px; /* Pousse le footer en bas */
+    margin-top: 100px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     background-color: #A3D8F4;
     padding: 20px;
-    font-family: Arial, sans-serif;
 }
 
 .footer .social-media {
     display: flex;
-    flex-direction: row;
 }
 
 .footer .social-media a {
@@ -173,8 +200,6 @@ html, body {
 }
 
 .footer .useful-links {
-    display: flex;
-    flex-direction: column;
     text-align: right;
     margin-right: 20px;
 }
@@ -193,34 +218,29 @@ html, body {
     border: 2px solid #000;
     border-radius: 10px;
     cursor: pointer;
-    margin-left: 20px;
 }
 
 .footer .support-button:hover {
     background-color: #005f6a;
 }
 
-/* Media Queries pour le menu burger */
-@media (max-width: 768px) {
-    .burger-menu {
+/* Small Screen Adjustments */
+@media (max-width: 930px) {
+    nav ul {
+        display: flex;
+        flex-direction: column; /* Empile les éléments verticalement */
+        align-items: center;
+        gap: 10px;
+    }
+
+    nav ul li {
         display: block;
     }
 
-    nav ul {
-        display: none;
-        flex-direction: column;
-        position: absolute;
-        top: 60px;
-        right: 0;
-        background-color: white;
-        padding: 20px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    }
-
-    nav ul.active {
+    .auth-buttons {
         display: flex;
+        flex-direction: column;
     }
-
 
     .articles {
         padding: 20px;
@@ -230,11 +250,11 @@ html, body {
         width: 95%;
     }
 
-    /* Styles pour les petits écrans */
     .article-card {
-        width: 90%; /* Ajuste la largeur des articles */
+        width: 100%;
         margin-bottom: 20px;
     }
+
     .footer {
         flex-direction: column;
         text-align: center;
@@ -251,4 +271,32 @@ html, body {
         gap: 20px;
     }
 
+    .logo img {
+        width: 80px; /* Réduit la taille du logo */
+    }
+}
+
+/* Medium Screen Adjustments */
+@media (min-width: 930px) and (max-width: 1400px) {
+    nav ul {
+        justify-content: center;
+        gap: 15px;
+    }
+
+    .articles {
+        padding: 30px;
+        margin: 50px auto;
+        background-color: #A3D8F4;
+        border-radius: 8px;
+        width: 80%;
+    }
+
+    .article-card {
+        width: 80%;
+        margin-bottom: 20px;
+    }
+
+    .row {
+        gap: 50px;
+    }
 }
