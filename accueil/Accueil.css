@@ -21,7 +21,6 @@ header {
     width: 100px;
 }
 
-
 /* Style pour la barre de recherche */
 .search-container {
     display: flex;
@@ -36,7 +35,7 @@ header {
 }
 
 .search-bar {
-    display: none; /* La barre de recherche est cachée par défaut */
+    display: none;
     border: 1px solid #ccc;
     border-radius: 20px;
     padding: 5px 10px;
@@ -45,14 +44,10 @@ header {
 }
 
 .search-bar.active {
-    display: block; /* La barre de recherche s'affiche lorsque la classe "active" est ajoutée */
+    display: block;
 }
 
-
-
-
-
-
+/* Navigation */
 nav ul {
     list-style: none;
     display: flex;
@@ -72,15 +67,13 @@ nav ul li a:hover {
     border-bottom: 2px solid #0056b3;
 }
 
-
-/* Style pour le menu burger de l'utilisateur */
+/* Menu burger utilisateur */
 .user-side-menu {
     position: fixed;
-    top: 90px; /* Position ajustée sous le logo */
+    top: 90px;
     right: 10px;
     width: 0;
-    height: auto;
-    background-color: #A3D8F4; /* Fond bleu */
+    background-color: #A3D8F4;
     color: #fff;
     overflow: hidden;
     transition: 0.2s;
@@ -94,26 +87,20 @@ nav ul li a:hover {
     padding: 10px 15px;
     text-decoration: none;
     color: #fff;
-    transition: background-color 0.3s;
 }
 
 .user-side-menu a:hover {
     background-color: #575757;
 }
 
-/* Lorsqu'on clique sur le bouton utilisateur */
 .user-side-menu.active {
-    width: 200px; /* Largeur lorsque le menu est ouvert */
+    width: 200px;
 }
 
-
-
-
-
-/* Style pour le menu burger à gauche sous le logo */
+/* Menu burger à gauche */
 .side-burger-menu {
     position: fixed;
-    top: 120px; /* Espace ajusté en dessous du logo */
+    top: 120px;
     left: 40px;
     z-index: 1000;
     cursor: pointer;
@@ -125,12 +112,11 @@ nav ul li a:hover {
 }
 
 .side-menu {
-    height: auto;
     width: 0;
     position: fixed;
     top: 0;
     left: 0;
-    background-color: #A3D8F4; /* Fond bleu clair */
+    background-color: #A3D8F4;
     color: #fff;
     overflow-x: hidden;
     transition: 0.2s;
@@ -139,26 +125,18 @@ nav ul li a:hover {
 
 .side-menu a {
     display: flex;
-    flex-direction: column; /* Change la direction de flex à colonne */
-    align-items: center; /* Centre les éléments horizontalement */
-    justify-content: center; /* Centre les éléments verticalement */
+    align-items: center;
+    justify-content: center;
     padding: 10px 15px;
     text-decoration: none;
     font-size: 18px;
     color: #fff;
-    transition: 0.3s;
 }
-
-.side-menu a img {
-    margin-right: 10px; /* Ajoute un espace entre l'icône et le texte */
-}
-
 
 .side-menu a:hover {
     background-color: #575757;
 }
 
-/* Lorsqu'on clique sur le bouton burger */
 .side-menu.active {
     width: 250px;
 }
@@ -195,28 +173,34 @@ nav ul li a:hover {
     align-items: center;
     margin: 100px auto;
     background-color: #A3D8F4;
-    border-radius: 8px;
-}
-
-.burger-menu {
-    display: none;
+    border-radius: 20px;
+    border: red solid 2px;
+    overflow: hidden; /* Ajouté pour masquer les articles débordants */
 }
 
 .row {
     display: flex;
-    justify-content: space-around;
-    gap: 150px;
+    justify-content: center;
+    gap: 20px; /* Espacement réduit pour plus de compacité */
+    border: blue solid 2px;
+    position: relative;
+    /*overflow: hidden; Masque les articles en dehors de la vue */
+    width: 100%; /* Assure que la ligne occupe tout l'espace disponible */
 }
 
 .article-card {
     background-color: white;
     border-radius: 10px;
+    margin: 10px;
+    padding: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: 300px;
-    padding: 20px;
     text-align: center;
+    width: 200px; /* Largeur fixe pour chaque carte */
     transition: transform 0.3s ease-in-out;
+    border: black solid 2px;
+    flex: 0 0 200px; /* Assure que chaque carte occupe un espace fixe */
 }
+
 
 .article-card:hover {
     transform: scale(1.05);
@@ -226,7 +210,6 @@ nav ul li a:hover {
     width: 100%;
     border-radius: 10px;
 }
-
 .voir-plus {
     background-color: #333;
     color: white;
@@ -239,6 +222,26 @@ nav ul li a:hover {
 
 .voir-plus:hover {
     background-color: #0056b3;
+}
+
+/* Styles pour les flèches de navigation */
+.btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    border: purple solid 3px;
+
+}
+
+#L1, #L2 {
+    left: -50px;
+}
+
+#R1, #R2 {
+    right: -50px;
 }
 
 /* Footer */
@@ -272,7 +275,6 @@ nav ul li a:hover {
 
 .footer .useful-links a {
     color: #000;
-    margin-bottom: 5px;
 }
 
 .footer .support-button {
@@ -291,24 +293,12 @@ nav ul li a:hover {
 }
 
 /* Small Screen Adjustments */
-
-
-
-    /* Petits écrans : Adapter la barre de recherche */
-    @media (max-width: 930px) {
-
-
+@media (max-width: 930px) {
     nav ul {
-        display: flex;
-        flex-direction: column; /* Empile les éléments verticalement */
+        flex-direction: column;
         align-items: center;
         gap: 10px;
     }
-
-    nav ul li {
-        display: block;
-    }
-
 
     .articles {
         padding: 20px;
@@ -319,7 +309,7 @@ nav ul li a:hover {
     }
 
     .article-card {
-        width: 100%;
+        width: 100%; /* Les articles prennent toute la largeur sur les petits écrans */
         margin-bottom: 20px;
     }
 
@@ -334,13 +324,13 @@ nav ul li a:hover {
     }
 
     .row {
-        flex-direction: column;
+        flex-direction: column; /* Les articles s'affichent en colonne */
         align-items: center;
         gap: 20px;
     }
 
     .logo img {
-        width: 80px; /* Réduit la taille du logo */
+        width: 80px;
     }
 }
 

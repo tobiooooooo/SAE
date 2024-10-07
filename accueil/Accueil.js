@@ -1,6 +1,7 @@
 // Sélection du menu burger et du menu latéral
 const sideBurgerMenu = document.querySelector('.side-burger-menu');
 
+
 // Ajout d'un événement pour le bouton du burger
 document.getElementById("burger-btn").addEventListener("click", function() {
     var menu = document.getElementById("side-menu");

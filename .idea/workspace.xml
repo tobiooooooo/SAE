@@ -5,11 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="af66f814-7fda-472d-92a1-a90745df69ba" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/images/left-arrow.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/right-arrow.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/oui.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/oui.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/oui.js" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/Thumbs.db" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/background.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/burgerIcon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/instagram-icon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/linkedin-icon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/priarterm.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/threelines.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/x-icon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/youtube-icon.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/accueil/Accueil.css" beforeDir="false" afterPath="$PROJECT_DIR$/accueil/Accueil.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/accueil/Accueil.html" beforeDir="false" afterPath="$PROJECT_DIR$/accueil/Accueil.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/accueil/Accueil.js" beforeDir="false" afterPath="$PROJECT_DIR$/accueil/Accueil.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,9 +30,9 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 3
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 3
+}</component>
   <component name="ProjectId" id="2n6vrGLuJFe5WfCtsHFZNstszbS" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -34,7 +42,7 @@
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "main",
-    "last_opened_file_path": "C:/Users/USER/Documents/GitHub/SAE/images",
+    "last_opened_file_path": "C:/Users/USER/Documents/GitHub/SAE",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -45,6 +53,7 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\USER\Documents\GitHub\SAE" />
       <recent name="C:\Users\USER\Documents\GitHub\SAE\images" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
@@ -68,6 +77,7 @@
       <option name="presentableId" value="Default" />
       <updated>1728306539219</updated>
       <workItem from="1728306540932" duration="13505000" />
+      <workItem from="1728321495818" duration="6608000" />
     </task>
     <servers />
   </component>
