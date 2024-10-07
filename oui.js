@@ -35,3 +35,39 @@ userBurgerMenu.addEventListener('click', function () {
     }
 });
 
+
+
+// Sélection des éléments pour la barre de recherche et la barre de navigation
+const searchIcon = document.querySelector('.search-icon');
+const searchBar = document.querySelector('.search-bar');
+const navigation = document.querySelector('nav');
+
+// Fonction pour ajuster l'affichage en fonction de la taille de l'écran
+function adjustLayout() {
+    if (window.innerWidth <= 1100) {
+        if (searchBar.classList.contains('active')) {
+            navigation.style.display = 'none'; // Cache la barre de navigation si la barre de recherche est active en petit format
+            searchBar.style.margin = '0 auto'; // Centrer la barre de recherche sur petit format
+        } else {
+            navigation.style.display = 'flex'; // Affiche la barre de navigation si la barre de recherche n'est pas active
+            searchBar.style.margin = '0'; // Réinitialiser le centrage de la barre de recherche
+        }
+    } else {
+        navigation.style.display = 'flex'; // Affiche toujours la barre de navigation sur les écrans moyens et grands
+        searchBar.style.margin = '0'; // Réinitialiser le centrage de la barre de recherche sur les grands écrans
+    }
+}
+
+// Ajout de l'événement resize pour ajuster la mise en page dynamiquement
+window.addEventListener('resize', adjustLayout);
+
+// Ajout d'un événement au clic sur l'icône de recherche
+searchIcon.addEventListener('click', () => {
+    searchBar.classList.toggle('active'); // Active ou désactive la barre de recherche
+    adjustLayout(); // Ajuste l'affichage immédiatement après le clic
+});
+
+
+
+
+

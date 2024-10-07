@@ -21,6 +21,38 @@ header {
     width: 100px;
 }
 
+
+/* Style pour la barre de recherche */
+.search-container {
+    display: flex;
+    align-items: center;
+}
+
+.search-icon {
+    cursor: pointer;
+    width: 25px;
+    height: 25px;
+    margin-right: 10px;
+}
+
+.search-bar {
+    display: none; /* La barre de recherche est cachée par défaut */
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    padding: 5px 10px;
+    font-size: 16px;
+    outline: none;
+}
+
+.search-bar.active {
+    display: block; /* La barre de recherche s'affiche lorsque la classe "active" est ajoutée */
+}
+
+
+
+
+
+
 nav ul {
     list-style: none;
     display: flex;
@@ -44,14 +76,14 @@ nav ul li a:hover {
 /* Style pour le menu burger de l'utilisateur */
 .user-side-menu {
     position: fixed;
-    top: 70px; /* Position ajustée sous le logo */
+    top: 90px; /* Position ajustée sous le logo */
     right: 10px;
     width: 0;
     height: auto;
     background-color: #A3D8F4; /* Fond bleu */
     color: #fff;
     overflow: hidden;
-    transition: width 0.5s;
+    transition: 0.2s;
     padding-top: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     z-index: 1000;
@@ -259,7 +291,13 @@ nav ul li a:hover {
 }
 
 /* Small Screen Adjustments */
-@media (max-width: 930px) {
+
+
+
+    /* Petits écrans : Adapter la barre de recherche */
+    @media (max-width: 930px) {
+
+
     nav ul {
         display: flex;
         flex-direction: column; /* Empile les éléments verticalement */
