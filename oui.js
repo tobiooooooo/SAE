@@ -1,6 +1,4 @@
 // Sélection du menu burger et du menu latéral
-const burgerMenu = document.querySelector('.burger-menu img');
-const sideMenu = document.querySelector('.side-menu');
 const sideBurgerMenu = document.querySelector('.side-burger-menu');
 
 // Ajout d'un événement pour le bouton du burger
@@ -20,3 +18,20 @@ document.getElementById("burger-btn").addEventListener("click", function() {
         sideBurgerMenu.style.top = "20px";  // Position en haut lors de l'ouverture
     }
 });
+
+
+
+
+// Sélection du menu burger utilisateur et du menu latéral
+const userBurgerMenu = document.querySelector('.auth-icon img');
+const userSideMenu = document.querySelector('.user-side-menu');
+
+// Ajout d'un événement pour le clic sur le menu burger utilisateur
+userBurgerMenu.addEventListener('click', function () {
+    if (userSideMenu.classList.contains('active')) {
+        userSideMenu.classList.remove('active');
+    } else {
+        userSideMenu.classList.add('active');
+    }
+});
+
