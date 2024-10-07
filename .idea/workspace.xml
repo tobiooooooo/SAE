@@ -7,9 +7,9 @@
     <list default="true" id="af66f814-7fda-472d-92a1-a90745df69ba" name="Changes" comment="">
       <change afterPath="$PROJECT_DIR$/images/left-arrow.png" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/images/right-arrow.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/oui.css" beforeDir="false" afterPath="$PROJECT_DIR$/oui.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/oui.html" beforeDir="false" afterPath="$PROJECT_DIR$/oui.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/oui.js" beforeDir="false" afterPath="$PROJECT_DIR$/oui.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oui.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oui.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oui.js" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,7 +67,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1728306539219</updated>
-      <workItem from="1728306540932" duration="13246000" />
+      <workItem from="1728306540932" duration="13505000" />
     </task>
     <servers />
   </component>
