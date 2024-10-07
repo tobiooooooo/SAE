@@ -1,0 +1,370 @@
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+html {
+    background-image: url("../images/background.png");
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+}
+
+.logo img {
+    width: 100px;
+}
+
+
+/* Style pour la barre de recherche */
+.search-container {
+    display: flex;
+    align-items: center;
+}
+
+.search-icon {
+    cursor: pointer;
+    width: 25px;
+    height: 25px;
+    margin-right: 10px;
+}
+
+.search-bar {
+    display: none; /* La barre de recherche est cachée par défaut */
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    padding: 5px 10px;
+    font-size: 16px;
+    outline: none;
+}
+
+.search-bar.active {
+    display: block; /* La barre de recherche s'affiche lorsque la classe "active" est ajoutée */
+}
+
+
+
+
+
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #333;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 10px;
+}
+
+nav ul li a:hover {
+    color: #0056b3;
+    border-bottom: 2px solid #0056b3;
+}
+
+
+/* Style pour le menu burger de l'utilisateur */
+.user-side-menu {
+    position: fixed;
+    top: 90px; /* Position ajustée sous le logo */
+    right: 10px;
+    width: 0;
+    height: auto;
+    background-color: #A3D8F4; /* Fond bleu */
+    color: #fff;
+    overflow: hidden;
+    transition: 0.2s;
+    padding-top: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+.user-side-menu a {
+    display: block;
+    padding: 10px 15px;
+    text-decoration: none;
+    color: #fff;
+    transition: background-color 0.3s;
+}
+
+.user-side-menu a:hover {
+    background-color: #575757;
+}
+
+/* Lorsqu'on clique sur le bouton utilisateur */
+.user-side-menu.active {
+    width: 200px; /* Largeur lorsque le menu est ouvert */
+}
+
+
+
+
+
+/* Style pour le menu burger à gauche sous le logo */
+.side-burger-menu {
+    position: fixed;
+    top: 120px; /* Espace ajusté en dessous du logo */
+    left: 40px;
+    z-index: 1000;
+    cursor: pointer;
+}
+
+.side-burger-menu img {
+    width: 40px;
+    cursor: pointer;
+}
+
+.side-menu {
+    height: auto;
+    width: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #A3D8F4; /* Fond bleu clair */
+    color: #fff;
+    overflow-x: hidden;
+    transition: 0.2s;
+    padding-top: 60px;
+}
+
+.side-menu a {
+    display: flex;
+    flex-direction: column; /* Change la direction de flex à colonne */
+    align-items: center; /* Centre les éléments horizontalement */
+    justify-content: center; /* Centre les éléments verticalement */
+    padding: 10px 15px;
+    text-decoration: none;
+    font-size: 18px;
+    color: #fff;
+    transition: 0.3s;
+}
+
+.side-menu a img {
+    margin-right: 10px; /* Ajoute un espace entre l'icône et le texte */
+}
+
+
+.side-menu a:hover {
+    background-color: #575757;
+}
+
+/* Lorsqu'on clique sur le bouton burger */
+.side-menu.active {
+    width: 250px;
+}
+
+/* Section Héros */
+.hero {
+    text-align: center;
+    padding: 50px 20px;
+}
+
+.hero h1 {
+    font-size: 48px;
+    color: #333;
+}
+
+.actu {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.subtitle {
+    margin-top: 10px;
+    color: #777;
+}
+
+/* Styles des articles */
+.articles {
+    max-width: 70%;
+    padding: 50px 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 100px auto;
+    background-color: #A3D8F4;
+    border-radius: 8px;
+}
+
+.burger-menu {
+    display: none;
+}
+
+.row {
+    display: flex;
+    justify-content: space-around;
+    gap: 150px;
+}
+
+.article-card {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.3s ease-in-out;
+}
+
+.article-card:hover {
+    transform: scale(1.05);
+}
+
+.article-card img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.voir-plus {
+    background-color: #333;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.voir-plus:hover {
+    background-color: #0056b3;
+}
+
+/* Footer */
+.footer {
+    margin-top: 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #A3D8F4;
+    padding: 20px;
+}
+
+.footer .social-media {
+    display: flex;
+}
+
+.footer .social-media a {
+    margin-right: 15px;
+}
+
+.footer .contact-info {
+    color: #000;
+    font-size: 14px;
+    text-align: center;
+}
+
+.footer .useful-links {
+    text-align: right;
+    margin-right: 20px;
+}
+
+.footer .useful-links a {
+    color: #000;
+    margin-bottom: 5px;
+}
+
+.footer .support-button {
+    background-color: #008CBA;
+    color: white;
+    padding: 15px 25px;
+    text-align: center;
+    font-size: 16px;
+    border: 2px solid #000;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.footer .support-button:hover {
+    background-color: #005f6a;
+}
+
+/* Small Screen Adjustments */
+
+
+
+    /* Petits écrans : Adapter la barre de recherche */
+    @media (max-width: 930px) {
+
+
+    nav ul {
+        display: flex;
+        flex-direction: column; /* Empile les éléments verticalement */
+        align-items: center;
+        gap: 10px;
+    }
+
+    nav ul li {
+        display: block;
+    }
+
+
+    .articles {
+        padding: 20px;
+        margin: 50px auto;
+        background-color: #A3D8F4;
+        border-radius: 8px;
+        width: 95%;
+    }
+
+    .article-card {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .footer {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .support-button {
+        width: 100%;
+        margin-top: 20px;
+    }
+
+    .row {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .logo img {
+        width: 80px; /* Réduit la taille du logo */
+    }
+}
+
+/* Medium Screen Adjustments */
+@media (min-width: 930px) and (max-width: 1400px) {
+    nav ul {
+        justify-content: center;
+        gap: 15px;
+    }
+
+    .articles {
+        padding: 30px;
+        margin: 50px auto;
+        background-color: #A3D8F4;
+        border-radius: 8px;
+        width: 80%;
+    }
+
+    .article-card {
+        width: 80%;
+        margin-bottom: 20px;
+    }
+
+    .row {
+        gap: 50px;
+    }
+}

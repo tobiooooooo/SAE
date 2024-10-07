@@ -7,7 +7,7 @@
 }
 
 html {
-    background-image: url("./images/background.png");
+    background-image: url("../images/background.png");
 }
 
 header {
@@ -20,6 +20,38 @@ header {
 .logo img {
     width: 100px;
 }
+
+
+/* Style pour la barre de recherche */
+.search-container {
+    display: flex;
+    align-items: center;
+}
+
+.search-icon {
+    cursor: pointer;
+    width: 25px;
+    height: 25px;
+    margin-right: 10px;
+}
+
+.search-bar {
+    display: none; /* La barre de recherche est cachée par défaut */
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    padding: 5px 10px;
+    font-size: 16px;
+    outline: none;
+}
+
+.search-bar.active {
+    display: block; /* La barre de recherche s'affiche lorsque la classe "active" est ajoutée */
+}
+
+
+
+
+
 
 nav ul {
     list-style: none;
@@ -40,18 +72,43 @@ nav ul li a:hover {
     border-bottom: 2px solid #0056b3;
 }
 
-.auth-buttons button {
-    background-color: #333;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
+
+/* Style pour le menu burger de l'utilisateur */
+.user-side-menu {
+    position: fixed;
+    top: 90px; /* Position ajustée sous le logo */
+    right: 10px;
+    width: 0;
+    height: auto;
+    background-color: #A3D8F4; /* Fond bleu */
+    color: #fff;
+    overflow: hidden;
+    transition: 0.2s;
+    padding-top: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
 }
 
-.auth-buttons button:hover {
-    background-color: #0056b3;
+.user-side-menu a {
+    display: block;
+    padding: 10px 15px;
+    text-decoration: none;
+    color: #fff;
+    transition: background-color 0.3s;
 }
+
+.user-side-menu a:hover {
+    background-color: #575757;
+}
+
+/* Lorsqu'on clique sur le bouton utilisateur */
+.user-side-menu.active {
+    width: 200px; /* Largeur lorsque le menu est ouvert */
+}
+
+
+
+
 
 /* Style pour le menu burger à gauche sous le logo */
 .side-burger-menu {
@@ -68,25 +125,34 @@ nav ul li a:hover {
 }
 
 .side-menu {
-    height: 100%;
+    height: auto;
     width: 0;
     position: fixed;
     top: 0;
     left: 0;
-    background-color: #111;
+    background-color: #A3D8F4; /* Fond bleu clair */
+    color: #fff;
     overflow-x: hidden;
-    transition: 0.5s;
+    transition: 0.2s;
     padding-top: 60px;
 }
 
 .side-menu a {
+    display: flex;
+    flex-direction: column; /* Change la direction de flex à colonne */
+    align-items: center; /* Centre les éléments horizontalement */
+    justify-content: center; /* Centre les éléments verticalement */
     padding: 10px 15px;
     text-decoration: none;
     font-size: 18px;
     color: #fff;
-    display: block;
     transition: 0.3s;
 }
+
+.side-menu a img {
+    margin-right: 10px; /* Ajoute un espace entre l'icône et le texte */
+}
+
 
 .side-menu a:hover {
     background-color: #575757;
@@ -225,7 +291,13 @@ nav ul li a:hover {
 }
 
 /* Small Screen Adjustments */
-@media (max-width: 930px) {
+
+
+
+    /* Petits écrans : Adapter la barre de recherche */
+    @media (max-width: 930px) {
+
+
     nav ul {
         display: flex;
         flex-direction: column; /* Empile les éléments verticalement */
@@ -237,10 +309,6 @@ nav ul li a:hover {
         display: block;
     }
 
-    .auth-buttons {
-        display: flex;
-        flex-direction: column;
-    }
 
     .articles {
         padding: 20px;
