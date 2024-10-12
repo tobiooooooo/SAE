@@ -80,6 +80,7 @@ nav ul li a:hover {
     padding-top: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     z-index: 1000;
+
 }
 
 .user-side-menu a {
@@ -87,6 +88,7 @@ nav ul li a:hover {
     padding: 10px 15px;
     text-decoration: none;
     color: #fff;
+
 }
 
 .user-side-menu a:hover {
@@ -95,6 +97,7 @@ nav ul li a:hover {
 
 .user-side-menu.active {
     width: 200px;
+
 }
 
 /* Menu burger à gauche */
@@ -174,15 +177,42 @@ nav ul li a:hover {
     margin: 100px auto;
     background-color: #A3D8F4;
     border-radius: 20px;
-    border: red solid 2px;
+
     overflow: hidden; /* Ajouté pour masquer les articles débordants */
 }
+
+
+.rubrique {
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 20px;
+}
+
+.view-all-btn {
+    background-color: #A3D8F4;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.view-all-btn:hover {
+    background-color: #003f8f;
+
+}
+
+
+
 
 .row {
     display: flex;
     justify-content: center;
-    gap: 20px; /* Espacement réduit pour plus de compacité */
-    border: blue solid 2px;
+    transition: transform 0.5s ease;
+
     position: relative;
     /*overflow: hidden; Masque les articles en dehors de la vue */
     width: 100%; /* Assure que la ligne occupe tout l'espace disponible */
@@ -232,7 +262,7 @@ nav ul li a:hover {
     cursor: pointer;
     width: 40px;
     height: 40px;
-    border: purple solid 3px;
+
 
 }
 
@@ -324,14 +354,19 @@ nav ul li a:hover {
     }
 
     .row {
-        flex-direction: column; /* Les articles s'affichent en colonne */
-        align-items: center;
-        gap: 20px;
+        display: flex;
+        overflow: hidden;
+        justify-content: center;
+        position: relative;
+        width: 100%;
     }
+
 
     .logo img {
         width: 80px;
     }
+
+
 }
 
 /* Medium Screen Adjustments */
