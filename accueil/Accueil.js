@@ -72,3 +72,49 @@ searchIcon.addEventListener('click', () => {
 
 
 
+
+// Fonction pour gérer le défilement des articles
+function setupArticleNavigation(row, leftButtonId, rightButtonId) {
+    const leftButton = document.getElementById(leftButtonId);
+    const rightButton = document.getElementById(rightButtonId);
+    const articles = row.querySelectorAll('.article-card');
+    let currentIndex = 0;
+    const maxIndex = articles.length - 3; // Affiche 3 articles à la fois
+
+    function showArticles() {
+        articles.forEach((article, index) => {
+            if (index >= currentIndex && index < currentIndex + 3) {
+                article.style.display = 'block';
+            } else {
+                article.style.display = 'none';
+            }
+        });
+
+        // Gère l'affichage des flèches
+        leftButton.style.display = currentIndex === 0 ? 'none' : 'block';
+        rightButton.style.display = currentIndex === maxIndex ? 'none' : 'block';
+    }
+
+    // Défilement vers la gauche
+    leftButton.addEventListener('click', () => {
+        if (currentIndex > 0) {
+            currentIndex--;
+            showArticles();
+        }
+    });
+
+    // Défilement vers la droite
+    rightButton.addEventListener('click', () => {
+        if (currentIndex < maxIndex) {
+            currentIndex++;
+            showArticles();
+        }
+    });
+
+    // Affiche initialement les articles
+    showArticles();
+}
+
+// Initialisation pour chaque section d'articles
+setupArticleNavigation(document.querySelectorAll('.row')[0], 'L1', 'R1');
+setupArticleNavigation(document.querySelectorAll('.row')[1], 'L2', 'R2');
