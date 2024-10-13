@@ -118,3 +118,4 @@ function setupArticleNavigation(row, leftButtonId, rightButtonId) {
 // Initialisation pour chaque section d'articles
 setupArticleNavigation(document.querySelectorAll('.row')[0], 'L1', 'R1');
 setupArticleNavigation(document.querySelectorAll('.row')[1], 'L2', 'R2');
+// commit test

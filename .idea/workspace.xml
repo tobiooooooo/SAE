@@ -5,18 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="af66f814-7fda-472d-92a1-a90745df69ba" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/images/Thumbs.db" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/background.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/burgerIcon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/instagram-icon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/linkedin-icon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/priarterm.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/threelines.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/x-icon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/youtube-icon.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/accueil/Accueil.css" beforeDir="false" afterPath="$PROJECT_DIR$/accueil/Accueil.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/accueil/Accueil.html" beforeDir="false" afterPath="$PROJECT_DIR$/accueil/Accueil.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/accueil/Accueil.js" beforeDir="false" afterPath="$PROJECT_DIR$/accueil/Accueil.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -30,6 +18,9 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 3
 }</component>
@@ -40,8 +31,10 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/USER/Documents/GitHub/SAE",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -60,14 +53,6 @@
       <recent name="C:\Users\USER\Documents\GitHub\SAE\images" />
     </key>
   </component>
-  <component name="SharedIndexes">
-    <attachedChunks>
-      <set>
-        <option value="bundled-js-predefined-d6986cc7102b-7c0b70fcd90d-JavaScript-PS-242.21829.154" />
-        <option value="bundled-php-predefined-a98d8de5180a-4d9f4c849d09-com.jetbrains.php.sharedIndexes-PS-242.21829.154" />
-      </set>
-    </attachedChunks>
-  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -78,10 +63,22 @@
       <updated>1728306539219</updated>
       <workItem from="1728306540932" duration="13505000" />
       <workItem from="1728321495818" duration="6608000" />
+      <workItem from="1728815776866" duration="134000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>
