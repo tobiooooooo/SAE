@@ -1,6 +1,60 @@
 // Sélection du menu burger et du menu latéral
 const sideBurgerMenu = document.querySelector('.side-burger-menu');
 
+// Fonction pour créer un article
+// Fonction pour créer un article
+function createArticle(title, imageUrl, bodyText) {
+    const articleCard = document.createElement('div');
+    articleCard.classList.add('article-card');
+
+    const img = document.createElement('img');
+    img.src = imageUrl;
+    img.alt = `Image for ${title}`;
+    articleCard.appendChild(img);
+
+    const h3 = document.createElement('h3');
+    h3.textContent = title;
+    articleCard.appendChild(h3);
+
+    const p = document.createElement('p');
+    p.textContent = bodyText;
+    articleCard.appendChild(p);
+
+    const button = document.createElement('button');
+    button.classList.add('voir-plus');
+    button.textContent = 'Voir plus';
+    articleCard.appendChild(button);
+
+    return articleCard;
+}
+
+// Fonction pour ajouter les articles à une section donnée
+function addArticlesToSection(section, articlesData) {
+    const row = section.querySelector('.row');
+    articlesData.forEach(article => {
+        const articleCard = createArticle(article.title, article.imageUrl, article.bodyText);
+        row.appendChild(articleCard);
+    });
+}
+
+// Charger les données des articles depuis un fichier JSON
+// Charger les données des articles depuis un fichier JSON
+fetch('articles.json')
+    .then(response => response.json())
+    .then(data => {
+        // Ajouter les articles régionaux
+        const regionalSection = document.querySelectorAll('.articles')[0];
+        addArticlesToSection(regionalSection, data.regional);
+
+        // Ajouter les articles nationaux
+        const nationalSection = document.querySelectorAll('.articles')[1];
+        addArticlesToSection(nationalSection, data.national);
+
+        // Initialiser le slider après avoir ajouté les articles
+        initializeSlider();
+    })
+    .catch(error => console.error('Erreur lors du chargement des articles:', error));
+
 
 // Ajout d'un événement pour le bouton du burger
 document.getElementById("burger-btn").addEventListener("click", function() {
@@ -74,6 +128,8 @@ searchIcon.addEventListener('click', () => {
 
 
 // Fonction pour gérer le défilement des articles
+
+// Fonction pour gérer le défilement des articles
 function setupArticleNavigation(row, leftButtonId, rightButtonId) {
     const leftButton = document.getElementById(leftButtonId);
     const rightButton = document.getElementById(rightButtonId);
@@ -83,16 +139,16 @@ function setupArticleNavigation(row, leftButtonId, rightButtonId) {
 
     function showArticles() {
         articles.forEach((article, index) => {
+            article.classList.remove('active');
             if (index >= currentIndex && index < currentIndex + 3) {
                 article.style.display = 'block';
+                setTimeout(() => {
+                    article.classList.add('active');
+                }, 50); // Petite temporisation pour rendre l'animation visible
             } else {
                 article.style.display = 'none';
             }
         });
-
-        // Gère l'affichage des flèches
-        leftButton.style.display = currentIndex === 0 ? 'none' : 'block';
-        rightButton.style.display = currentIndex === maxIndex ? 'none' : 'block';
     }
 
     // Défilement vers la gauche
@@ -115,10 +171,14 @@ function setupArticleNavigation(row, leftButtonId, rightButtonId) {
     showArticles();
 }
 
-// Initialisation pour chaque section d'articles
-setupArticleNavigation(document.querySelectorAll('.row')[0], 'L1', 'R1');
-setupArticleNavigation(document.querySelectorAll('.row')[1], 'L2', 'R2');
-// commit test!! ayoiub
+// Appelle cette fonction après avoir ajouté les articles au DOM via fetch
+function initializeSlider() {
+    const regionalRow = document.querySelectorAll('.row')[0]; // Première section (régionale)
+    const nationalRow = document.querySelectorAll('.row')[1]; // Deuxième section (nationale)
+
+    setupArticleNavigation(regionalRow, 'L1', 'R1'); // Slider pour la section régionale
+    setupArticleNavigation(nationalRow, 'L2', 'R2'); // Slider pour la section nationale
+}
 
 
 
@@ -130,5 +190,55 @@ setupArticleNavigation(document.querySelectorAll('.row')[1], 'L2', 'R2');
 
 
 
+// Function to add swipe/drag functionality for both mouse and touch events
+function addSwipeGesture(row) {
+    let isDragging = false;
+    let startX = 0;
+    let scrollLeft = 0;
+
+    // Mouse events for desktop
+    row.addEventListener('mousedown', (e) => {
+        isDragging = true;
+        startX = e.pageX - row.offsetLeft;
+        scrollLeft = row.scrollLeft;
+        row.classList.add('dragging');
+    });
+
+    row.addEventListener('mouseleave', () => {
+        isDragging = false;
+        row.classList.remove('dragging');
+    });
+
+    row.addEventListener('mouseup', () => {
+        isDragging = false;
+        row.classList.remove('dragging');
+    });
+
+    row.addEventListener('mousemove', (e) => {
+        if (!isDragging) return; // Stop function if not dragging
+        e.preventDefault();
+        const x = e.pageX - row.offsetLeft;
+        const walk = (x - startX) * 1.5; // Adjust the scroll sensitivity
+        row.scrollLeft = scrollLeft - walk;
+    });
+
+    // Touch events for mobile devices
+    row.addEventListener('touchstart', (e) => {
+        startX = e.touches[0].pageX;
+        scrollLeft = row.scrollLeft;
+    });
+
+    row.addEventListener('touchmove', (e) => {
+        const x = e.touches[0].pageX;
+        const walk = (x - startX) * 1.5; // Adjust the swipe sensitivity
+        row.scrollLeft = scrollLeft - walk;
+    });
+}
+
+// Initialization of swipe/drag for each article row
+document.querySelectorAll('.row').forEach(row => {
+    row.style.cursor = 'grab'; // Add cursor for dragging
+    addSwipeGesture(row);
+});
 
 

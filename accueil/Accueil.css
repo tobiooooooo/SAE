@@ -1,3 +1,4 @@
+
 /* Global Styles */
 * {
     margin: 0;
@@ -25,24 +26,6 @@ header {
 .search-container {
     display: flex;
     align-items: center;
-    position: relative; /* Pour gérer l'animation */
-}
-
-.search-bar {
-    width: 0;
-    opacity: 0;
-    padding: 0;
-    border: 1px solid #ccc;
-    border-radius: 20px;
-    font-size: 16px;
-    transition: width 0.4s ease, padding 0.4s ease;
-    /* L'animation se fait sur la largeur, l'opacité et le padding */
-}
-
-.search-bar.active {
-    width: 200px;
-    opacity: 1;
-    padding: 5px 10px; /* Rétablit le padding à l'apparition */
 }
 
 .search-icon {
@@ -52,6 +35,18 @@ header {
     margin-right: 10px;
 }
 
+.search-bar {
+    display: none;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    padding: 5px 10px;
+    font-size: 16px;
+    outline: none;
+}
+
+.search-bar.active {
+    display: block;
+}
 
 /* Navigation */
 nav ul {
@@ -66,19 +61,15 @@ nav ul li a {
     font-size: 18px;
     font-weight: bold;
     padding: 10px;
-    border-bottom: 2px solid transparent;
-    transition: color 0.3s ease, border-bottom-color 0.3s ease; /* Transition douce pour la couleur et la bordure */
 }
 
 nav ul li a:hover {
     color: #0056b3;
-    border-bottom-color: #0056b3; /* Couleur instantanée au survol */
-    border-bottom-width: 3px; /* L'épaisseur de la bordure augmente lentement */
+    border-bottom: 2px solid #0056b3;
 }
 
 /* Menu burger utilisateur */
 .user-side-menu {
-
     position: fixed;
     top: 90px;
     right: 10px;
@@ -110,16 +101,12 @@ nav ul li a:hover {
 
 }
 
-.auth-icon img {
-    cursor: pointer;
-}
-
 /* Menu burger à gauche */
 .side-burger-menu {
     position: fixed;
     top: 120px;
     left: 40px;
-    z-index: 1300;
+    z-index: 1000;
     cursor: pointer;
 }
 
@@ -129,7 +116,6 @@ nav ul li a:hover {
 }
 
 .side-menu {
-    z-index: 1200;
     width: 0;
     position: fixed;
     top: 0;
@@ -270,12 +256,12 @@ nav ul li a:hover {
 /* Styles pour les flèches de navigation */
 .btn {
     position: absolute;
-    top: 10px;
+    top: 50%;
     transform: translateY(-50%);
     cursor: pointer;
     width: 40px;
     height: 40px;
-    z-index: 10;
+
 
 }
 
@@ -317,8 +303,16 @@ nav ul li a:hover {
 }
 
 .footer .useful-links a {
+    display: block;
+    margin-bottom: 10px;
     color: #000;
+    text-align: left; /* Pour aligner à gauche si nécessaire */
 }
+.footer .social-media img {
+    width: 30px; /* Taille uniforme pour tous les logos */
+    height: 30px;
+}
+
 
 .footer .support-button {
     background-color: #008CBA;
@@ -335,29 +329,13 @@ nav ul li a:hover {
     background-color: #005f6a;
 }
 
-
-
-
-
-
-
-
-
-/* Petits écrans : Adapter la barre de recherche */
+/* Small Screen Adjustments */
 @media (max-width: 930px) {
-
-
     nav ul {
-        display: flex;
-        flex-direction: column; /* Empile les éléments verticalement */
+        flex-direction: column;
         align-items: center;
         gap: 10px;
     }
-
-    nav ul li {
-        display: block;
-    }
-
 
     .articles {
         padding: 20px;
@@ -368,22 +346,13 @@ nav ul li a:hover {
     }
 
     .article-card {
-        width: 80%; /* Réduit la largeur de l'article */
-        margin: 60px auto; /* Centre les articles avec une marge réduite */
-        padding: 30px; /* Réduit l'espace intérieur */
+        width: 100%; /* Les articles prennent toute la largeur sur les petits écrans */
+        margin-bottom: 20px;
     }
-
-
 
     .footer {
         flex-direction: column;
         text-align: center;
-    }
-
-    .side-burger-menu img {
-        width: 30px;
-        cursor: pointer;
-
     }
 
     .support-button {
@@ -392,36 +361,69 @@ nav ul li a:hover {
     }
 
     .row {
-        flex-direction: column;
-        align-items: center;
-        gap: 20px;
+        display: flex;
+        overflow: hidden;
+        justify-content: center;
+        position: relative;
+        width: 100%;
+        transition: transform 0.5s ease;
     }
 
+
     .logo img {
-        width: 80px; /* Réduit la taille du logo */
+        width: 80px;
     }
+
+
+    /* Styles pour les flèches de navigation */
+    /* Conteneur global pour les articles et les flèches */
+
+
+    /* Styles pour les flèches de navigation */
+    .btn {
+        position: absolute; /* Fixe les flèches par rapport au conteneur parent */
+        top: 50%; /* Centre verticalement les flèches */
+        transform: translateY(-50%); /* Ajuste le centrage */
+        cursor: pointer;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: none;
+        border: none;
+        z-index: 10; /* Assure que les flèches sont au-dessus des articles */
+    }
+
+    .btn img {
+        width: 20px;
+    }
+
+    #L1 {
+        left: 0; /* Place la flèche à gauche */
+    }
+
+    #R1 {
+        right: 0; /* Place la flèche à droite */
+    }
+
+
+    .row {
+        display: flex;
+        overflow-x: auto;
+        scroll-behavior: smooth;
+    }
+
+    .row::-webkit-scrollbar {
+        display: none; /* Cacher la barre de défilement */
+    }
+
+
 }
 
 /* Medium Screen Adjustments */
 @media (min-width: 930px) and (max-width: 1400px) {
-
-
-    .article-card {
-        flex: 0 0 250px; /* Réduire la taille de chaque article */
-        margin: 20px; /* Réduire l'espacement */
-        width: 33.33%; /* Chaque article occupe un tiers de l'espace sur les écrans moyens */
-
-    }
-
-    .row {
-        justify-content: space-between; /* Ajuster l'espacement entre les articles */
-    }
-
-    .btn {
-
-        top: 1px; /* Ajuster la position des flèches */
-    }
-
     #L1, #L2 {
         left: -30px;
     }
@@ -441,7 +443,14 @@ nav ul li a:hover {
         border-radius: 8px;
         width: 80%;
     }
-
+    .article-container {
+        position: relative; /* Conteneur pour positionner les flèches de manière absolue */
+        width: 100%; /* Assurez-vous que le conteneur occupe toute la largeur */
+    }
+    .article-card {
+        width: 80%;
+        margin-bottom: 20px;
+    }
 
     .row {
         gap: 50px;
