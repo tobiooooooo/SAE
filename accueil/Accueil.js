@@ -122,13 +122,6 @@ searchIcon.addEventListener('click', () => {
     adjustLayout(); // Ajuste l'affichage immédiatement après le clic
 });
 
-
-
-
-
-
-// Fonction pour gérer le défilement des articles
-
 // Fonction pour gérer le défilement des articles
 function setupArticleNavigation(row, leftButtonId, rightButtonId) {
     const leftButton = document.getElementById(leftButtonId);
