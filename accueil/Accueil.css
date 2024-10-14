@@ -36,8 +36,8 @@ header {
     border: 1px solid black;
     border-radius: 20px;
     font-size: 16px;
-    outline: none;
     transition: width 0.4s ease, opacity 0.4s ease;
+    /* L'animation se fait sur la largeur, l'opacité et le padding */
 }
 
 .search-bar.active {
@@ -73,7 +73,8 @@ nav ul li a {
 
 nav ul li a:hover {
     color: #0056b3;
-    border-bottom: 3px solid #0056b3;
+    border-bottom: 2px solid #0056b3;
+    border-bottom-width: 3px;
 }
 
 

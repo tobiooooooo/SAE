@@ -4,7 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
+<<<<<<< HEAD
     <list default="true" id="af66f814-7fda-472d-92a1-a90745df69ba" name="Changes" comment="ouiiii">
+=======
+    <list default="true" id="af66f814-7fda-472d-92a1-a90745df69ba" name="Changes" comment="header parfait v2">
+>>>>>>> 6bf0bb887347393bd179a5695c1f7a415007de05
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/accueil/Accueil.css" beforeDir="false" afterPath="$PROJECT_DIR$/accueil/Accueil.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/accueil/Accueil.js" beforeDir="false" afterPath="$PROJECT_DIR$/accueil/Accueil.js" afterDir="false" />
@@ -43,6 +47,7 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
+<<<<<<< HEAD
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
@@ -56,8 +61,23 @@
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "vue.rearranger.settings.migration": "true"
+=======
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/USER/Documents/GitHub/SAE&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+>>>>>>> 6bf0bb887347393bd179a5695c1f7a415007de05
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\USER\Documents\GitHub\SAE" />
@@ -87,7 +107,18 @@
       <workItem from="1728321495818" duration="6608000" />
       <workItem from="1728815776866" duration="134000" />
       <workItem from="1728816455995" duration="335000" />
+<<<<<<< HEAD
       <workItem from="1728908785329" duration="6381000" />
+=======
+      <workItem from="1728908785329" duration="7766000" />
+      <workItem from="1728931034800" duration="17000" />
+      <workItem from="1728931090491" duration="4000" />
+      <workItem from="1728931133770" duration="19000" />
+      <workItem from="1728931168710" duration="13000" />
+      <workItem from="1728931261880" duration="67000" />
+      <workItem from="1728931670650" duration="261000" />
+      <workItem from="1728932969728" duration="305000" />
+>>>>>>> 6bf0bb887347393bd179a5695c1f7a415007de05
     </task>
     <task id="LOCAL-00001" summary="ouiiii">
       <option name="closed" value="true" />
