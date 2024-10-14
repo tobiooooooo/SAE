@@ -366,10 +366,32 @@ nav ul li a:hover {
     }
 
 
+    .btn {
+        display: none; /* Masquer les flèches */
+    }
+
+    .row {
+        display: flex;
+        overflow-x: auto;
+        scroll-behavior: smooth;
+    }
+
+    .row::-webkit-scrollbar {
+        display: none; /* Cacher la barre de défilement */
+    }
+
+
 }
 
 /* Medium Screen Adjustments */
 @media (min-width: 930px) and (max-width: 1400px) {
+    #L1, #L2 {
+        left: -30px;
+    }
+
+    #R1, #R2 {
+        right: -30px;
+    }
     nav ul {
         justify-content: center;
         gap: 15px;
