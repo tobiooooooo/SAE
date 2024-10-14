@@ -213,7 +213,7 @@ function addSwipeGesture(row) {
         isDragging = false;
         row.classList.remove('dragging');
     });
-
+ 
     row.addEventListener('mousemove', (e) => {
         if (!isDragging) return; // Stop function if not dragging
         e.preventDefault();
