@@ -130,6 +130,7 @@ setupArticleNavigation(document.querySelectorAll('.row')[1], 'L2', 'R2');
 
 
 
+
 // Function to add swipe/drag functionality for both mouse and touch events
 function addSwipeGesture(row) {
     let isDragging = false;
