@@ -1,0 +1,73 @@
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"af66f814-7fda-472d-92a1-a90745df69ba\" name=\"Changes\" comment=\"\">\r\n      <change afterPath=\"$PROJECT_DIR$/images/Thumbs.db\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/images/background.png\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/images/burgerIcon.png\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/images/instagram-icon.png\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/images/linkedin-icon.png\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/images/priarterm.png\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/images/threelines.png\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/images/x-icon.png\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/images/youtube-icon.png\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/accueil/Accueil.css\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/accueil/Accueil.css\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/accueil/Accueil.html\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/accueil/Accueil.html\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/accueil/Accueil.js\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/accueil/Accueil.js\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"ComposerSettings\">\r\n    <execution />\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"ProjectColorInfo\">{\r\n  &quot;associatedIndex&quot;: 3\r\n}</component>\r\n  <component name=\"ProjectId\" id=\"2n6vrGLuJFe5WfCtsHFZNstszbS\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\"><![CDATA[{\r\n  \"keyToString\": {\r\n    \"RunOnceActivity.ShowReadmeOnStart\": \"true\",\r\n    \"git-widget-placeholder\": \"main\",\r\n    \"last_opened_file_path\": \"C:/Users/USER/Documents/GitHub/SAE\",\r\n    \"node.js.detected.package.eslint\": \"true\",\r\n    \"node.js.detected.package.tslint\": \"true\",\r\n    \"node.js.selected.package.eslint\": \"(autodetect)\",\r\n    \"node.js.selected.package.tslint\": \"(autodetect)\",\r\n    \"nodejs_package_manager_path\": \"npm\",\r\n    \"vue.rearranger.settings.migration\": \"true\"\r\n  }\r\n}]]></component>\r\n  <component name=\"RecentsManager\">\r\n    <key name=\"CopyFile.RECENT_KEYS\">\r\n      <recent name=\"C:\\Users\\USER\\Documents\\GitHub\\SAE\" />\r\n      <recent name=\"C:\\Users\\USER\\Documents\\GitHub\\SAE\\images\" />\r\n    </key>\r\n    <key name=\"MoveFile.RECENT_KEYS\">\r\n      <recent name=\"C:\\Users\\USER\\Documents\\GitHub\\SAE\\images\" />\r\n    </key>\r\n  </component>\r\n  <component name=\"SharedIndexes\">\r\n    <attachedChunks>\r\n      <set>\r\n        <option value=\"bundled-js-predefined-d6986cc7102b-7c0b70fcd90d-JavaScript-PS-242.21829.154\" />\r\n        <option value=\"bundled-php-predefined-a98d8de5180a-4d9f4c849d09-com.jetbrains.php.sharedIndexes-PS-242.21829.154\" />\r\n      </set>\r\n    </attachedChunks>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"af66f814-7fda-472d-92a1-a90745df69ba\" name=\"Changes\" comment=\"\" />\r\n      <created>1728306539219</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1728306539219</updated>\r\n      <workItem from=\"1728306540932\" duration=\"13505000\" />\r\n      <workItem from=\"1728321495818\" duration=\"6608000\" />\r\n    </task>\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 3873006730eb79c6fdd50fdf3d4b30f9b7a40234)
++++ b/.idea/workspace.xml	(date 1728585921578)
+@@ -5,19 +5,7 @@
+   </component>
+   <component name="ChangeListManager">
+     <list default="true" id="af66f814-7fda-472d-92a1-a90745df69ba" name="Changes" comment="">
+-      <change afterPath="$PROJECT_DIR$/images/Thumbs.db" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/images/background.png" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/images/burgerIcon.png" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/images/instagram-icon.png" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/images/linkedin-icon.png" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/images/priarterm.png" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/images/threelines.png" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/images/x-icon.png" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/images/youtube-icon.png" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/accueil/Accueil.css" beforeDir="false" afterPath="$PROJECT_DIR$/accueil/Accueil.css" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/accueil/Accueil.html" beforeDir="false" afterPath="$PROJECT_DIR$/accueil/Accueil.html" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/accueil/Accueil.js" beforeDir="false" afterPath="$PROJECT_DIR$/accueil/Accueil.js" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -38,19 +26,19 @@
+     <option name="hideEmptyMiddlePackages" value="true" />
+     <option name="showLibraryContents" value="true" />
+   </component>
+-  <component name="PropertiesComponent"><![CDATA[{
+-  "keyToString": {
+-    "RunOnceActivity.ShowReadmeOnStart": "true",
+-    "git-widget-placeholder": "main",
+-    "last_opened_file_path": "C:/Users/USER/Documents/GitHub/SAE",
+-    "node.js.detected.package.eslint": "true",
+-    "node.js.detected.package.tslint": "true",
+-    "node.js.selected.package.eslint": "(autodetect)",
+-    "node.js.selected.package.tslint": "(autodetect)",
+-    "nodejs_package_manager_path": "npm",
+-    "vue.rearranger.settings.migration": "true"
++  <component name="PropertiesComponent">{
++  &quot;keyToString&quot;: {
++    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
++    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
++    &quot;last_opened_file_path&quot;: &quot;C:/Users/USER/PhpstormProjects/R3.01-A-TP4&quot;,
++    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
++    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
++    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
++    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
++    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
++    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+   }
+-}]]></component>
++}</component>
+   <component name="RecentsManager">
+     <key name="CopyFile.RECENT_KEYS">
+       <recent name="C:\Users\USER\Documents\GitHub\SAE" />
+@@ -77,7 +65,9 @@
+       <option name="presentableId" value="Default" />
+       <updated>1728306539219</updated>
+       <workItem from="1728306540932" duration="13505000" />
+-      <workItem from="1728321495818" duration="6608000" />
++      <workItem from="1728321495818" duration="6852000" />
++      <workItem from="1728585673576" duration="149000" />
++      <workItem from="1728585901384" duration="21000" />
+     </task>
+     <servers />
+   </component>

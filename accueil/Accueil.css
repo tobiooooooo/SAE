@@ -25,6 +25,24 @@ header {
 .search-container {
     display: flex;
     align-items: center;
+    position: relative; /* Pour gérer l'animation */
+}
+
+.search-bar {
+    width: 0;
+    opacity: 0;
+    padding: 0;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    font-size: 16px;
+    transition: width 0.4s ease, padding 0.4s ease;
+    /* L'animation se fait sur la largeur, l'opacité et le padding */
+}
+
+.search-bar.active {
+    width: 200px;
+    opacity: 1;
+    padding: 5px 10px; /* Rétablit le padding à l'apparition */
 }
 
 .search-icon {
@@ -34,18 +52,6 @@ header {
     margin-right: 10px;
 }
 
-.search-bar {
-    display: none;
-    border: 1px solid #ccc;
-    border-radius: 20px;
-    padding: 5px 10px;
-    font-size: 16px;
-    outline: none;
-}
-
-.search-bar.active {
-    display: block;
-}
 
 /* Navigation */
 nav ul {
@@ -60,11 +66,14 @@ nav ul li a {
     font-size: 18px;
     font-weight: bold;
     padding: 10px;
+    border-bottom: 2px solid transparent;
+    transition: color 0.3s ease, border-bottom-color 0.3s ease; /* Transition douce pour la couleur et la bordure */
 }
 
 nav ul li a:hover {
     color: #0056b3;
-    border-bottom: 2px solid #0056b3;
+    border-bottom-color: #0056b3; /* Couleur instantanée au survol */
+    border-bottom-width: 3px; /* L'épaisseur de la bordure augmente lentement */
 }
 
 /* Menu burger utilisateur */
