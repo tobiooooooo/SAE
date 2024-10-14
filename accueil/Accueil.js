@@ -130,55 +130,5 @@ setupArticleNavigation(document.querySelectorAll('.row')[1], 'L2', 'R2');
 
 
 
-// Function to add swipe/drag functionality for both mouse and touch events
-function addSwipeGesture(row) {
-    let isDragging = false;
-    let startX = 0;
-    let scrollLeft = 0;
-
-    // Mouse events for desktop
-    row.addEventListener('mousedown', (e) => {
-        isDragging = true;
-        startX = e.pageX - row.offsetLeft;
-        scrollLeft = row.scrollLeft;
-        row.classList.add('dragging');
-    });
-
-    row.addEventListener('mouseleave', () => {
-        isDragging = false;
-        row.classList.remove('dragging');
-    });
-
-    row.addEventListener('mouseup', () => {
-        isDragging = false;
-        row.classList.remove('dragging');
-    });
-
-    row.addEventListener('mousemove', (e) => {
-        if (!isDragging) return; // Stop function if not dragging
-        e.preventDefault();
-        const x = e.pageX - row.offsetLeft;
-        const walk = (x - startX) * 1.5; // Adjust the scroll sensitivity
-        row.scrollLeft = scrollLeft - walk;
-    });
-
-    // Touch events for mobile devices
-    row.addEventListener('touchstart', (e) => {
-        startX = e.touches[0].pageX;
-        scrollLeft = row.scrollLeft;
-    });
-
-    row.addEventListener('touchmove', (e) => {
-        const x = e.touches[0].pageX;
-        const walk = (x - startX) * 1.5; // Adjust the swipe sensitivity
-        row.scrollLeft = scrollLeft - walk;
-    });
-}
-
-// Initialization of swipe/drag for each article row
-document.querySelectorAll('.row').forEach(row => {
-    row.style.cursor = 'grab'; // Add cursor for dragging
-    addSwipeGesture(row);
-});
 
 
