@@ -1,458 +1,218 @@
-
-/* Global Styles */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Arial, sans-serif;
-}
-
-html {
-    background-image: url("../images/background.png");
-}
-
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px;
-}
-
-.logo img {
-    width: 100px;
-}
-
-/* Style pour la barre de recherche */
-.search-container {
-    display: flex;
-    align-items: center;
-}
-
-.search-icon {
-    cursor: pointer;
-    width: 25px;
-    height: 25px;
-    margin-right: 10px;
-}
-
-.search-bar {
-    display: none;
-    border: 1px solid #ccc;
-    border-radius: 20px;
-    padding: 5px 10px;
-    font-size: 16px;
-    outline: none;
-}
-
-.search-bar.active {
-    display: block;
-}
-
-/* Navigation */
-nav ul {
-    list-style: none;
-    display: flex;
-    gap: 20px;
-}
-
-nav ul li a {
-    text-decoration: none;
-    color: #333;
-    font-size: 18px;
-    font-weight: bold;
-    padding: 10px;
-}
-
-nav ul li a:hover {
-    color: #0056b3;
-    border-bottom: 2px solid #0056b3;
-}
-
-/* Menu burger utilisateur */
-.user-side-menu {
-    position: fixed;
-    top: 90px;
-    right: 10px;
-    width: 0;
-    background-color: #A3D8F4;
-    color: #fff;
-    overflow: hidden;
-    transition: 0.2s;
-    padding-top: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    z-index: 1000;
-
-}
-
-.user-side-menu a {
-    display: block;
-    padding: 10px 15px;
-    text-decoration: none;
-    color: #fff;
-
-}
-
-.user-side-menu a:hover {
-    background-color: #575757;
-}
-
-.user-side-menu.active {
-    width: 200px;
-
-}
-
-/* Menu burger à gauche */
-.side-burger-menu {
-    position: fixed;
-    top: 120px;
-    left: 40px;
-    z-index: 1000;
-    cursor: pointer;
-}
-
-.side-burger-menu img {
-    width: 40px;
-    cursor: pointer;
-}
-
-.side-menu {
-    width: 0;
-    position: fixed;
-    top: 0;
-    left: 0;
-    background-color: #A3D8F4;
-    color: #fff;
-    overflow-x: hidden;
-    transition: 0.2s;
-    padding-top: 60px;
-}
-
-.side-menu a {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 10px 15px;
-    text-decoration: none;
-    font-size: 18px;
-    color: #fff;
-}
-
-.side-menu a:hover {
-    background-color: #575757;
-}
-
-.side-menu.active {
-    width: 250px;
-}
-
-/* Section Héros */
-.hero {
-    text-align: center;
-    padding: 50px 20px;
-}
-
-.hero h1 {
-    font-size: 48px;
-    color: #333;
-}
-
-.actu {
-    font-size: 24px;
-    font-weight: bold;
-    color: #333;
-    margin-bottom: 20px;
-}
-
-.subtitle {
-    margin-top: 10px;
-    color: #777;
-}
-
-/* Styles des articles */
-.articles {
-    max-width: 70%;
-    padding: 50px 50px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 100px auto;
-    background-color: #A3D8F4;
-    border-radius: 20px;
-
-    overflow: hidden; /* Ajouté pour masquer les articles débordants */
-}
-
-
-.rubrique {
-    display: flex;
-    justify-content: flex-start;
-    margin-bottom: 20px;
-}
-
-.view-all-btn {
-    background-color: #A3D8F4;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 18px;
-    font-weight: bold;
-    text-transform: uppercase;
-}
-
-.view-all-btn:hover {
-    background-color: #003f8f;
-
-}
-
-
-
-
-.row {
-    display: flex;
-    justify-content: center;
-    transition: transform 0.5s ease;
-    position: relative;
-    width: 100%; /* Assure que la ligne occupe tout l'espace disponible */
-}
-
-.article-card {
-    background-color: white;
-    border-radius: 10px;
-    margin: 40px;
-    padding: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    transition: transform 0.3s ease-in-out;
-    height: 200px;
-    flex: 0 0 300px; /* Assure que chaque carte occupe un espace fixe */
-}
-
-
-.article-card:hover {
-    transform: scale(1.05);
-}
-
-.article-card img {
-    width: 100%;
-    border-radius: 10px;
-}
-.voir-plus {
-    background-color: #333;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-top: 40px;
-
-}
-
-.voir-plus:hover {
-    background-color: #0056b3;
-}
-
-/* Styles pour les flèches de navigation */
-.btn {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    cursor: pointer;
-    width: 40px;
-    height: 40px;
-
-
-}
-
-#L1, #L2 {
-    left: -50px;
-}
-
-#R1, #R2 {
-    right: -50px;
-}
-
-/* Footer */
-.footer {
-    margin-top: 100px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #A3D8F4;
-    padding: 20px;
-}
-
-.footer .social-media {
-    display: flex;
-}
-
-.footer .social-media a {
-    margin-right: 15px;
-}
-
-.footer .contact-info {
-    color: #000;
-    font-size: 14px;
-    text-align: center;
-}
-
-.footer .useful-links {
-    text-align: right;
-    margin-right: 20px;
-}
-
-.footer .useful-links a {
-    display: block;
-    margin-bottom: 10px;
-    color: #000;
-    text-align: left; /* Pour aligner à gauche si nécessaire */
-}
-.footer .social-media img {
-    width: 30px; /* Taille uniforme pour tous les logos */
-    height: 30px;
-}
-
-
-.footer .support-button {
-    background-color: #008CBA;
-    color: white;
-    padding: 15px 25px;
-    text-align: center;
-    font-size: 16px;
-    border: 2px solid #000;
-    border-radius: 10px;
-    cursor: pointer;
-}
-
-.footer .support-button:hover {
-    background-color: #005f6a;
-}
-
-/* Small Screen Adjustments */
-@media (max-width: 930px) {
-    nav ul {
-        flex-direction: column;
-        align-items: center;
-        gap: 10px;
-    }
-
-    .articles {
-        padding: 20px;
-        margin: 50px auto;
-        background-color: #A3D8F4;
-        border-radius: 8px;
-        width: 95%;
-    }
-
-    .article-card {
-        width: 100%; /* Les articles prennent toute la largeur sur les petits écrans */
-        margin-bottom: 20px;
-    }
-
-    .footer {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .support-button {
-        width: 100%;
-        margin-top: 20px;
-    }
-
-    .row {
-        display: flex;
-        overflow: hidden;
-        justify-content: center;
-        position: relative;
-        width: 100%;
-        transition: transform 0.5s ease;
-    }
-
-
-    .logo img {
-        width: 80px;
-    }
-
-
-    /* Styles pour les flèches de navigation */
-    /* Conteneur global pour les articles et les flèches */
-
-
-    /* Styles pour les flèches de navigation */
-    .btn {
-        position: absolute; /* Fixe les flèches par rapport au conteneur parent */
-        top: 50%; /* Centre verticalement les flèches */
-        transform: translateY(-50%); /* Ajuste le centrage */
-        cursor: pointer;
-        width: 50px;
-        height: 50px;
-        border-radius: 50%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        background: none;
-        border: none;
-        z-index: 10; /* Assure que les flèches sont au-dessus des articles */
-    }
-
-    .btn img {
-        width: 20px;
-    }
-
-    #L1 {
-        left: 0; /* Place la flèche à gauche */
-    }
-
-    #R1 {
-        right: 0; /* Place la flèche à droite */
-    }
-
-
-    .row {
-        display: flex;
-        overflow-x: auto;
-        scroll-behavior: smooth;
-    }
-
-    .row::-webkit-scrollbar {
-        display: none; /* Cacher la barre de défilement */
-    }
-
-
-}
-
-/* Medium Screen Adjustments */
-@media (min-width: 930px) and (max-width: 1400px) {
-    #L1, #L2 {
-        left: -30px;
-    }
-
-    #R1, #R2 {
-        right: -30px;
-    }
-    nav ul {
-        justify-content: center;
-        gap: 15px;
-    }
-
-    .articles {
-        padding: 30px;
-        margin: 50px auto;
-        background-color: #A3D8F4;
-        border-radius: 8px;
-        width: 80%;
-    }
-    .article-container {
-        position: relative; /* Conteneur pour positionner les flèches de manière absolue */
-        width: 100%; /* Assurez-vous que le conteneur occupe toute la largeur */
-    }
-    .article-card {
-        width: 80%;
-        margin-bottom: 20px;
-    }
-
-    .row {
-        gap: 50px;
-    }
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PRIARTEM - Accueil</title>
+    <link rel="stylesheet" href="Accueil.css">
+    <script src="Accueil.js" type="module"></script>
+</head>
+<body>
+
+<header>
+    <div class="logo">
+        <img src="../images/priarterm.png" alt="Logo PRIARTEM">
+    </div>
+    <nav>
+        <ul>
+            <li><a href="../accueil/Accueil.html">Accueil</a></li>
+            <li><a href="../documentation/Documentation.html">Documentation</a></li>
+            <li><a href="../newsletter/Newsletter.html">Newsletter/Don</a></li>
+            <li><a href="../contact/Contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+
+    <!-- Icône de recherche et barre de recherche -->
+    <div class="search-container">
+        <img src="../images/Research.png" class="search-icon" alt="Search Icon">
+        <input type="text" class="search-bar hidden" placeholder="Rechercher...">
+    </div>
+
+    <div class="auth-icon">
+        <img src="../images/Generic%20avatar.png" alt="User Icon" class="user-icon" id="user-burger-btn">
+    </div>
+
+    <!-- Menu burger pour l'utilisateur -->
+    <div id="user-side-menu" class="user-side-menu">
+        <a href="#">Se connecter</a>
+        <a href="#">Créer un compte</a>
+        <a href="#">Se déconnecter</a>
+        <a href="#">Changer de compte</a>
+    </div>
+
+
+
+
+
+    <div class="side-burger-menu">
+        <img src="../images/threelines.png" alt="Menu" id="burger-btn">
+    </div>
+
+    <div id="side-menu" class="side-menu">
+        <a href="#"><img src="../images/DossierEnCours2.png" alt="Icon" class="icon">Dossier en cours</a>
+        <a href="#"><img src="../images/PriartermImage.png" alt="Icon" class="icon">Priartem</a>
+        <a href="#"><img src="../images/ActualiteImage.png" alt="Icon" class="icon">Actualité</a>
+        <a href="#"><img src="../images/ThemeImage.png" alt="Icon" class="icon">Thèmes</a>
+        <a href="#"><img src="../images/MediaImage.png" alt="Icon" class="icon">Kit Média</a>
+
+    </div>
+
+
+</header>
+
+<section class="hero">
+
+    <h1>Accueil</h1>
+    <h2 class="actu">À la une dans l'actu</h2>
+    <p class="subtitle">Pour Rassembler, Informer et Agir sur les Risques liés aux Technologies Électromagnétiques</p>
+</section>
+
+<section class="articles">
+    <div class="rubrique">
+        <button class="view-all-btn" onclick="location.href='regional-articles.html'">Régional</button>
+    </div>
+    <div class="row">
+        <img src="../images/left-arrow.png" alt="LeftArrow" class="btn" id="L1">
+
+        <!-- Article 1 -->
+        <div class="article-card">
+            <img src="article-image.png" alt="Article Image">
+            <h3>Title1</h3>
+            <p>Body text for whatever you'd like to say. Add main takeaway points, quotes, anecdotes, or even a very short story.</p>
+            <button class="voir-plus">Voir plus</button>
+        </div>
+
+        <!-- Article 2 -->
+        <div class="article-card">
+            <img src="article-image.png" alt="Article Image">
+            <h3>Title2</h3>
+            <p>Body text for whatever you'd like to say. Add main takeaway points, quotes, anecdotes, or even a very short story.</p>
+            <button class="voir-plus">Voir plus</button>
+        </div>
+
+        <!-- Article 3 -->
+        <div class="article-card">
+            <img src="article-image.png" alt="Article Image">
+            <h3>Title3</h3>
+            <p>Body text for whatever you'd like to say. Add main takeaway points, quotes, anecdotes, or even a very short story.</p>
+            <button class="voir-plus">Voir plus</button>
+        </div>
+
+        <!-- Article 4 -->
+        <div class="article-card">
+            <img src="article-image.png" alt="Article Image">
+            <h3>Title4</h3>
+            <p>Body text for whatever you'd like to say. Add main takeaway points, quotes, anecdotes, or even a very short story.</p>
+            <button class="voir-plus">Voir plus</button>
+        </div>
+
+        <!-- Article 5 -->
+        <div class="article-card">
+            <img src="article-image.png" alt="Article Image">
+            <h3>Title5</h3>
+            <p>Body text for whatever you'd like to say. Add main takeaway points, quotes, anecdotes, or even a very short story.</p>
+            <button class="voir-plus">Voir plus</button>
+        </div>
+
+        <!-- Article 6 -->
+        <div class="article-card">
+            <img src="article-image.png" alt="Article Image">
+            <h3>Title6</h3>
+            <p>Body text for whatever you'd like to say. Add main takeaway points, quotes, anecdotes, or even a very short story.</p>
+            <button class="voir-plus">Voir plus</button>
+        </div>
+
+        <img src="../images/right-arrow.png" alt="RightArrow" class="btn" id="R1">
+    </div>
+</section>
+
+<section class="articles">
+    <div class="rubrique">
+        <button class="view-all-btn" onclick="location.href='national-articles.html'">National</button>
+    </div>
+    <div class="row">
+        <img src="../images/left-arrow.png" alt="LeftArrow" class="btn" id="L2">
+
+        <!-- Article 1 -->
+        <div class="article-card">
+            <img src="article-image.png" alt="Article Image">
+            <h3>Title1</h3>
+            <p>Body text for whatever you'd like to say. Add main takeaway points, quotes, anecdotes, or even a very short story.</p>
+            <button class="voir-plus">Voir plus</button>
+        </div>
+
+        <!-- Article 2 -->
+        <div class="article-card">
+            <img src="article-image.png" alt="Article Image">
+            <h3>Title2</h3>
+            <p>Body text for whatever you'd like to say. Add main takeaway points, quotes, anecdotes, or even a very short story.</p>
+            <button class="voir-plus">Voir plus</button>
+        </div>
+
+        <!-- Article 3 -->
+        <div class="article-card">
+            <img src="article-image.png" alt="Article Image">
+            <h3>Title3</h3>
+            <p>Body text for whatever you'd like to say. Add main takeaway points, quotes, anecdotes, or even a very short story.</p>
+            <button class="voir-plus">Voir plus</button>
+        </div>
+
+        <!-- Article 4 -->
+        <div class="article-card">
+            <img src="article-image.png" alt="Article Image">
+            <h3>Title4</h3>
+            <p>Body text for whatever you'd like to say. Add main takeaway points, quotes, anecdotes, or even a very short story.</p>
+            <button class="voir-plus">Voir plus</button>
+        </div>
+
+        <!-- Article 5 -->
+        <div class="article-card">
+            <img src="article-image.png" alt="Article Image">
+            <h3>Title5</h3>
+            <p>Body text for whatever you'd like to say. Add main takeaway points, quotes, anecdotes, or even a very short story.</p>
+            <button class="voir-plus">Voir plus</button>
+        </div>
+
+        <!-- Article 6 -->
+        <div class="article-card">
+            <img src="article-image.png" alt="Article Image">
+            <h3>Title6</h3>
+            <p>Body text for whatever you'd like to say. Add main takeaway points, quotes, anecdotes, or even a very short story.</p>
+            <button class="voir-plus">Voir plus</button>
+        </div>
+
+        <img src="../images/right-arrow.png" alt="RightArrow" class="btn" id="R2">
+    </div>
+</section>
+
+<div class="footer">
+    <div class="social-media">
+        <a href="https://x.com"><img src="../images/x-icon.png" alt="X" /></a>
+        <a href="https://instagram.com"><img src="../images/instagram-icon.png" alt="Instagram" /></a>
+        <a href="https://youtube.com"><img src="../images/youtube-icon.png" alt="YouTube" /></a>
+        <a href="https://linkedin.com"><img src="../images/linkedin-icon.png" alt="LinkedIn" /></a>
+    </div>
+
+
+    <div class="contact-info">
+        <p>P.R.I.A.R.T.E.M - Association Loi de 1901</p>
+        <p>Boîte 64 - 208 quai de Valmy - 75010 Paris</p>
+        <p>Tél: 01 42 47 81 54 - Fax: 01 42 47 01 65</p>
+    </div>
+
+    <div class="useful-links">
+        <a href="#">Qui sommes-nous ?</a>
+        <a href="#">Contact</a>
+        <a href="#">Mentions légales</a>
+        <a href="#">Politique de confidentialité</a>
+    </div>
+
+    <button class="support-button">Nous soutenir ♥</button>
+</div>
+
+
+
+
+</body>
+</html>
