@@ -10,20 +10,11 @@ html {
     background-image: url("../images/background.png");
 }
 
-
-
 header {
-    position: fixed;
     display: flex;
-    width: 100%;
     justify-content: space-between;
     align-items: center;
-    padding: 5px;
-
-    z-index: 1000;
-    background-color: rgba(163, 216, 244, 0.8);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: opacity 0.3s ease;
+    padding: 20px;
 }
 
 .logo img {
@@ -88,61 +79,48 @@ nav ul li a:hover {
 /* Menu burger utilisateur */
 .user-side-menu {
 
-    position: absolute;
+    position: fixed;
     top: 90px;
     right: 10px;
-    width: 200px;
+    width: 0;
     background-color: #A3D8F4;
     color: #fff;
     overflow: hidden;
+    transition: 0.2s;
     padding-top: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     z-index: 1000;
-    transform: translateX(100%); /* Cacher sur le côté droit */
-    transition: transform 0.7s ease-in-out, opacity 0.4s ease-in-out;
-    opacity: 0;
+
 }
 
 .user-side-menu a {
+    display: block;
+    padding: 10px 15px;
+    text-decoration: none;
+    color: #fff;
 
-        display: block;
-        padding: 10px 15px;
-        text-decoration: none;
-        font-size: 18px;
-        color: #fff;
-        transition: background-color 1s ease;
-    }
-
-
+}
 
 .user-side-menu a:hover {
     background-color: #575757;
 }
 
 .user-side-menu.active {
+    width: 200px;
 
-    width: 200px; /* Largeur du menu lorsqu'il est ouvert */
-    height: auto; /* Hauteur adaptée au contenu */
-    opacity: 1; /* Le menu devient visible */
-    transform: translateX(0);
 }
-
-
-
 
 .auth-icon img {
     cursor: pointer;
-
 }
 
 /* Menu burger à gauche */
 .side-burger-menu {
     position: fixed;
-    top: 140px;
-    left: 30px;
+    top: 120px;
+    left: 40px;
     z-index: 1300;
     cursor: pointer;
-
 }
 
 .side-burger-menu img {
@@ -151,18 +129,16 @@ nav ul li a:hover {
 }
 
 .side-menu {
-
     z-index: 1200;
     width: 0;
     position: fixed;
-    left: -250px; /* Position hors écran à gauche */
     top: 0;
+    left: 0;
     background-color: #A3D8F4;
     color: #fff;
     overflow-x: hidden;
-    transition: left 1s ease;
+    transition: 0.2s;
     padding-top: 60px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .side-menu a {
@@ -173,7 +149,6 @@ nav ul li a:hover {
     text-decoration: none;
     font-size: 18px;
     color: #fff;
-    transition: background-color 1s ease;
 }
 
 .side-menu a:hover {
@@ -182,8 +157,6 @@ nav ul li a:hover {
 
 .side-menu.active {
     width: 250px;
-    left: 0;
-    
 }
 
 /* Section Héros */
@@ -195,7 +168,6 @@ nav ul li a:hover {
 .hero h1 {
     font-size: 48px;
     color: #333;
-    margin-top: 120px;
 }
 
 .actu {

@@ -1,0 +1,18 @@
+{
+  "regional": [
+    { "title": "Title1", "imageUrl": "article-image.png", "bodyText": "Texte pour l'article régional 1." },
+    { "title": "Title2", "imageUrl": "article-image.png", "bodyText": "Texte pour l'article régional 2." },
+    { "title": "Title3", "imageUrl": "article-image.png", "bodyText": "Texte pour l'article régional 3." },
+    { "title": "Title4", "imageUrl": "article-image.png", "bodyText": "Texte pour l'article régional 4." },
+    { "title": "Title5", "imageUrl": "article-image.png", "bodyText": "Texte pour l'article régional 5." },
+    { "title": "Title6", "imageUrl": "article-image.png", "bodyText": "Texte pour l'article régional 6." }
+  ],
+  "national": [
+    { "title": "Title1", "imageUrl": "article-image.png", "bodyText": "Texte pour l'article national 1." },
+    { "title": "Title2", "imageUrl": "article-image.png", "bodyText": "Texte pour l'article national 2." },
+    { "title": "Title3", "imageUrl": "article-image.png", "bodyText": "Texte pour l'article national 3." },
+    { "title": "Title4", "imageUrl": "article-image.png", "bodyText": "Texte pour l'article national 4." },
+    { "title": "Title5", "imageUrl": "article-image.png", "bodyText": "Texte pour l'article national 5." },
+    { "title": "Title6", "imageUrl": "article-image.png", "bodyText": "Texte pour l'article national 6." }
+  ]
+}
