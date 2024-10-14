@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="af66f814-7fda-472d-92a1-a90745df69ba" name="Changes" comment="">
+    <list default="true" id="af66f814-7fda-472d-92a1-a90745df69ba" name="Changes" comment="ouiiii">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/accueil/Accueil.css" beforeDir="false" afterPath="$PROJECT_DIR$/accueil/Accueil.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/accueil/Accueil.js" beforeDir="false" afterPath="$PROJECT_DIR$/accueil/Accueil.js" afterDir="false" />
@@ -87,8 +87,17 @@
       <workItem from="1728321495818" duration="6608000" />
       <workItem from="1728815776866" duration="134000" />
       <workItem from="1728816455995" duration="335000" />
-      <workItem from="1728908785329" duration="2370000" />
+      <workItem from="1728908785329" duration="6381000" />
     </task>
+    <task id="LOCAL-00001" summary="ouiiii">
+      <option name="closed" value="true" />
+      <created>1728911188686</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1728911188686</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -104,5 +113,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="ouiiii" />
+    <option name="LAST_COMMIT_MESSAGE" value="ouiiii" />
   </component>
 </project>

@@ -264,12 +264,12 @@ nav ul li a:hover {
 /* Styles pour les flèches de navigation */
 .btn {
     position: absolute;
-    top: 50%;
+    top: 10px;
     transform: translateY(-50%);
     cursor: pointer;
     width: 40px;
     height: 40px;
-
+    z-index: 10;
 
 }
 
@@ -329,8 +329,51 @@ nav ul li a:hover {
     background-color: #005f6a;
 }
 
+
+
+
+
+
+
+
+
 /* Small Screen Adjustments */
 @media (max-width: 930px) {
+
+
+    .article-card h3 {
+        font-size: 14px; /* Réduction de la taille du titre */
+    }
+
+    .article-card p {
+        font-size: 12px; /* Réduction de la taille du texte */
+    }
+
+    .voir-plus {
+        font-size: 10px; /* Réduction de la taille du bouton */
+        padding: 5px 10px; /* Ajustement des marges du bouton */
+    }
+
+    .row {
+        justify-content: space-evenly; /* Alignement et espacement des articles */
+        overflow: hidden; /* Empêche le débordement des articles */
+    }
+
+
+
+    .rubrique {
+        position: relative;
+    }
+
+    .rubrique .btn {
+        position: absolute;
+        top: 0;
+        right: 0;
+    }
+
+    #L1, #R1, #L2, #R2 {
+        top: 10px; /* Ajustement pour que les flèches soient au même niveau que le titre */
+    }
     nav ul {
         flex-direction: column;
         align-items: center;
@@ -345,10 +388,7 @@ nav ul li a:hover {
         width: 95%;
     }
 
-    .article-card {
-        width: 100%; /* Les articles prennent toute la largeur sur les petits écrans */
-        margin-bottom: 20px;
-    }
+
 
     .footer {
         flex-direction: column;
@@ -360,14 +400,7 @@ nav ul li a:hover {
         margin-top: 20px;
     }
 
-    .row {
-        display: flex;
-        overflow: hidden;
-        justify-content: center;
-        position: relative;
-        width: 100%;
-        transition: transform 0.5s ease;
-    }
+
 
 
     .logo img {
@@ -375,25 +408,58 @@ nav ul li a:hover {
     }
 
 
-    .btn {
-        display: none; /* Masquer les flèches */
-    }
+
 
     .row {
         display: flex;
-        overflow-x: auto;
+        overflow: hidden;
+
+        position: relative;
+        width: 100%;
+        transition: transform 0.5s ease;
         scroll-behavior: smooth;
+        justify-content: center;
+    }
+
+    .article-card {
+        width: 100%; /* Les articles prennent toute la largeur sur les petits écrans */
+        flex: 0 0 120px; /* Réduire encore la taille des articles */
+        margin: 10px; /* Réduire l'espacement encore plus */
     }
 
     .row::-webkit-scrollbar {
         display: none; /* Cacher la barre de défilement */
     }
+    #L1, #L2 {
+        left: -10px;
+    }
 
+    #R1, #R2 {
+        right: -10px;
+    }
 
 }
 
 /* Medium Screen Adjustments */
 @media (min-width: 930px) and (max-width: 1400px) {
+
+
+    .article-card {
+        flex: 0 0 250px; /* Réduire la taille de chaque article */
+        margin: 20px; /* Réduire l'espacement */
+        width: 33.33%; /* Chaque article occupe un tiers de l'espace sur les écrans moyens */
+
+    }
+
+    .row {
+        justify-content: space-between; /* Ajuster l'espacement entre les articles */
+    }
+
+    .btn {
+
+        top: 1px; /* Ajuster la position des flèches */
+    }
+
     #L1, #L2 {
         left: -30px;
     }
@@ -414,10 +480,6 @@ nav ul li a:hover {
         width: 80%;
     }
 
-    .article-card {
-        width: 80%;
-        margin-bottom: 20px;
-    }
 
     .row {
         gap: 50px;
