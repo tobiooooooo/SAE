@@ -69,6 +69,7 @@ nav ul li a:hover {
 
 /* Menu burger utilisateur */
 .user-side-menu {
+
     position: fixed;
     top: 90px;
     right: 10px;
@@ -100,12 +101,16 @@ nav ul li a:hover {
 
 }
 
+.auth-icon img {
+    cursor: pointer;
+}
+
 /* Menu burger à gauche */
 .side-burger-menu {
     position: fixed;
     top: 120px;
     left: 40px;
-    z-index: 1000;
+    z-index: 1300;
     cursor: pointer;
 }
 
@@ -115,6 +120,7 @@ nav ul li a:hover {
 }
 
 .side-menu {
+    z-index: 1200;
     width: 0;
     position: fixed;
     top: 0;
@@ -328,48 +334,21 @@ nav ul li a:hover {
 
 
 
-/* Small Screen Adjustments */
+/* Petits écrans : Adapter la barre de recherche */
 @media (max-width: 930px) {
 
 
-    .article-card h3 {
-        font-size: 14px; /* Réduction de la taille du titre */
-    }
-
-    .article-card p {
-        font-size: 12px; /* Réduction de la taille du texte */
-    }
-
-    .voir-plus {
-        font-size: 10px; /* Réduction de la taille du bouton */
-        padding: 5px 10px; /* Ajustement des marges du bouton */
-    }
-
-    .row {
-        justify-content: space-evenly; /* Alignement et espacement des articles */
-        overflow: hidden; /* Empêche le débordement des articles */
-    }
-
-
-
-    .rubrique {
-        position: relative;
-    }
-
-    .rubrique .btn {
-        position: absolute;
-        top: 0;
-        right: 0;
-    }
-
-    #L1, #R1, #L2, #R2 {
-        top: 10px; /* Ajustement pour que les flèches soient au même niveau que le titre */
-    }
     nav ul {
-        flex-direction: column;
+        display: flex;
+        flex-direction: column; /* Empile les éléments verticalement */
         align-items: center;
         gap: 10px;
     }
+
+    nav ul li {
+        display: block;
+    }
+
 
     .articles {
         padding: 20px;
@@ -379,6 +358,12 @@ nav ul li a:hover {
         width: 95%;
     }
 
+    .article-card {
+        width: 80%; /* Réduit la largeur de l'article */
+        margin: 60px auto; /* Centre les articles avec une marge réduite */
+        padding: 30px; /* Réduit l'espace intérieur */
+    }
+
 
 
     .footer {
@@ -386,49 +371,26 @@ nav ul li a:hover {
         text-align: center;
     }
 
+    .side-burger-menu img {
+        width: 30px;
+        cursor: pointer;
+
+    }
+
     .support-button {
         width: 100%;
         margin-top: 20px;
     }
 
-
-
+    .row {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
 
     .logo img {
-        width: 80px;
+        width: 80px; /* Réduit la taille du logo */
     }
-
-
-
-
-    .row {
-        display: flex;
-        overflow: hidden;
-
-        position: relative;
-        width: 100%;
-        transition: transform 0.5s ease;
-        scroll-behavior: smooth;
-        justify-content: center;
-    }
-
-    .article-card {
-        width: 100%; /* Les articles prennent toute la largeur sur les petits écrans */
-        flex: 0 0 120px; /* Réduire encore la taille des articles */
-        margin: 10px; /* Réduire l'espacement encore plus */
-    }
-
-    .row::-webkit-scrollbar {
-        display: none; /* Cacher la barre de défilement */
-    }
-    #L1, #L2 {
-        left: -10px;
-    }
-
-    #R1, #R2 {
-        right: -10px;
-    }
-
 }
 
 /* Medium Screen Adjustments */

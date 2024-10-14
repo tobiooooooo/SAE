@@ -49,6 +49,9 @@ header {
 }
 
 
+.auth-icon img {
+    cursor: pointer;
+}
 
 
 
