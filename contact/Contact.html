@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PRIARTEM - Accueil</title>
+    <title>PRIARTEM - Contact</title>
     <link rel="stylesheet" href="Contact.css">
+    <script src="Contact.js" type="module"></script>
 </head>
 <body>
 
@@ -21,28 +22,21 @@
         </ul>
     </nav>
 
-
-    <!-- Icône de recherche et barre de recherche -->
     <div class="search-container">
-        <img src="../images/Research.png" class="search-icon" alt="Search Icon">
+        <img src="../images/Research.png" class="search-icon" alt="Icône de recherche">
         <input type="text" class="search-bar hidden" placeholder="Rechercher...">
     </div>
 
     <div class="auth-icon">
-        <img src="../images/Generic%20avatar.png" alt="User Icon" class="user-icon" id="user-burger-btn">
+        <img src="../images/Generic%20avatar.png" alt="Icône utilisateur" class="user-icon" id="user-burger-btn">
     </div>
 
-    <!-- Menu burger pour l'utilisateur -->
     <div id="user-side-menu" class="user-side-menu">
         <a href="#">Se connecter</a>
         <a href="#">Créer un compte</a>
         <a href="#">Se déconnecter</a>
         <a href="#">Changer de compte</a>
     </div>
-
-
-
-
 
     <div class="side-burger-menu">
         <img src="../images/threelines.png" alt="Menu" id="burger-btn">
@@ -54,63 +48,76 @@
         <a href="#"><img src="../images/ActualiteImage.png" alt="Icon" class="icon">Actualité</a>
         <a href="#"><img src="../images/ThemeImage.png" alt="Icon" class="icon">Thèmes</a>
         <a href="#"><img src="../images/MediaImage.png" alt="Icon" class="icon">Kit Média</a>
-
     </div>
-
-
 </header>
 
-<section class="hero">
-
-    <h1>Accueil</h1>
-    <h2 class="actu">À la une dans l'actu</h2>
-    <p class="subtitle">Pour Rassembler, Informer et Agir sur les Risques liés aux Technologies Électromagnétiques</p>
-</section>
-
-<section class="articles">
-    <div class="row">
-        <div class="article-card">
-            <img src="article-image.png" alt="Article Image">
-            <h3>Title</h3>
-            <p>Body text for whatever you'd like to say. Add main takeaway points, quotes, anecdotes, or even a very short story.</p>
-            <button class="voir-plus">Voir plus</button>
+<div class="contactUs">
+    <div class="box">
+        <div class="contact form">
+            <h3>Contactez-Nous</h3>
+            <form action="send_email.php" method="POST">
+                <div class="formBox">
+                    <div class="row50">
+                        <div class="inputBox">
+                            <span>Prénom</span>
+                            <input type="text" placeholder="Prénom" name="prenom">
+                        </div>
+                        <div class="inputBox">
+                            <span>Nom</span>
+                            <input type="text" placeholder="Nom" name="nom">
+                        </div>
+                    </div>
+                    <div class="row50">
+                        <div class="inputBox">
+                            <span>Email</span>
+                            <input type="email" placeholder="votre@mail.com" name="email">
+                        </div>
+                        <div class="inputBox">
+                            <span>Téléphone</span>
+                            <input type="tel" placeholder="06 12 34 56 78" name="telephone">
+                        </div>
+                    </div>
+                    <div class="row100">
+                        <div class="inputBox">
+                            <span>Message</span>
+                            <textarea placeholder="écrivez ici..." name="message"></textarea>
+                        </div>
+                    </div>
+                    <div class="row100">
+                        <div class="inputBox">
+                            <input type="submit" value="Envoyer">
+                        </div>
+                    </div>
+                </div>
+            </form>
         </div>
-        <div class="article-card">
-            <img src="article-image.png" alt="Article Image">
-            <h3>Title</h3>
-            <p>Body text for whatever you'd like to say. Add main takeaway points, quotes, anecdotes, or even a very short story.</p>
-            <button class="voir-plus">Voir plus</button>
+        <div class="contact info">
+            <h3>Nos Informations</h3>
+            <div class="infoBox">
+                <div>
+                    <span><ion-icon name="location"></ion-icon></span>
+                    <p>adresse de priarterm<br>Bref</p>
+                </div>
+                <div>
+                    <span><ion-icon name="mail"></ion-icon></span>
+                    <a href="mailto:arm.aiaa75@gmail.com">email@priarterm.com</a>
+                </div>
+                <div>
+                    <span><ion-icon name="call"></ion-icon></span>
+                    <a href="tel:+9145020153">+ numero priarterm</a>
+                </div>
+                <ul class="sci">
+                    <li><a href="https://x.com/arm_frai?s=21"><ion-icon name="logo-twitter"></ion-icon></a></li>
+                    <li><a href="https://www.linkedin.com/company/arm-fr/"><ion-icon name="logo-linkedin"></ion-icon></a></li>
+                    <li><a href="https://www.instagram.com/arm_.fr?igsh=MzRlODBiNWFlZA=="><ion-icon name="logo-instagram"></ion-icon></a></li>
+                </ul>
+            </div>
         </div>
-        <div class="article-card">
-            <img src="article-image.png" alt="Article Image">
-            <h3>Title</h3>
-            <p>Body text for whatever you'd like to say. Add main takeaway points, quotes, anecdotes, or even a very short story.</p>
-            <button class="voir-plus">Voir plus</button>
+        <div class="contact map">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d335998.82758727437!2d2.017408897388167!3d48.85838505156383!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66e1f06e2b70f%3A0x40b82c3688c9460!2sParis!5e0!3m2!1sfr!2sfr!4v1707335333997!5m2!1sfr!2sfr" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
     </div>
-</section>
-<section class="articles">
-    <div class="row">
-        <div class="article-card">
-            <img src="article-image.png" alt="Article Image">
-            <h3>Title</h3>
-            <p>Body text for whatever you'd like to say. Add main takeaway points, quotes, anecdotes, or even a very short story.</p>
-            <button class="voir-plus">Voir plus</button>
-        </div>
-        <div class="article-card">
-            <img src="article-image.png" alt="Article Image">
-            <h3>Title</h3>
-            <p>Body text for whatever you'd like to say. Add main takeaway points, quotes, anecdotes, or even a very short story.</p>
-            <button class="voir-plus">Voir plus</button>
-        </div>
-        <div class="article-card">
-            <img src="article-image.png" alt="Article Image">
-            <h3>Title</h3>
-            <p>Body text for whatever you'd like to say. Add main takeaway points, quotes, anecdotes, or even a very short story.</p>
-            <button class="voir-plus">Voir plus</button>
-        </div>
-    </div>
-</section>
+</div>
 
 <div class="footer">
     <div class="social-media">
@@ -119,7 +126,6 @@
         <a href="https://youtube.com"><img src="../images/youtube-icon.png" alt="YouTube" /></a>
         <a href="https://linkedin.com"><img src="../images/linkedin-icon.png" alt="LinkedIn" /></a>
     </div>
-
 
     <div class="contact-info">
         <p>P.R.I.A.R.T.E.M - Association Loi de 1901</p>
@@ -137,9 +143,5 @@
     <button class="support-button">Nous soutenir ♥</button>
 </div>
 
-
-
-
-<script src="Contact.js"></script>
 </body>
 </html>
