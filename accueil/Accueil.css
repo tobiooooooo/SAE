@@ -19,7 +19,6 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 20px;
-
     z-index: 1000;
     background-color: rgba(163, 216, 244, 0.8);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -223,6 +222,16 @@ nav ul li a:hover {
 
     overflow: hidden; /* Ajouté pour masquer les articles débordants */
 }
+.article-card {
+    transition: transform 0.3s ease, opacity 0.3s ease; /* Animation pour les articles */
+    opacity: 0;
+}
+
+.article-card.active {
+    opacity: 1;
+    transform: translateX(0); /* Le nouvel article glisse doucement en place */
+}
+
 
 
 .rubrique {
@@ -304,6 +313,8 @@ nav ul li a:hover {
     width: 40px;
     height: 40px;
     z-index: 10;
+    background-color: transparent;
+    border: none; /* Retire toute bordure */
 
 }
 
