@@ -420,6 +420,15 @@ nav ul li a:hover {
         text-align: center;
     }
 
+    .side-burger-menu {
+        position: fixed;
+        top: 170px;
+        left: 20px;
+        z-index: 1300;
+        cursor: pointer;
+
+    }
+
     .side-burger-menu img {
         width: 30px;
         cursor: pointer;
@@ -431,7 +440,7 @@ nav ul li a:hover {
         color: #000;
         display: block;
         margin-bottom: 10px;
-        color: #000;
+
         text-align: center;
     }
 
@@ -462,6 +471,18 @@ nav ul li a:hover {
         width: 33.33%; /* Chaque article occupe un tiers de l'espace sur les écrans moyens */
 
     }
+
+
+    .side-burger-menu {
+        position: fixed;
+        top: 150px;
+        left: 40px;
+        z-index: 1300;
+        cursor: pointer;
+
+    }
+
+
 
     .row {
         justify-content: space-between; /* Ajuster l'espacement entre les articles */
