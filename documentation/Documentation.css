@@ -6,26 +6,61 @@
     font-family: Arial, sans-serif;
 }
 
-html {
+
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
     background-image: url("../images/background.png");
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 header {
+    position: fixed;
     display: flex;
+    width: 100%;
     justify-content: space-between;
     align-items: center;
     padding: 20px;
+    z-index: 1000;
+    background-color: rgba(163, 216, 244, 0.8);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: opacity 0.3s ease;
 }
 
 .logo img {
     width: 100px;
 }
 
-
 /* Style pour la barre de recherche */
 .search-container {
     display: flex;
     align-items: center;
+    position: relative; /* Pour gérer l'animation */
+}
+
+.search-bar {
+    width: 0;
+    opacity: 0;
+    padding: 0;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    font-size: 16px;
+    transition: width 0.4s ease, padding 0.4s ease;
+}
+
+.search-bar.active {
+    width: 200px;
+    opacity: 1;
+    padding: 5px 10px;
 }
 
 .search-icon {
@@ -35,24 +70,7 @@ header {
     margin-right: 10px;
 }
 
-.search-bar {
-    display: none; /* La barre de recherche est cachée par défaut */
-    border: 1px solid #ccc;
-    border-radius: 20px;
-    padding: 5px 10px;
-    font-size: 16px;
-    outline: none;
-}
-
-.search-bar.active {
-    display: block; /* La barre de recherche s'affiche lorsque la classe "active" est ajoutée */
-}
-
-
-
-
-
-
+/* Navigation */
 nav ul {
     list-style: none;
     display: flex;
@@ -65,57 +83,62 @@ nav ul li a {
     font-size: 18px;
     font-weight: bold;
     padding: 10px;
+    border-bottom: 2px solid transparent;
+    transition: color 0.3s ease, border-bottom-color 0.3s ease;
 }
 
 nav ul li a:hover {
     color: #0056b3;
-    border-bottom: 2px solid #0056b3;
+    border-bottom-color: #0056b3;
 }
 
-
-/* Style pour le menu burger de l'utilisateur */
+/* Menu burger utilisateur */
 .user-side-menu {
-    position: fixed;
-    top: 90px; /* Position ajustée sous le logo */
+    position: absolute;
+    top: 90px;
     right: 10px;
-    width: 0;
-    height: auto;
-    background-color: #A3D8F4; /* Fond bleu */
+    width: 200px;
+    background-color: #A3D8F4;
     color: #fff;
     overflow: hidden;
-    transition: 0.2s;
     padding-top: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     z-index: 1000;
+    transform: translateX(100%);
+    transition: transform 0.7s ease-in-out, opacity 0.4s ease-in-out;
+    opacity: 0;
 }
 
 .user-side-menu a {
     display: block;
     padding: 10px 15px;
     text-decoration: none;
+    font-size: 18px;
     color: #fff;
-    transition: background-color 0.3s;
+    transition: background-color 1s ease;
 }
 
 .user-side-menu a:hover {
     background-color: #575757;
 }
 
-/* Lorsqu'on clique sur le bouton utilisateur */
 .user-side-menu.active {
-    width: 200px; /* Largeur lorsque le menu est ouvert */
+    width: 200px;
+    height: auto;
+    opacity: 1;
+    transform: translateX(0);
 }
 
+.auth-icon img {
+    cursor: pointer;
+}
 
-
-
-
-/* Style pour le menu burger à gauche sous le logo */
+/* Menu burger à gauche */
 .side-burger-menu {
     position: fixed;
-    top: 120px; /* Espace ajusté en dessous du logo */
-    left: 40px;
-    z-index: 1000;
+    top: 140px;
+    left: 30px;
+    z-index: 1300;
     cursor: pointer;
 }
 
@@ -125,42 +148,37 @@ nav ul li a:hover {
 }
 
 .side-menu {
-    height: auto;
+    z-index: 1200;
     width: 0;
     position: fixed;
+    left: -250px;
     top: 0;
-    left: 0;
-    background-color: #A3D8F4; /* Fond bleu clair */
+    background-color: #A3D8F4;
     color: #fff;
     overflow-x: hidden;
-    transition: 0.2s;
+    transition: left 1s ease;
     padding-top: 60px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .side-menu a {
     display: flex;
-    flex-direction: column; /* Change la direction de flex à colonne */
-    align-items: center; /* Centre les éléments horizontalement */
-    justify-content: center; /* Centre les éléments verticalement */
+    align-items: center;
+    justify-content: center;
     padding: 10px 15px;
     text-decoration: none;
     font-size: 18px;
     color: #fff;
-    transition: 0.3s;
+    transition: background-color 1s ease;
 }
-
-.side-menu a img {
-    margin-right: 10px; /* Ajoute un espace entre l'icône et le texte */
-}
-
 
 .side-menu a:hover {
     background-color: #575757;
 }
 
-/* Lorsqu'on clique sur le bouton burger */
 .side-menu.active {
     width: 250px;
+    left: 0;
 }
 
 /* Section Héros */
@@ -172,73 +190,60 @@ nav ul li a:hover {
 .hero h1 {
     font-size: 48px;
     color: #333;
+    margin-top: 120px;
 }
 
-.actu {
-    font-size: 24px;
-    font-weight: bold;
-    color: #333;
-    margin-bottom: 20px;
+.hero p {
+    font-size: 18px;
+    color: #555;
+    max-width: 800px;
+    margin: 0 auto;
 }
 
-.subtitle {
-    margin-top: 10px;
-    color: #777;
-}
-
-/* Styles des articles */
-.articles {
-    max-width: 70%;
-    padding: 50px 50px;
+/* About Section */
+.about-section {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 100px auto;
-    background-color: #A3D8F4;
-    border-radius: 8px;
+    padding: 50px 20px;
+    background-color: transparent; /* Assure que cette section ne masque pas le fond */
+    overflow: unset;
+
 }
 
-.burger-menu {
-    display: none;
-}
-
-.row {
+.about-container {
     display: flex;
-    justify-content: space-around;
-    gap: 150px;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    gap: 40px;
 }
 
-.article-card {
+.about-box {
     background-color: white;
+    padding: 30px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: 300px;
-    padding: 20px;
+    max-width: 350px;
     text-align: center;
-    transition: transform 0.3s ease-in-out;
 }
 
-.article-card:hover {
-    transform: scale(1.05);
+.about-box h2 {
+    font-size: 24px;
+    color: #0056b3;
+    margin-bottom: 20px;
 }
 
-.article-card img {
+.about-box p {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.about-box img {
     width: 100%;
-    border-radius: 10px;
-}
-
-.voir-plus {
-    background-color: #333;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-top: 10px;
-}
-
-.voir-plus:hover {
-    background-color: #0056b3;
+    border-radius: 8px;
+    margin-top: 20px;
 }
 
 /* Footer */
@@ -272,7 +277,9 @@ nav ul li a:hover {
 
 .footer .useful-links a {
     color: #000;
-    margin-bottom: 5px;
+    display: block;
+    margin-bottom: 10px;
+    text-align: left;
 }
 
 .footer .support-button {
@@ -290,37 +297,22 @@ nav ul li a:hover {
     background-color: #005f6a;
 }
 
-/* Small Screen Adjustments */
-
-
-
-    /* Petits écrans : Adapter la barre de recherche */
-    @media (max-width: 930px) {
-
-
+/* Responsive Styles */
+@media (max-width: 930px) {
     nav ul {
         display: flex;
-        flex-direction: column; /* Empile les éléments verticalement */
+        flex-direction: column;
         align-items: center;
         gap: 10px;
     }
 
-    nav ul li {
-        display: block;
+    .about-container {
+        flex-direction: column;
+        align-items: center;
     }
 
-
-    .articles {
-        padding: 20px;
-        margin: 50px auto;
-        background-color: #A3D8F4;
-        border-radius: 8px;
-        width: 95%;
-    }
-
-    .article-card {
-        width: 100%;
-        margin-bottom: 20px;
+    .about-box {
+        width: 90%;
     }
 
     .footer {
@@ -331,40 +323,5 @@ nav ul li a:hover {
     .support-button {
         width: 100%;
         margin-top: 20px;
-    }
-
-    .row {
-        flex-direction: column;
-        align-items: center;
-        gap: 20px;
-    }
-
-    .logo img {
-        width: 80px; /* Réduit la taille du logo */
-    }
-}
-
-/* Medium Screen Adjustments */
-@media (min-width: 930px) and (max-width: 1400px) {
-    nav ul {
-        justify-content: center;
-        gap: 15px;
-    }
-
-    .articles {
-        padding: 30px;
-        margin: 50px auto;
-        background-color: #A3D8F4;
-        border-radius: 8px;
-        width: 80%;
-    }
-
-    .article-card {
-        width: 80%;
-        margin-bottom: 20px;
-    }
-
-    .row {
-        gap: 50px;
     }
 }
