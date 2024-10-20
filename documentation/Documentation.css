@@ -21,6 +21,8 @@ body {
     background-image: url("../images/background.png");
     background-size: cover;
     background-repeat: no-repeat;
+    background-attachment: fixed; /* Fixe le fond pour qu'il reste statique lors du scroll */
+    background-position: center;
 }
 
 header {
@@ -226,12 +228,27 @@ nav ul li a:hover {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     max-width: 350px;
     text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+
+/* Effet de survol (hover) sur les boîtes */
+.about-box:hover {
+    transform: translateY(-10px); /* L'élément se déplace vers le haut */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5); /* Augmentation de l'ombre pour un effet de relief */
+    cursor: pointer;
 }
 
 .about-box h2 {
     font-size: 24px;
-    color: #0056b3;
     margin-bottom: 20px;
+
+
+}
+
+.about-box:hover h2 {
+    color: #0056b3; /* Change la couleur du titre lors du survol */
+    transition: color 0.3s ease;
 }
 
 .about-box p {
@@ -297,13 +314,59 @@ nav ul li a:hover {
     background-color: #005f6a;
 }
 
-/* Responsive Styles */
-@media (max-width: 930px) {
+
+/* Petits écrans : Adapter la barre de recherche */
+@media (max-width: 870px) {
+
+
+
+
     nav ul {
         display: flex;
-        flex-direction: column;
+        flex-direction: column; /* Empile les éléments verticalement */
         align-items: center;
         gap: 10px;
+    }
+
+    nav ul li {
+        display: block;
+    }
+
+
+
+
+    .footer {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .side-burger-menu {
+        position: fixed;
+        top: 170px;
+        left: 20px;
+        z-index: 1300;
+        cursor: pointer;
+
+    }
+
+    .side-burger-menu img {
+        width: 30px;
+        cursor: pointer;
+
+    }
+
+
+    .footer .useful-links a {
+        color: #000;
+        display: block;
+        margin-bottom: 10px;
+
+        text-align: center;
+    }
+
+
+    .logo img {
+        width: 80px; /* Réduit la taille du logo */
     }
 
     .about-container {
@@ -312,16 +375,54 @@ nav ul li a:hover {
     }
 
     .about-box {
-        width: 90%;
+        width: 90%; /* Full width for small screens */
     }
 
-    .footer {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .support-button {
-        width: 100%;
-        margin-top: 20px;
-    }
 }
+
+/* Medium Screen Adjustments */
+@media (min-width: 870px) and (max-width: 1400px) {
+
+
+    .side-burger-menu {
+        position: fixed;
+        top: 150px;
+        left: 40px;
+        z-index: 1300;
+        cursor: pointer;
+
+    }
+
+
+    .hero h1 {
+        font-size: 40px; /* Adjusting the title size for medium screens */
+    }
+
+    .hero p {
+        font-size: 16px;
+        max-width: 80%; /* Adjusting the paragraph width for medium screens */
+    }
+
+
+    .about-container {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: stretch;
+    }
+
+    .about-box {
+        width: 30%; /* Reducing size to make room for 3 boxes side by side */
+    }
+
+    .about-box h2 {
+        font-size: 20px; /* Slightly reduce the size of the headings */
+    }
+
+    .about-box p {
+        font-size: 14px; /* Reduce paragraph font size for medium screens */
+    }
+
+
+}
+
+

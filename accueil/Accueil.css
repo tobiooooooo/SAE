@@ -8,7 +8,8 @@
 
 html {
     background-image: url("../images/background.png");
-
+    background-attachment: fixed; /* Fixe le fond pour qu'il reste statique lors du scroll */
+    background-position: center;
 }
 
 
