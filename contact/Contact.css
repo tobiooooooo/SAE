@@ -414,10 +414,10 @@ nav ul li a:hover {
 
 
 .social-media i:hover {
+    color: #007bff; /* Change la couleur au survol */
     color: #007bff;
     transition: color 0.8s ease; /* Transition uniquement sur la couleur */
 }
-
 
 .footer .contact-info {
     color: #000;
@@ -436,6 +436,7 @@ nav ul li a:hover {
     color: #000;
     text-align: left;
 }
+
 
 .footer .social-media img {
     width: 30px;
