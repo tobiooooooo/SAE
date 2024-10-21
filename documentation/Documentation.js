@@ -26,7 +26,7 @@ document.addEventListener("click", function() {
         menu.classList.remove("active");
 
         // Remettre le bouton du menu burger à sa position d'origine
-        sideBurgerMenu.style.top = "170px";  // Position initiale sous le logo
+        sideBurgerMenu.style.top = "160px";  // Position initiale sous le logo
     }
 });
 
