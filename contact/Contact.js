@@ -1,26 +1,29 @@
+
 // Sélection du menu burger et du menu latéral
 const sideBurgerMenu = document.querySelector('.side-burger-menu');
+const menu = document.getElementById("side-menu");
 
 // Ajout d'un événement pour le bouton du burger
-document.getElementById("burger-btn").addEventListener("click", function() {
-    var menu = document.getElementById("side-menu");
+document.getElementById("burger-btn").addEventListener("click", function(event) {
+    event.stopPropagation(); // Empêche la fermeture immédiate après l'ouverture
 
     // Toggle active class pour afficher ou cacher le menu
     if (menu.classList.contains("active")) {
         menu.classList.remove("active");
-
-        // Remettre le bouton du menu burger à sa position d'origine
-        sideBurgerMenu.style.top = "120px";  // Position initiale sous le logo
+        sideBurgerMenu.style.top = "140px";  // Position initiale sous le logo
     } else {
         menu.classList.add("active");
-
-        // Repositionner le bouton du menu burger vers le haut
         sideBurgerMenu.style.top = "20px";  // Position en haut lors de l'ouverture
     }
 });
 
-
-
+// Ajout d'un événement pour détecter les clics ailleurs sur la page et fermer le menu
+document.addEventListener('click', function(event) {
+    if (menu.classList.contains('active') && !menu.contains(event.target) && !sideBurgerMenu.contains(event.target)) {
+        menu.classList.remove('active');
+        sideBurgerMenu.style.top = "140px";  // Revenir à la position initiale
+    }
+});
 
 // Sélection du menu burger utilisateur et du menu latéral
 const userBurgerMenu = document.querySelector('.auth-icon img');
@@ -34,8 +37,6 @@ userBurgerMenu.addEventListener('click', function () {
         userSideMenu.classList.add('active');
     }
 });
-
-
 
 // Sélection des éléments pour la barre de recherche et la barre de navigation
 const searchIcon = document.querySelector('.search-icon');
@@ -66,6 +67,7 @@ searchIcon.addEventListener('click', () => {
     searchBar.classList.toggle('active'); // Active ou désactive la barre de recherche
     adjustLayout(); // Ajuste l'affichage immédiatement après le clic
 });
+
 
 
 
