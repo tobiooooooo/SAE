@@ -21,7 +21,7 @@ document.getElementById("burger-btn").addEventListener("click", function(event) 
 document.addEventListener('click', function(event) {
     if (menu.classList.contains('active') && !menu.contains(event.target) && !sideBurgerMenu.contains(event.target)) {
         menu.classList.remove('active');
-        sideBurgerMenu.style.top = "140px";  // Revenir à la position initiale
+        sideBurgerMenu.style.top = "170px";  // Revenir à la position initiale
     }
 });
 
