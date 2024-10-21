@@ -263,7 +263,8 @@ nav ul li a:hover {
 
 
 .social-media i:hover {
-    color: #007bff; /* Change la couleur au survol */
+    color: #007bff;
+    transition: color 0.8s ease; /* Transition uniquement sur la couleur */
 }
 
 .footer .contact-info {
