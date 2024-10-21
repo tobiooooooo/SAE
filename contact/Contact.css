@@ -1,4 +1,4 @@
-/* Réinitialisation de base */
+/* Global Styles */
 * {
     margin: 0;
     padding: 0;
@@ -8,24 +8,51 @@
 
 html {
     background-image: url("../images/background.png");
-    background-color: #f5f5f5;
+    background-attachment: fixed; /* Fixe le fond pour qu'il reste statique lors du scroll */
+    background-position: center;
 }
 
+
+
 header {
+    position: relative;
     display: flex;
+    width: 100%;
     justify-content: space-between;
     align-items: center;
     padding: 20px;
+    z-index: 1000;
+    background-color: rgba(163, 216, 244, 0.8);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: opacity 0.3s ease;
 }
 
 .logo img {
     width: 100px;
 }
 
-/* Barre de recherche */
+/* Style pour la barre de recherche */
 .search-container {
     display: flex;
     align-items: center;
+    position: relative; /* Pour gérer l'animation */
+}
+
+.search-bar {
+    width: 0;
+    opacity: 0;
+    padding: 0;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    font-size: 16px;
+    transition: width 0.4s ease, padding 0.4s ease;
+    /* L'animation se fait sur la largeur, l'opacité et le padding */
+}
+
+.search-bar.active {
+    width: 200px;
+    opacity: 1;
+    padding: 5px 10px; /* Rétablit le padding à l'apparition */
 }
 
 .search-icon {
@@ -35,18 +62,6 @@ header {
     margin-right: 10px;
 }
 
-.search-bar {
-    display: none;
-    border: 1px solid #ccc;
-    border-radius: 20px;
-    padding: 5px 10px;
-    font-size: 16px;
-    outline: none;
-}
-
-.search-bar.active {
-    display: block;
-}
 
 /* Navigation */
 nav ul {
@@ -61,50 +76,74 @@ nav ul li a {
     font-size: 18px;
     font-weight: bold;
     padding: 10px;
+    border-bottom: 2px solid transparent;
+    transition: color 0.3s ease, border-bottom-color 0.3s ease; /* Transition douce pour la couleur et la bordure */
 }
 
 nav ul li a:hover {
     color: #0056b3;
-    border-bottom: 2px solid #0056b3;
+    border-bottom-color: #0056b3; /* Couleur instantanée au survol */
+    border-bottom-width: 3px; /* L'épaisseur de la bordure augmente lentement */
 }
 
-/* Menu utilisateur */
+/* Menu burger utilisateur */
 .user-side-menu {
-    position: fixed;
+
+    position: absolute;
     top: 90px;
     right: 10px;
-    width: 0;
+    width: 200px;
     background-color: #A3D8F4;
     color: #fff;
     overflow: hidden;
-    transition: 0.2s;
     padding-top: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     z-index: 1000;
+    transform: translateX(100%); /* Cacher sur le côté droit */
+    transition: transform 0.7s ease-in-out, opacity 0.4s ease-in-out;
+    opacity: 0;
 }
 
 .user-side-menu a {
+
     display: block;
     padding: 10px 15px;
     text-decoration: none;
+    font-size: 18px;
     color: #fff;
+    transition: background-color 1s ease;
 }
+
+
 
 .user-side-menu a:hover {
     background-color: #575757;
 }
 
 .user-side-menu.active {
-    width: 200px;
+
+    width: 200px; /* Largeur du menu lorsqu'il est ouvert */
+    height: auto; /* Hauteur adaptée au contenu */
+    opacity: 1; /* Le menu devient visible */
+    transform: translateX(0);
+}
+
+
+
+
+.auth-icon img {
+    cursor: pointer;
+
 }
 
 /* Menu burger à gauche */
 .side-burger-menu {
     position: fixed;
-    top: 120px;
-    left: 40px;
-    z-index: 1000;
+    top: 140px;
+    left: 30px;
+    z-index: 1300;
     cursor: pointer;
+
 }
 
 .side-burger-menu img {
@@ -113,15 +152,18 @@ nav ul li a:hover {
 }
 
 .side-menu {
+
+    z-index: 1200;
     width: 0;
     position: fixed;
+    left: -250px; /* Position hors écran à gauche */
     top: 0;
-    left: 0;
     background-color: #A3D8F4;
     color: #fff;
     overflow-x: hidden;
-    transition: 0.2s;
+    transition: left 1s ease;
     padding-top: 60px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .side-menu a {
@@ -132,6 +174,7 @@ nav ul li a:hover {
     text-decoration: none;
     font-size: 18px;
     color: #fff;
+    transition: background-color 1s ease;
 }
 
 .side-menu a:hover {
@@ -140,6 +183,8 @@ nav ul li a:hover {
 
 .side-menu.active {
     width: 250px;
+    left: 0;
+
 }
 
 /* Section Héros */
@@ -151,6 +196,7 @@ nav ul li a:hover {
 .hero h1 {
     font-size: 48px;
     color: #333;
+    margin-top: 120px;
 }
 
 
@@ -183,7 +229,7 @@ nav ul li a:hover {
     background-color: transparent;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    background: #ffffff;
+    background: #A3D8F4;;
     overflow: hidden;
 }
 
@@ -193,7 +239,7 @@ nav ul li a:hover {
     background-color: transparent;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    background: #ffffff;
+    background: #A3D8F4;;
     overflow: hidden;
 }
 
@@ -203,7 +249,7 @@ nav ul li a:hover {
     background-color: transparent;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    background: #ffffff;
+    background:#A3D8F4;;
     overflow: hidden;
 }
 
@@ -250,7 +296,7 @@ nav ul li a:hover {
     outline: none;
     border: 1px solid #ccc;
     border-radius: 5px;
-    background-color: #fff;
+    background-color: #f1f1f1;
     color: #333;
     margin: 5px 0;
 }
@@ -261,7 +307,7 @@ nav ul li a:hover {
 }
 
 .inputBox input[type="submit"] {
-    background: #007BFF;
+    background: #008CBA;
     color: white;
     border: none;
     font-size: 1.1em;
@@ -293,6 +339,12 @@ nav ul li a:hover {
     align-items: center;
     margin-bottom: 15px;
 }
+.info .infoBox div i {
+    font-size: 2.5em; /* Augmente la taille des icônes */
+    color:white ;
+    margin-right: 20px; /* Espace entre les icônes et le texte */
+}
+
 
 .info .infoBox div span {
     width: 40px;
@@ -362,8 +414,10 @@ nav ul li a:hover {
 
 
 .social-media i:hover {
-    color: #007bff; /* Change la couleur au survol */
+    color: #007bff;
+    transition: color 0.8s ease; /* Transition uniquement sur la couleur */
 }
+
 
 .footer .contact-info {
     color: #000;
@@ -402,3 +456,100 @@ nav ul li a:hover {
 .footer .support-button:hover {
     background-color: #005f6a;
 }
+/* Pour les écrans plus petits que 768px (tablettes et mobiles) */
+
+/* Pour les écrans de taille tablette et plus petits */
+@media only screen and (max-width: 768px) {
+    header {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .contactUs {
+        grid-template-columns: 1fr; /* Passe à une seule colonne pour les petits écrans */
+        grid-template-areas:
+            "form"
+            "info"
+            "map"; /* Réorganise les sections en une colonne */
+    }
+
+    .contact.form, .contact.info, .contact.map {
+        padding: 20px;
+        width: 100%;
+    }
+
+    .infoBox div {
+        flex-direction: column;
+        align-items: flex-start; /* Les icônes et le texte sont placés l'un sous l'autre */
+    }
+
+    .infoBox div i {
+        font-size: 2.5em; /* Garde les icônes grandes même sur petits écrans */
+        margin-bottom: 10px; /* Espace sous l'icône */
+    }
+
+    .footer {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer .social-media {
+        margin-bottom: 20px;
+    }
+
+    /* Les inputs du formulaire apparaissent les uns sous les autres */
+    .formBox .row50 {
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .inputBox {
+        width: 100%; /* Chaque champ de saisie occupe toute la largeur */
+    }
+}
+
+/* Pour les écrans de très petite taille, comme les mobiles */
+@media only screen and (max-width: 480px) {
+    .search-container {
+        display: block;
+    }
+
+    .search-bar {
+        width: 100%; /* La barre de recherche occupe toute la largeur sur mobile */
+    }
+
+    .footer .social-media img {
+        width: 25px;
+        height: 25px; /* Réduit la taille des icônes dans le footer */
+    }
+
+    .contact.form, .contact.info, .contact.map {
+        padding: 15px;
+        width: 100%; /* Chaque section occupe toute la largeur */
+    }
+
+    .infoBox div i {
+        font-size: 2em; /* Réduit la taille des icônes sur les très petits écrans */
+        margin-right: 10px;
+    }
+
+    /* Les inputs du formulaire apparaissent les uns sous les autres sur mobile */
+    .formBox .row50 {
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .inputBox {
+        width: 100%; /* Chaque champ de saisie occupe toute la largeur */
+        margin-bottom: 20px;
+    }
+}
+
+
+
