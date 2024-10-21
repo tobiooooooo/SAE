@@ -21,7 +21,7 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 20px;
-    z-index: 1000;
+    z-index: 10;
     background-color: rgba(163, 216, 244, 0.8);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transition: opacity 0.3s ease;
@@ -88,7 +88,6 @@ nav ul li a:hover {
 
 /* Menu burger utilisateur */
 .user-side-menu {
-
     position: absolute;
     top: 90px;
     right: 10px;
@@ -112,6 +111,7 @@ nav ul li a:hover {
     font-size: 18px;
     color: #fff;
     transition: background-color 1s ease;
+
 }
 
 
@@ -127,8 +127,6 @@ nav ul li a:hover {
     opacity: 1; /* Le menu devient visible */
     transform: translateX(0);
 }
-
-
 
 
 .auth-icon img {
@@ -152,7 +150,6 @@ nav ul li a:hover {
 }
 
 .side-menu {
-
     z-index: 1200;
     width: 0;
     position: fixed;
@@ -184,7 +181,6 @@ nav ul li a:hover {
 .side-menu.active {
     width: 250px;
     left: 0;
-
 }
 
 /* Section Héros */
@@ -210,6 +206,9 @@ nav ul li a:hover {
     margin-top: 10px;
     color: #777;
 }
+
+
+
 
 /* Styles des articles */
 .articles {
@@ -307,25 +306,19 @@ nav ul li a:hover {
 }
 
 /* Styles pour les flèches de navigation */
-.btn {
+
+.fa-arrow-left {
     position: absolute;
-    top: 10px;
-    transform: translateY(-50%);
+    left: 0; /* Place la flèche à gauche du conteneur */
     cursor: pointer;
-    width: 40px;
-    height: 40px;
-    z-index: 10;
-    background-color: transparent;
-    border: none; /* Retire toute bordure */
-
+    font-size: 30px;
 }
 
-#L1, #L2 {
-    left: -50px;
-}
-
-#R1, #R2 {
-    right: -50px;
+.fa-arrow-right {
+    position: absolute;
+    right: 0; /* Place la flèche à droite du conteneur */
+    cursor: pointer;
+    font-size: 30px;
 }
 
 /* Footer */
@@ -369,7 +362,6 @@ nav ul li a:hover {
     color: #000;
     display: block;
     margin-bottom: 10px;
-    color: #000;
     text-align: left; /* Pour aligner à gauche si nécessaire */
 }
 

@@ -1,0 +1,89 @@
+Index: accueil/Accueil.html
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><!DOCTYPE html>\r\n<html lang=\"en\">\r\n<head>\r\n    <meta charset=\"UTF-8\">\r\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\r\n    <title>PRIARTEM - Accueil</title>\r\n    <link rel=\"stylesheet\" href=\"Accueil.css\">\r\n    <script src=\"Accueil.js\" type=\"module\"></script>\r\n</head>\r\n<body>\r\n\r\n<header>\r\n    <div class=\"logo\">\r\n        <img src=\"../images/priarterm.png\" alt=\"Logo PRIARTEM\">\r\n    </div>\r\n    <nav>\r\n        <ul>\r\n            <li><a href=\"../accueil/Accueil.html\">Accueil</a></li>\r\n            <li><a href=\"../documentation/Documentation.html\">Documentation</a></li>\r\n            <li><a href=\"../newsletter/Newsletter.html\">Newsletter/Don</a></li>\r\n            <li><a href=\"../contact/Contact.html\">Contact</a></li>\r\n        </ul>\r\n    </nav>\r\n\r\n\r\n    <!-- Icône de recherche et barre de recherche -->\r\n    <div class=\"search-container\">\r\n        <img src=\"../images/Research.png\" class=\"search-icon\" alt=\"Search Icon\">\r\n        <input type=\"text\" class=\"search-bar hidden\" placeholder=\"Rechercher...\">\r\n    </div>\r\n\r\n    <div class=\"auth-icon\">\r\n        <img src=\"../images/Generic%20avatar.png\" alt=\"User Icon\" class=\"user-icon\" id=\"user-burger-btn\">\r\n    </div>\r\n\r\n    <!-- Menu burger pour l'utilisateur -->\r\n    <div id=\"user-side-menu\" class=\"user-side-menu\">\r\n        <a href=\"#\">Se connecter</a>\r\n        <a href=\"#\">Créer un compte</a>\r\n        <a href=\"#\">Se déconnecter</a>\r\n        <a href=\"#\">Changer de compte</a>\r\n    </div>\r\n\r\n\r\n\r\n\r\n\r\n    <div class=\"side-burger-menu\">\r\n        <img src=\"../images/threelines.png\" alt=\"Menu\" id=\"burger-btn\">\r\n    </div>\r\n\r\n    <div id=\"side-menu\" class=\"side-menu\">\r\n        <a href=\"#\"><img src=\"../images/DossierEnCours2.png\" alt=\"Icon\" class=\"icon\">Dossier en cours</a>\r\n        <a href=\"#\"><img src=\"../images/PriartermImage.png\" alt=\"Icon\" class=\"icon\">Priartem</a>\r\n        <a href=\"#\"><img src=\"../images/ActualiteImage.png\" alt=\"Icon\" class=\"icon\">Actualité</a>\r\n        <a href=\"#\"><img src=\"../images/ThemeImage.png\" alt=\"Icon\" class=\"icon\">Thèmes</a>\r\n        <a href=\"#\"><img src=\"../images/MediaImage.png\" alt=\"Icon\" class=\"icon\">Kit Média</a>\r\n\r\n    </div>\r\n\r\n\r\n</header>\r\n\r\n<section class=\"hero\">\r\n\r\n    <h1>Accueil</h1>\r\n    <h2 class=\"actu\">À la une dans l'actu</h2>\r\n    <p class=\"subtitle\">Pour Rassembler, Informer et Agir sur les Risques liés aux Technologies Électromagnétiques</p>\r\n</section>\r\n\r\n<section class=\"articles\">\r\n    <div class=\"rubrique\">\r\n        <button class=\"view-all-btn\" onclick=\"location.href='regional-articles.html'\">Régional</button>\r\n    </div>\r\n    <div class=\"row\">\r\n        <img src=\"../images/left-arrow.png\" alt=\"LeftArrow\" class=\"btn\" id=\"L1\">\r\n\r\n        <img src=\"../images/right-arrow.png\" alt=\"RightArrow\" class=\"btn\" id=\"R1\">\r\n    </div>\r\n</section>\r\n\r\n<section class=\"articles\">\r\n    <div class=\"rubrique\">\r\n        <button class=\"view-all-btn\" onclick=\"location.href='national-articles.html'\">National</button>\r\n    </div>\r\n    <div class=\"row\">\r\n        <img src=\"../images/left-arrow.png\" alt=\"LeftArrow\" class=\"btn\" id=\"L2\">\r\n\r\n        <img src=\"../images/right-arrow.png\" alt=\"RightArrow\" class=\"btn\" id=\"R2\">\r\n    </div>\r\n</section>\r\n\r\n\r\n<div class=\"footer\">\r\n    <div class=\"social-media\">\r\n        <a href=\"https://x.com\"><img src=\"../images/x-icon.png\" alt=\"X\" /></a>\r\n        <a href=\"https://instagram.com\"><img src=\"../images/instagram-icon.png\" alt=\"Instagram\" /></a>\r\n        <a href=\"https://youtube.com\"><img src=\"../images/youtube-icon.png\" alt=\"YouTube\" /></a>\r\n        <a href=\"https://linkedin.com\"><img src=\"../images/linkedin-icon.png\" alt=\"LinkedIn\" /></a>\r\n    </div>\r\n\r\n\r\n    <div class=\"contact-info\">\r\n        <p>P.R.I.A.R.T.E.M - Association Loi de 1901</p>\r\n        <p>Boîte 64 - 208 quai de Valmy - 75010 Paris</p>\r\n        <p>Tél: 01 42 47 81 54 - Fax: 01 42 47 01 65</p>\r\n    </div>\r\n\r\n    <div class=\"useful-links\">\r\n        <a href=\"#\">Qui sommes-nous ?</a>\r\n        <a href=\"#\">Contact</a>\r\n        <a href=\"#\">Mentions légales</a>\r\n        <a href=\"#\">Politique de confidentialité</a>\r\n    </div>\r\n\r\n    <button class=\"support-button\">Nous soutenir ♥</button>\r\n</div>\r\n\r\n\r\n\r\n\r\n</body>\r\n</html>\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/accueil/Accueil.html b/accueil/Accueil.html
+--- a/accueil/Accueil.html	(revision f3c2c1f9c61434cc483206e15d3f086c25fbece6)
++++ b/accueil/Accueil.html	(date 1729017884971)
+@@ -43,8 +43,6 @@
+ 
+ 
+ 
+-
+-
+     <div class="side-burger-menu">
+         <img src="../images/threelines.png" alt="Menu" id="burger-btn">
+     </div>
+Index: accueil/Accueil.css
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>/* Global Styles */\r\n* {\r\n    margin: 0;\r\n    padding: 0;\r\n    box-sizing: border-box;\r\n    font-family: Arial, sans-serif;\r\n}\r\n\r\nhtml {\r\n    background-image: url(\"../images/background.png\");\r\n}\r\n\r\n\r\n\r\nheader {\r\n    position: fixed;\r\n    display: flex;\r\n    width: 100%;\r\n    justify-content: space-between;\r\n    align-items: center;\r\n    padding: 20px;\r\n    z-index: 1000;\r\n    background-color: rgba(163, 216, 244, 0.8);\r\n    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);\r\n    transition: opacity 0.3s ease;\r\n}\r\n\r\n.logo img {\r\n    width: 100px;\r\n}\r\n\r\n/* Style pour la barre de recherche */\r\n.search-container {\r\n    display: flex;\r\n    align-items: center;\r\n    position: relative; /* Pour gérer l'animation */\r\n}\r\n\r\n.search-bar {\r\n    width: 0;\r\n    opacity: 0;\r\n    padding: 0;\r\n    border: 1px solid #ccc;\r\n    border-radius: 20px;\r\n    font-size: 16px;\r\n    transition: width 0.4s ease, padding 0.4s ease;\r\n    /* L'animation se fait sur la largeur, l'opacité et le padding */\r\n}\r\n\r\n.search-bar.active {\r\n    width: 200px;\r\n    opacity: 1;\r\n    padding: 5px 10px; /* Rétablit le padding à l'apparition */\r\n}\r\n\r\n.search-icon {\r\n    cursor: pointer;\r\n    width: 25px;\r\n    height: 25px;\r\n    margin-right: 10px;\r\n}\r\n\r\n\r\n/* Navigation */\r\nnav ul {\r\n    list-style: none;\r\n    display: flex;\r\n    gap: 20px;\r\n}\r\n\r\nnav ul li a {\r\n    text-decoration: none;\r\n    color: #333;\r\n    font-size: 18px;\r\n    font-weight: bold;\r\n    padding: 10px;\r\n    border-bottom: 2px solid transparent;\r\n    transition: color 0.3s ease, border-bottom-color 0.3s ease; /* Transition douce pour la couleur et la bordure */\r\n}\r\n\r\nnav ul li a:hover {\r\n    color: #0056b3;\r\n    border-bottom-color: #0056b3; /* Couleur instantanée au survol */\r\n    border-bottom-width: 3px; /* L'épaisseur de la bordure augmente lentement */\r\n}\r\n\r\n/* Menu burger utilisateur */\r\n.user-side-menu {\r\n\r\n    position: absolute;\r\n    top: 90px;\r\n    right: 10px;\r\n    width: 200px;\r\n    background-color: #A3D8F4;\r\n    color: #fff;\r\n    overflow: hidden;\r\n    padding-top: 20px;\r\n    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);\r\n    z-index: 1000;\r\n    transform: translateX(100%); /* Cacher sur le côté droit */\r\n    transition: transform 0.7s ease-in-out, opacity 0.4s ease-in-out;\r\n    opacity: 0;\r\n}\r\n\r\n.user-side-menu a {\r\n\r\n    display: block;\r\n    padding: 10px 15px;\r\n    text-decoration: none;\r\n    font-size: 18px;\r\n    color: #fff;\r\n    transition: background-color 1s ease;\r\n}\r\n\r\n\r\n\r\n.user-side-menu a:hover {\r\n    background-color: #575757;\r\n}\r\n\r\n.user-side-menu.active {\r\n\r\n    width: 200px; /* Largeur du menu lorsqu'il est ouvert */\r\n    height: auto; /* Hauteur adaptée au contenu */\r\n    opacity: 1; /* Le menu devient visible */\r\n    transform: translateX(0);\r\n}\r\n\r\n\r\n\r\n\r\n.auth-icon img {\r\n    cursor: pointer;\r\n\r\n}\r\n\r\n/* Menu burger à gauche */\r\n.side-burger-menu {\r\n    position: fixed;\r\n    top: 140px;\r\n    left: 30px;\r\n    z-index: 1300;\r\n    cursor: pointer;\r\n\r\n}\r\n\r\n.side-burger-menu img {\r\n    width: 40px;\r\n    cursor: pointer;\r\n}\r\n\r\n.side-menu {\r\n\r\n    z-index: 1200;\r\n    width: 0;\r\n    position: fixed;\r\n    left: -250px; /* Position hors écran à gauche */\r\n    top: 0;\r\n    background-color: #A3D8F4;\r\n    color: #fff;\r\n    overflow-x: hidden;\r\n    transition: left 1s ease;\r\n    padding-top: 60px;\r\n    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);\r\n}\r\n\r\n.side-menu a {\r\n    display: flex;\r\n    align-items: center;\r\n    justify-content: center;\r\n    padding: 10px 15px;\r\n    text-decoration: none;\r\n    font-size: 18px;\r\n    color: #fff;\r\n    transition: background-color 1s ease;\r\n}\r\n\r\n.side-menu a:hover {\r\n    background-color: #575757;\r\n}\r\n\r\n.side-menu.active {\r\n    width: 250px;\r\n    left: 0;\r\n\r\n}\r\n\r\n/* Section Héros */\r\n.hero {\r\n    text-align: center;\r\n    padding: 50px 20px;\r\n}\r\n\r\n.hero h1 {\r\n    font-size: 48px;\r\n    color: #333;\r\n    margin-top: 120px;\r\n}\r\n\r\n.actu {\r\n    font-size: 24px;\r\n    font-weight: bold;\r\n    color: #333;\r\n    margin-bottom: 20px;\r\n}\r\n\r\n.subtitle {\r\n    margin-top: 10px;\r\n    color: #777;\r\n}\r\n\r\n/* Styles des articles */\r\n.articles {\r\n    max-width: 70%;\r\n    padding: 50px 50px;\r\n    display: flex;\r\n    flex-direction: column;\r\n    align-items: center;\r\n    margin: 100px auto;\r\n    background-color: #A3D8F4;\r\n    border-radius: 20px;\r\n\r\n    overflow: hidden; /* Ajouté pour masquer les articles débordants */\r\n}\r\n.article-card {\r\n    transition: transform 0.3s ease, opacity 0.3s ease; /* Animation pour les articles */\r\n    opacity: 0;\r\n}\r\n\r\n.article-card.active {\r\n    opacity: 1;\r\n    transform: translateX(0); /* Le nouvel article glisse doucement en place */\r\n}\r\n\r\n\r\n\r\n.rubrique {\r\n    display: flex;\r\n    justify-content: flex-start;\r\n    margin-bottom: 20px;\r\n}\r\n\r\n.view-all-btn {\r\n    background-color: #A3D8F4;\r\n    color: white;\r\n    padding: 10px 20px;\r\n    border: none;\r\n    border-radius: 5px;\r\n    cursor: pointer;\r\n    font-size: 18px;\r\n    font-weight: bold;\r\n    text-transform: uppercase;\r\n}\r\n\r\n.view-all-btn:hover {\r\n    background-color: #003f8f;\r\n\r\n}\r\n\r\n\r\n\r\n\r\n.row {\r\n    display: flex;\r\n    justify-content: center;\r\n    transition: transform 0.5s ease;\r\n    position: relative;\r\n    width: 100%; /* Assure que la ligne occupe tout l'espace disponible */\r\n}\r\n\r\n.article-card {\r\n    background-color: white;\r\n    border-radius: 10px;\r\n    margin: 40px;\r\n    padding: 10px;\r\n    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);\r\n    text-align: center;\r\n    transition: transform 0.3s ease-in-out;\r\n    height: 200px;\r\n    flex: 0 0 300px; /* Assure que chaque carte occupe un espace fixe */\r\n}\r\n\r\n\r\n.article-card:hover {\r\n    transform: scale(1.05);\r\n}\r\n\r\n.article-card img {\r\n    width: 100%;\r\n    border-radius: 10px;\r\n}\r\n.voir-plus {\r\n    background-color: #333;\r\n    color: white;\r\n    padding: 10px 20px;\r\n    border: none;\r\n    border-radius: 5px;\r\n    cursor: pointer;\r\n    margin-top: 40px;\r\n\r\n}\r\n\r\n.voir-plus:hover {\r\n    background-color: #0056b3;\r\n}\r\n\r\n/* Styles pour les flèches de navigation */\r\n.btn {\r\n    position: absolute;\r\n    top: 10px;\r\n    transform: translateY(-50%);\r\n    cursor: pointer;\r\n    width: 40px;\r\n    height: 40px;\r\n    z-index: 10;\r\n    background-color: transparent;\r\n    border: none; /* Retire toute bordure */\r\n\r\n}\r\n\r\n#L1, #L2 {\r\n    left: -50px;\r\n}\r\n\r\n#R1, #R2 {\r\n    right: -50px;\r\n}\r\n\r\n/* Footer */\r\n.footer {\r\n    margin-top: 100px;\r\n    display: flex;\r\n    justify-content: space-between;\r\n    align-items: center;\r\n    background-color: #A3D8F4;\r\n    padding: 20px;\r\n}\r\n\r\n.footer .social-media {\r\n    display: flex;\r\n}\r\n\r\n.footer .social-media a {\r\n    margin-right: 15px;\r\n}\r\n\r\n.footer .contact-info {\r\n    color: #000;\r\n    font-size: 14px;\r\n    text-align: center;\r\n}\r\n\r\n.footer .useful-links {\r\n    text-align: right;\r\n    margin-right: 20px;\r\n}\r\n\r\n.footer .useful-links a {\r\n    color: #000;\r\n    display: block;\r\n    margin-bottom: 10px;\r\n    color: #000;\r\n    text-align: left; /* Pour aligner à gauche si nécessaire */\r\n}\r\n\r\n.footer .social-media img {\r\n    width: 30px; /* Taille uniforme pour tous les logos */\r\n    height: 30px;\r\n}\r\n\r\n\r\n.footer .support-button {\r\n    background-color: #008CBA;\r\n    color: white;\r\n    padding: 15px 25px;\r\n    text-align: center;\r\n    font-size: 16px;\r\n    border: 2px solid #000;\r\n    border-radius: 10px;\r\n    cursor: pointer;\r\n}\r\n\r\n.footer .support-button:hover {\r\n    background-color: #005f6a;\r\n}\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n/* Petits écrans : Adapter la barre de recherche */\r\n@media (max-width: 930px) {\r\n\r\n\r\n\r\n\r\n    nav ul {\r\n        display: flex;\r\n        flex-direction: column; /* Empile les éléments verticalement */\r\n        align-items: center;\r\n        gap: 10px;\r\n    }\r\n\r\n    nav ul li {\r\n        display: block;\r\n    }\r\n\r\n\r\n    .articles {\r\n        padding: 20px;\r\n        margin: 50px auto;\r\n        background-color: #A3D8F4;\r\n        border-radius: 8px;\r\n        width: 95%;\r\n    }\r\n\r\n    .article-card {\r\n        width: 80%; /* Réduit la largeur de l'article */\r\n        margin: 60px auto; /* Centre les articles avec une marge réduite */\r\n        padding: 30px; /* Réduit l'espace intérieur */\r\n    }\r\n\r\n\r\n\r\n    .footer {\r\n        flex-direction: column;\r\n        text-align: center;\r\n    }\r\n\r\n    .side-burger-menu {\r\n        position: fixed;\r\n        top: 170px;\r\n        left: 20px;\r\n        z-index: 1300;\r\n        cursor: pointer;\r\n\r\n    }\r\n\r\n    .side-burger-menu img {\r\n        width: 30px;\r\n        cursor: pointer;\r\n\r\n    }\r\n\r\n\r\n    .footer .useful-links a {\r\n        color: #000;\r\n        display: block;\r\n        margin-bottom: 10px;\r\n\r\n        text-align: center;\r\n    }\r\n\r\n\r\n    .support-button {\r\n        width: 100%;\r\n        margin-top: 20px;\r\n    }\r\n\r\n    .row {\r\n        flex-direction: column;\r\n        align-items: center;\r\n        gap: 20px;\r\n    }\r\n\r\n    .logo img {\r\n        width: 80px; /* Réduit la taille du logo */\r\n    }\r\n}\r\n\r\n/* Medium Screen Adjustments */\r\n@media (min-width: 930px) and (max-width: 1400px) {\r\n\r\n\r\n    .article-card {\r\n        flex: 0 0 250px; /* Réduire la taille de chaque article */\r\n        margin: 20px; /* Réduire l'espacement */\r\n        width: 33.33%; /* Chaque article occupe un tiers de l'espace sur les écrans moyens */\r\n\r\n    }\r\n\r\n\r\n    .side-burger-menu {\r\n        position: fixed;\r\n        top: 150px;\r\n        left: 40px;\r\n        z-index: 1300;\r\n        cursor: pointer;\r\n\r\n    }\r\n\r\n\r\n\r\n    .row {\r\n        justify-content: space-between; /* Ajuster l'espacement entre les articles */\r\n    }\r\n\r\n    .btn {\r\n\r\n        top: 1px; /* Ajuster la position des flèches */\r\n    }\r\n\r\n    #L1, #L2 {\r\n        left: -30px;\r\n    }\r\n\r\n    #R1, #R2 {\r\n        right: -30px;\r\n    }\r\n    nav ul {\r\n        justify-content: center;\r\n        gap: 15px;\r\n    }\r\n\r\n    .articles {\r\n        padding: 30px;\r\n        margin: 50px auto;\r\n        background-color: #A3D8F4;\r\n        border-radius: 8px;\r\n        width: 80%;\r\n    }\r\n\r\n\r\n    .row {\r\n        gap: 50px;\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/accueil/Accueil.css b/accueil/Accueil.css
+--- a/accueil/Accueil.css	(revision f3c2c1f9c61434cc483206e15d3f086c25fbece6)
++++ b/accueil/Accueil.css	(date 1729020160758)
+@@ -19,7 +19,7 @@
+     justify-content: space-between;
+     align-items: center;
+     padding: 20px;
+-    z-index: 1000;
++    z-index: 10;
+     background-color: rgba(163, 216, 244, 0.8);
+     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+     transition: opacity 0.3s ease;
+@@ -86,7 +86,6 @@
+ 
+ /* Menu burger utilisateur */
+ .user-side-menu {
+-
+     position: absolute;
+     top: 90px;
+     right: 10px;
+@@ -110,6 +109,7 @@
+     font-size: 18px;
+     color: #fff;
+     transition: background-color 1s ease;
++
+ }
+ 
+ 
+@@ -127,8 +127,6 @@
+ }
+ 
+ 
+-
+-
+ .auth-icon img {
+     cursor: pointer;
+ 
+@@ -150,7 +148,6 @@
+ }
+ 
+ .side-menu {
+-
+     z-index: 1200;
+     width: 0;
+     position: fixed;
+@@ -182,7 +179,6 @@
+ .side-menu.active {
+     width: 250px;
+     left: 0;
+-
+ }
+ 
+ /* Section Héros */
+@@ -209,6 +205,9 @@
+     color: #777;
+ }
+ 
++
++
++
+ /* Styles des articles */
+ .articles {
+     max-width: 70%;

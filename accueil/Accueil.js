@@ -261,11 +261,6 @@ document.querySelectorAll('.row').forEach(row => {
 
 
 
-
-
-
-
-// Fonction pour créer un article
 // Fonction pour créer un article
 function createArticle(title, imageUrl, bodyText) {
     const articleCard = document.createElement('div');
