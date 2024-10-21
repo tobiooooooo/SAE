@@ -368,7 +368,7 @@ nav ul li a:hover {
         color: #000;
         display: block;
         margin-bottom: 10px;
-
+        padding-top: 10px;
         text-align: center;
     }
 
