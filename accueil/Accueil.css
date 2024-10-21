@@ -342,8 +342,15 @@ nav ul li a:hover {
     display: flex;
 }
 
-.footer .social-media a {
-    margin-right: 15px;
+.social-media i {
+    font-size: 20px;
+    color: #fff; /* Change cette couleur selon tes besoins */
+    margin-right: 20px;
+}
+
+
+.social-media i:hover {
+    color: #007bff; /* Change la couleur au survol */
 }
 
 .footer .contact-info {
@@ -365,10 +372,6 @@ nav ul li a:hover {
     text-align: left; /* Pour aligner à gauche si nécessaire */
 }
 
-.footer .social-media img {
-    width: 30px; /* Taille uniforme pour tous les logos */
-    height: 30px;
-}
 
 
 .footer .support-button {
@@ -384,6 +387,8 @@ nav ul li a:hover {
 
 .footer .support-button:hover {
     background-color: #005f6a;
+
+
 }
 
 
