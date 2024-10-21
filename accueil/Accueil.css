@@ -242,15 +242,15 @@ nav ul li a:hover {
 }
 
 .view-all-btn {
-    background-color: #A3D8F4;
+    background-color: #ACCDDC;
     color: white;
     padding: 10px 20px;
-    border: none;
     border-radius: 5px;
     cursor: pointer;
     font-size: 18px;
     font-weight: bold;
     text-transform: uppercase;
+
 }
 
 .view-all-btn:hover {
