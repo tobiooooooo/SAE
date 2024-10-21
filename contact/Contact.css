@@ -460,7 +460,7 @@ nav ul li a:hover {
 /* Pour les écrans plus petits que 768px (tablettes et mobiles) */
 
 /* Pour les écrans de taille tablette et plus petits */
-@media (max-width: 930px) {
+@media (max-width: 1270px) {
 
 
     .side-burger-menu {
@@ -545,41 +545,7 @@ nav ul li a:hover {
 
 
 
-@media (min-width: 930px) and (max-width: 1400px) {
 
-
-    .logo img {
-        width: 80px; /* Réduit la taille du logo */
-    }
-
-
-    nav ul {
-        display: flex;
-        gap: 15px;
-        justify-content: center;
-    }
-
-    .logo img {
-        width: 80px; /* Réduit la taille du logo */
-    }
-
-    .contactUs {
-        grid-template-columns: 1fr 1fr; /* Deux colonnes pour l'affichage des sections */
-        grid-template-areas:
-            "form info"
-            "map map";
-    }
-
-    .contact.form, .contact.info, .contact.map {
-        padding: 20px;
-    }
-
-
-
-    .footer .social-media {
-        margin-bottom: 10px;
-    }
-}
 
 
 
