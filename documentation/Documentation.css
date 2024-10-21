@@ -386,6 +386,10 @@ nav ul li a:hover {
         width: 90%; /* Full width for small screens */
     }
 
+    .footer .social-media {
+        margin-bottom: 20px;
+    }
+
 }
 
 /* Medium Screen Adjustments */

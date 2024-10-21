@@ -464,6 +464,10 @@ nav ul li a:hover {
     }
 
 
+    .footer .social-media {
+        margin-bottom: 20px;
+    }
+
     .support-button {
         width: 100%;
         margin-top: 20px;

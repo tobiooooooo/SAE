@@ -25,6 +25,11 @@ document.addEventListener('click', function(event) {
     }
 });
 
+
+
+
+
+
 // Sélection du menu burger utilisateur et du menu latéral
 const userBurgerMenu = document.querySelector('.auth-icon img');
 const userSideMenu = document.querySelector('.user-side-menu');
@@ -37,6 +42,11 @@ userBurgerMenu.addEventListener('click', function () {
         userSideMenu.classList.add('active');
     }
 });
+
+
+
+
+
 
 // Sélection des éléments pour la barre de recherche et la barre de navigation
 const searchIcon = document.querySelector('.search-icon');
@@ -71,5 +81,33 @@ searchIcon.addEventListener('click', () => {
 
 
 
+
+
+
+// Sélection des éléments du DOM
+const userMenu = document.getElementById('user-side-menu');
+const burgerMenu = document.getElementById('side-menu');
+const burgerBtn = document.getElementById('burger-btn');
+const userIcon = document.querySelector('.auth-icon img');
+
+// Fonction pour vérifier si un clic est en dehors d'un élément
+function isClickOutside(element, target) {
+    return !element.contains(target);
+}
+
+// Ajouter un écouteur d'événement pour fermer les menus lorsque l'utilisateur clique ailleurs sur la page
+document.addEventListener('click', function (event) {
+    const target = event.target;
+
+    // Fermer le menu utilisateur si l'utilisateur clique en dehors
+    if (userMenu.classList.contains('active') && isClickOutside(userMenu, target) && !userIcon.contains(target)) {
+        userMenu.classList.remove('active');
+    }
+
+    // Fermer le menu burger si l'utilisateur clique en dehors
+    if (burgerMenu.classList.contains('active') && isClickOutside(burgerMenu, target) && !burgerBtn.contains(target)) {
+        burgerMenu.classList.remove('active');
+    }
+});
 
 

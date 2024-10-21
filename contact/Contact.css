@@ -140,14 +140,14 @@ nav ul li a:hover {
 .side-burger-menu {
     position: fixed;
     top: 140px;
-    left: 30px;
+    left: 3px;
     z-index: 1300;
     cursor: pointer;
 
 }
 
 .side-burger-menu img {
-    width: 40px;
+    width: 30px;
     cursor: pointer;
 }
 
@@ -460,11 +460,24 @@ nav ul li a:hover {
 /* Pour les écrans plus petits que 768px (tablettes et mobiles) */
 
 /* Pour les écrans de taille tablette et plus petits */
-@media only screen and (max-width: 768px) {
-    header {
-        flex-direction: column;
-        align-items: center;
+@media (max-width: 930px) {
+
+
+    .side-burger-menu {
+        position: fixed;
+        top: 170px;
+        left: 7px;
+        z-index: 1300;
+        cursor: pointer;
+
     }
+
+    .side-burger-menu img {
+        width: 30px;
+        cursor: pointer;
+
+    }
+
 
     nav ul {
         flex-direction: column;
@@ -500,6 +513,15 @@ nav ul li a:hover {
         align-items: center;
     }
 
+
+    .footer .useful-links a {
+        color: #000;
+        display: block;
+        margin-bottom: 10px;
+
+        text-align: center;
+    }
+
     .footer .social-media {
         margin-bottom: 20px;
     }
@@ -513,42 +535,49 @@ nav ul li a:hover {
     .inputBox {
         width: 100%; /* Chaque champ de saisie occupe toute la largeur */
     }
+
+    .logo img {
+        width: 80px; /* Réduit la taille du logo */
+    }
+
 }
 
-/* Pour les écrans de très petite taille, comme les mobiles */
-@media only screen and (max-width: 480px) {
-    .search-container {
-        display: block;
+
+
+
+@media (min-width: 930px) and (max-width: 1400px) {
+
+
+    .logo img {
+        width: 80px; /* Réduit la taille du logo */
     }
 
-    .search-bar {
-        width: 100%; /* La barre de recherche occupe toute la largeur sur mobile */
+
+    nav ul {
+        display: flex;
+        gap: 15px;
+        justify-content: center;
     }
 
-    .footer .social-media img {
-        width: 25px;
-        height: 25px; /* Réduit la taille des icônes dans le footer */
+    .logo img {
+        width: 80px; /* Réduit la taille du logo */
+    }
+
+    .contactUs {
+        grid-template-columns: 1fr 1fr; /* Deux colonnes pour l'affichage des sections */
+        grid-template-areas:
+            "form info"
+            "map map";
     }
 
     .contact.form, .contact.info, .contact.map {
-        padding: 15px;
-        width: 100%; /* Chaque section occupe toute la largeur */
+        padding: 20px;
     }
 
-    .infoBox div i {
-        font-size: 2em; /* Réduit la taille des icônes sur les très petits écrans */
-        margin-right: 10px;
-    }
 
-    /* Les inputs du formulaire apparaissent les uns sous les autres sur mobile */
-    .formBox .row50 {
-        flex-direction: column;
-        gap: 0;
-    }
 
-    .inputBox {
-        width: 100%; /* Chaque champ de saisie occupe toute la largeur */
-        margin-bottom: 20px;
+    .footer .social-media {
+        margin-bottom: 10px;
     }
 }
 
