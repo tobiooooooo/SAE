@@ -55,6 +55,8 @@ header {
     padding: 5px 10px; /* Rétablit le padding à l'apparition */
 }
 
+
+
 .search-icon {
     cursor: pointer;
     width: 25px;
@@ -181,6 +183,11 @@ nav ul li a:hover {
 .side-menu.active {
     width: 250px;
     left: 0;
+    height: 100%;
+}
+.fa-folder, .fa-comment, .fa-newspaper, .fa-scroll, .fa-camera{
+    padding: 5px;
+    color: black;
 }
 
 /* Section Héros */

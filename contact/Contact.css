@@ -184,7 +184,12 @@ nav ul li a:hover {
 .side-menu.active {
     width: 250px;
     left: 0;
+    height: 100%;
 
+}
+.fa-folder, .fa-comment, .fa-newspaper, .fa-scroll, .fa-camera{
+    padding: 5px;
+    color: black;
 }
 
 /* Section Héros */

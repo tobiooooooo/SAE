@@ -99,12 +99,6 @@ searchIcon.addEventListener('click', () => {
 
 
 
-
-
-
-
-
-
 // Fonction pour gérer le défilement des articles
 function setupArticleNavigation(row, leftButtonId, rightButtonId) {
     const leftButton = document.getElementById(leftButtonId);
