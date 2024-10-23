@@ -38,9 +38,6 @@ header {
     transition: opacity 0.3s ease;
 }
 
-.logo-priartem{
-    border: solid 2px white;
-}
 
 .logo img {
     width: 100px;
