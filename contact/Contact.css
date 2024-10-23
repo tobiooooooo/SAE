@@ -13,7 +13,6 @@ html {
 }
 
 
-
 header {
     position: relative;
     display: flex;
@@ -25,6 +24,11 @@ header {
     background-color: rgba(163, 216, 244, 0.8);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transition: opacity 0.3s ease;
+
+}
+
+.logo-priartem{
+    border: solid 2px white;
 }
 
 .logo img {
