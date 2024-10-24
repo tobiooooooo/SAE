@@ -319,9 +319,6 @@ nav ul li a:hover {
 
 .voir-plus:hover {
     transform: scale(1.05); /* Agrandissement léger */
-
-
-    box-shadow: 0 8px 15px rgba(0, 123, 255, 0.3); /* Ombre plus intense */
 }
 
 /* Styles pour les flèches de navigation */
