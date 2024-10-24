@@ -258,15 +258,23 @@ nav ul li a:hover {
     font-size: 18px;
     font-weight: bold;
     text-transform: uppercase;
+    border: 2px solid transparent;
+    transition: transform 0.4s ease-in-out, background-color 0.4s ease-in-out, box-shadow 0.4s ease-in-out, border 0.4s ease-in-out;
 
 }
 
+/* Transition au survol */
 .view-all-btn:hover {
-    background-color: #003f8f;
-
+    transform: scale(1.05); /* Agrandissement léger */
+    background-color: #A3D8F4; /* Changement de couleur de fond */
+    box-shadow: 0 8px 15px rgba(0, 123, 255, 0.3); /* Ombre plus intense */
 }
 
-
+/* Ajout d'une transition lors du clic */
+.view-all-btn:active {
+    transform: scale(1.05); /* Réduction légère lors du clic */
+    box-shadow: 0 5px 10px rgba(0, 123, 255, 0.2); /* Réduction de l'ombre lors du clic */
+}
 
 
 .row {
@@ -302,7 +310,7 @@ nav ul li a:hover {
     background-color: #333;
     color: white;
     padding: 10px 20px;
-    border: none;
+    border: 2px solid transparent;
     border-radius: 5px;
     cursor: pointer;
     margin-top: 40px;
@@ -310,7 +318,10 @@ nav ul li a:hover {
 }
 
 .voir-plus:hover {
-    background-color: #0056b3;
+    transform: scale(1.05); /* Agrandissement léger */
+
+
+    box-shadow: 0 8px 15px rgba(0, 123, 255, 0.3); /* Ombre plus intense */
 }
 
 /* Styles pour les flèches de navigation */
@@ -541,3 +552,4 @@ nav ul li a:hover {
         gap: 50px;
     }
 }
+
