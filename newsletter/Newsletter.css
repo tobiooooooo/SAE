@@ -12,7 +12,7 @@ body {
     background-image: url("../images/background.png");
     background-size: cover;
     background-repeat: no-repeat;
-    background-attachment: fixed; /* Fixe le fond pour qu'il reste statique lors du scroll */
+    background-attachment: fixed; 
     background-position: center;
 }
 html {
@@ -194,8 +194,8 @@ nav ul li a:hover {
 /* Conteneur principal pour aligner gauche et droite */
 .main-container {
     display: flex;
-    justify-content: center; /* Centre horizontalement */
-    align-items: center; /* Centre verticalement */
+    justify-content: center; 
+    align-items: center; 
     max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
@@ -208,10 +208,10 @@ nav ul li a:hover {
     background-color: transparent;
     padding: 20px;
     border-radius: 8px;
-    border: 2px solid #aaa; /* Bordure douce */
-    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.2); /* Ombre douce */
-    max-width: 400px; /* Limite de largeur pour la section */
-    margin: 0 auto; /* Centrer la section */
+    border: 2px solid #aaa; 
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.2); 
+    max-width: 400px; 
+    margin: 0 auto; 
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -224,18 +224,10 @@ nav ul li a:hover {
     font-style: italic;
     font-size: 1rem;
     color: #555;
-    max-width: 100%; /* Prend toute la largeur disponible */
+    max-width: 100%; 
     padding: 15px;
 }
 
-/* Formulaire de contact */
-.contact-form {
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* Centrer le contenu horizontalement */
-    gap: 10px; /* Espace entre les champs */
-    width: 100%; /* Prendre toute la largeur de la section */
-}
 
 .input-field {
     padding: 10px;
@@ -262,29 +254,29 @@ nav ul li a:hover {
 /* Section de droite */
 .right-section {
     width: 45%;
-    text-align: center; /* Centrer le texte dans la section droite */
+    text-align: center; 
 }
 /* Styles pour la section de soutien et la newsletter */
 .support-section {
     background-color: transparent;
     padding: 20px;
-    border: 1px solid #aaa; /* Bordure douce pour les champs de saisie */
+    border: 1px solid #aaa; 
     border-radius: 8px;
     margin-top: 20px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-    text-align: center; /* Centrer le texte dans la section de soutien */
+    text-align: center; 
 }
 
 .support-title {
     font-size: 1.2rem;
     font-weight: bold;
-    color: #000; /* Change la couleur du titre en noir */
+    color: #000; 
     margin-bottom: 10px;
 }
 
 .support-text {
     font-size: 0.9rem;
-    color: #000; /* Change la couleur du texte en noir */
+    color: #000; 
     line-height: 1.5;
 }
 
@@ -301,7 +293,7 @@ nav ul li a:hover {
     font-size: 1rem;
     color: #000;
     background-color: #fff;
-    border: 1px solid #000; /* Contour noir */
+    border: 1px solid #000; 
     border-radius: 8px;
     cursor: pointer;
     transition: background-color 0.2s, color 0.2s;
@@ -316,26 +308,26 @@ nav ul li a:hover {
 .newsletter-section {
     background-color:#A3D8F4;
     padding: 20px;
-    border: 1px solid #aaa; /* Bordure douce pour les champs de saisie */
+    border: 1px solid #aaa; 
     border-radius: 8px;
     margin-top: 20px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-    text-align: center; /* Centrer le texte dans la section de soutien */
+    text-align: center; 
 }
 .newsletter-content {
     display: flex;
-    flex-direction: column; /* Change la direction pour empiler l'image au-dessus du texte */
-    align-items: center; /* Centre le contenu */
-    gap: 15px; /* Ajoute de l'espace entre l'image et le texte */
+    flex-direction: column; 
+    align-items: center; 
+    gap: 15px; 
 }
 
 .newsletter-image {
-    width: 120px; /* Augmente la largeur de l'image */
+    width: 120px; 
 }
 
 .newsletter-text {
     font-size: 0.9rem;
-    color: #000; /* Change la couleur du texte en noir */
+    color: #000; 
     line-height: 1.5;
 }
 
