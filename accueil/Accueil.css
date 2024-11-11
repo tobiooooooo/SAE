@@ -141,14 +141,14 @@ nav ul li a:hover {
 .side-burger-menu {
     position: fixed;
     top: 140px;
-    left: 30px;
+    left: 6px;
     z-index: 1300;
     cursor: pointer;
 
 }
 
 .side-burger-menu img {
-    width: 40px;
+    width: 30px;
     cursor: pointer;
 }
 
