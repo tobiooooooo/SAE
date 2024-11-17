@@ -1,0 +1,35 @@
+<!-- admin_dashboard.html -->
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tableau de bord Administrateur</title>
+  <link rel="stylesheet" href="formulaire.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+<header>
+  <h1>Tableau de bord Administrateur</h1>
+</header>
+<main>
+  <!-- Section des indicateurs -->
+  <section>
+    <h2>Indicateurs</h2>
+    <!-- Graphiques -->
+    <div class="charts-container">
+      <canvas id="chart-lieu-de-vie" width="400" height="200"></canvas>
+      <canvas id="chart-qualite-de-vie" width="400" height="200"></canvas>
+    </div>
+  </section>
+
+  <!-- Bouton de déconnexion -->
+  <section>
+    <form id="logout-form" action="formulaire.php" method="POST">
+      <button type="submit" name="action" value="logout">Se déconnecter</button>
+    </form>
+  </section>
+</main>
+<script src="formulaire.js"></script>
+</body>
+</html>
