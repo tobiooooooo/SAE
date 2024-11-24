@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -6,47 +5,52 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formulaire d'enquête</title>
     <link rel="stylesheet" href="formulaire.css">
-
 </head>
 <body>
 <header>
     <h1>Formulaire d'Enquête</h1>
 </header>
-<main>
+<main class="container">
     <!-- Formulaire utilisateur -->
-    <form id="survey-form" method="POST">
-        <div class="form-group">
-            <label for="name">Nom *</label>
-            <input type="text" id="name" name="name" placeholder="Votre nom" required>
-        </div>
-        <div class="form-group">
-            <label for="age">Âge *</label>
-            <input type="number" id="age" name="age" min="16" max="100" placeholder="Votre âge" required>
-        </div>
-        <div class="form-group">
-            <label for="region">Région *</label>
-            <select id="region" name="region" required>
-                <option value="">Sélectionnez une région</option>
-                <option value="ile-de-france">Île-de-France</option>
-                <option value="auvergne-rhone-alpes">Auvergne-Rhône-Alpes</option>
-                <option value="occitanie">Occitanie</option>
-            </select>
-        </div>
-        <div class="form-group">
-            <label for="satisfaction">Qualité de vie *</label>
-            <select id="satisfaction" name="satisfaction" required>
-                <option value="">Sélectionnez une réponse</option>
-                <option value="oui">Oui</option>
-                <option value="non">Non</option>
-            </select>
-        </div>
+    <form id="survey-form" method="POST" action="process_form.php">
+        <fieldset>
+            <legend>Informations personnelles</legend>
+            <div class="form-group">
+                <label for="name">Nom *</label>
+                <input type="text" id="name" name="name" placeholder="Votre nom" required>
+            </div>
+            <div class="form-group">
+                <label for="age">Âge *</label>
+                <input type="number" id="age" name="age" min="16" max="100" placeholder="Votre âge" required>
+            </div>
+        </fieldset>
+        <fieldset>
+            <legend>Votre situation</legend>
+            <div class="form-group">
+                <label for="region">Région *</label>
+                <select id="region" name="region" required>
+                    <option value="">Sélectionnez une région</option>
+                    <option value="ile-de-france">Île-de-France</option>
+                    <option value="auvergne-rhone-alpes">Auvergne-Rhône-Alpes</option>
+                    <option value="occitanie">Occitanie</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="satisfaction">Qualité de vie *</label>
+                <select id="satisfaction" name="satisfaction" required>
+                    <option value="">Sélectionnez une réponse</option>
+                    <option value="oui">Oui</option>
+                    <option value="non">Non</option>
+                </select>
+            </div>
+        </fieldset>
         <div class="form-group">
             <button type="submit">Envoyer</button>
         </div>
     </form>
 
     <!-- Connexion admin -->
-    <form id="admin-login-form" method="POST">
+    <form id="admin-login-form" method="POST" action="admin_login.php">
         <h2>Connexion Administrateur</h2>
         <div class="form-group">
             <label for="username">Nom d'utilisateur</label>
@@ -61,6 +65,5 @@
         </div>
     </form>
 </main>
-<script src="formulaire.js"></script>
 </body>
 </html>
