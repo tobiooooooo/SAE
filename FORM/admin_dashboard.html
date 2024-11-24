@@ -1,35 +1,106 @@
-<!-- admin_dashboard.html -->
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tableau de bord Administrateur</title>
-  <link rel="stylesheet" href="formulaire.css">
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tableau de Bord Administrateur</title>
+    <link rel="stylesheet" href="admin_dashboard.css">
+    <script src="https://d3js.org/d3.v7.min.js"></script>
 </head>
 <body>
 <header>
-  <h1>Tableau de bord Administrateur</h1>
+    <h1>Tableau de Bord Administrateur</h1>
+    <form id="logout-form" method="POST" action="logout.php" style="text-align: right; margin: 10px;">
+        <button type="submit" style="padding: 10px 20px; background-color: red; color: white; border: none; border-radius: 5px; cursor: pointer;">
+            Déconnexion
+        </button>
+    </form>
 </header>
 <main>
-  <!-- Section des indicateurs -->
-  <section>
-    <h2>Indicateurs</h2>
-    <!-- Graphiques -->
-    <div class="charts-container">
-      <canvas id="chart-lieu-de-vie" width="400" height="200"></canvas>
-      <canvas id="chart-qualite-de-vie" width="400" height="200"></canvas>
-    </div>
-  </section>
+    <section id="stats">
+        <h2>Statistiques Globales</h2>
+        <p id="total-users"></p>
+        <p id="average-age"></p>
+    </section>
 
-  <!-- Bouton de déconnexion -->
-  <section>
-    <form id="logout-form" action="formulaire.php" method="POST">
-      <button type="submit" name="action" value="logout">Se déconnecter</button>
-    </form>
-  </section>
+    <section id="region-chart">
+        <h2>Répartition par Région</h2>
+        <div id="chart-region"></div>
+    </section>
+
+    <section id="satisfaction-chart">
+        <h2>Répartition de la Satisfaction</h2>
+        <div id="chart-satisfaction"></div>
+    </section>
 </main>
-<script src="formulaire.js"></script>
+
+<script>
+    // Charger les indicateurs depuis l'API PHP
+    fetch('indicator.php')
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                // Afficher les statistiques globales
+                document.getElementById('total-users').textContent = `Total utilisateurs : ${data.data.total_users}`;
+                document.getElementById('average-age').textContent = `Âge moyen : ${data.data.average_age}`;
+
+                // Créer les graphiques avec D3.js
+                const regions = Object.entries(data.data.regions);
+                const satisfaction = Object.entries(data.data.satisfaction);
+
+                // Répartition par région
+                const regionSvg = d3.select('#chart-region')
+                    .append('svg')
+                    .attr('width', 500)
+                    .attr('height', 300);
+
+                regionSvg.selectAll('rect')
+                    .data(regions)
+                    .enter()
+                    .append('rect')
+                    .attr('x', (d, i) => i * 100)
+                    .attr('y', d => 300 - d[1] * 20)
+                    .attr('width', 50)
+                    .attr('height', d => d[1] * 20)
+                    .attr('fill', 'steelblue');
+
+                regionSvg.selectAll('text')
+                    .data(regions)
+                    .enter()
+                    .append('text')
+                    .attr('x', (d, i) => i * 100 + 25)
+                    .attr('y', d => 300 - d[1] * 20 - 5)
+                    .attr('text-anchor', 'middle')
+                    .text(d => d[1]);
+
+                // Répartition de la satisfaction
+                const satisfactionSvg = d3.select('#chart-satisfaction')
+                    .append('svg')
+                    .attr('width', 500)
+                    .attr('height', 300);
+
+                satisfactionSvg.selectAll('rect')
+                    .data(satisfaction)
+                    .enter()
+                    .append('rect')
+                    .attr('x', (d, i) => i * 100)
+                    .attr('y', d => 300 - d[1] * 20)
+                    .attr('width', 50)
+                    .attr('height', d => d[1] * 20)
+                    .attr('fill', 'orange');
+
+                satisfactionSvg.selectAll('text')
+                    .data(satisfaction)
+                    .enter()
+                    .append('text')
+                    .attr('x', (d, i) => i * 100 + 25)
+                    .attr('y', d => 300 - d[1] * 20 - 5)
+                    .attr('text-anchor', 'middle')
+                    .text(d => d[1]);
+            } else {
+                alert(data.message);
+            }
+        });
+</script>
 </body>
 </html>
