@@ -328,6 +328,7 @@ nav ul li a:hover {
 
 .footer .support-button:hover {
     background-color: #005f6a;
+    transition: background-color 0.5s, color 0.5s;
 }
 
 
