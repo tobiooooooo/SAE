@@ -5,19 +5,13 @@
     box-sizing: border-box;
     font-family: Arial, sans-serif;
 }
-body {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-    background-image: url("../images/background.png");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed; 
-    background-position: center;
-}
+
 html {
     background-image: url("../images/background.png");
+    background-attachment: fixed; /* Fixe le fond pour qu'il reste statique lors du scroll */
+    background-position: center;
 }
+
 
 header {
     position: fixed;
@@ -26,22 +20,43 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 20px;
-    z-index: 1000;
+    z-index: 10;
     background-color: rgba(163, 216, 244, 0.8);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transition: opacity 0.3s ease;
 }
 
+
+
 .logo img {
     width: 100px;
 }
-
 
 /* Style pour la barre de recherche */
 .search-container {
     display: flex;
     align-items: center;
+    position: relative; /* Pour gérer l'animation */
 }
+
+.search-bar {
+    width: 0;
+    opacity: 0;
+    padding: 0;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    font-size: 16px;
+    transition: width 0.4s ease, padding 0.4s ease;
+    /* L'animation se fait sur la largeur, l'opacité et le padding */
+}
+
+.search-bar.active {
+    width: 200px;
+    opacity: 1;
+    padding: 5px 10px; /* Rétablit le padding à l'apparition */
+}
+
+
 
 .search-icon {
     cursor: pointer;
@@ -50,24 +65,8 @@ header {
     margin-right: 10px;
 }
 
-.search-bar {
-    display: none; /* La barre de recherche est cachée par défaut */
-    border: 1px solid #ccc;
-    border-radius: 20px;
-    padding: 5px 10px;
-    font-size: 16px;
-    outline: none;
-}
 
-.search-bar.active {
-    display: block; /* La barre de recherche s'affiche lorsque la classe "active" est ajoutée */
-}
-
-
-
-
-
-
+/* Navigation */
 nav ul {
     list-style: none;
     display: flex;
@@ -80,58 +79,72 @@ nav ul li a {
     font-size: 18px;
     font-weight: bold;
     padding: 10px;
+    border-bottom: 2px solid transparent;
+    transition: color 0.3s ease, border-bottom-color 0.3s ease; /* Transition douce pour la couleur et la bordure */
 }
 
 nav ul li a:hover {
     color: #0056b3;
-    border-bottom: 2px solid #0056b3;
+    border-bottom-color: #0056b3; /* Couleur instantanée au survol */
+    border-bottom-width: 3px; /* L'épaisseur de la bordure augmente lentement */
 }
 
-
-/* Style pour le menu burger de l'utilisateur */
+/* Menu burger utilisateur */
 .user-side-menu {
-    position: fixed;
-    top: 90px; /* Position ajustée sous le logo */
+    position: absolute;
+    top: 90px;
     right: 10px;
-    width: 0;
-    height: auto;
-    background-color: #A3D8F4; /* Fond bleu */
+    width: 200px;
+    background-color: #A3D8F4;
     color: #fff;
     overflow: hidden;
-    transition: 0.2s;
     padding-top: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     z-index: 1000;
+    transform: translateX(100%); /* Cacher sur le côté droit */
+    transition: transform 0.7s ease-in-out, opacity 0.4s ease-in-out;
+    opacity: 0;
 }
 
 .user-side-menu a {
+
     display: block;
     padding: 10px 15px;
     text-decoration: none;
+    font-size: 18px;
     color: #fff;
-    transition: background-color 0.3s;
+    transition: background-color 1s ease;
+
 }
+
+
 
 .user-side-menu a:hover {
     background-color: #575757;
 }
 
-/* Lorsqu'on clique sur le bouton utilisateur */
 .user-side-menu.active {
-    width: 200px; /* Largeur lorsque le menu est ouvert */
+
+    width: 200px; /* Largeur du menu lorsqu'il est ouvert */
+    height: auto; /* Hauteur adaptée au contenu */
+    opacity: 1; /* Le menu devient visible */
+    transform: translateX(0);
 }
 
 
+.auth-icon img {
+    cursor: pointer;
 
+}
 
-
-/* Style pour le menu burger à gauche sous le logo */
+/* Menu burger à gauche */
 .side-burger-menu {
     position: fixed;
-    top: 120px; /* Espace ajusté en dessous du logo */
+    top: 140px;
     left: 6px;
-    z-index: 1000;
+    z-index: 1300;
     cursor: pointer;
+
 }
 
 .side-burger-menu img {
@@ -140,42 +153,42 @@ nav ul li a:hover {
 }
 
 .side-menu {
-    height: auto;
+    z-index: 1200;
     width: 0;
     position: fixed;
+    left: -250px; /* Position hors écran à gauche */
     top: 0;
-    left: 0;
-    background-color: #A3D8F4; /* Fond bleu clair */
+    background-color: #A3D8F4;
     color: #fff;
     overflow-x: hidden;
-    transition: 0.2s;
+    transition: left 1s ease;
     padding-top: 60px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .side-menu a {
     display: flex;
-    flex-direction: column; /* Change la direction de flex à colonne */
-    align-items: center; /* Centre les éléments horizontalement */
-    justify-content: center; /* Centre les éléments verticalement */
+    align-items: center;
+    justify-content: center;
     padding: 10px 15px;
     text-decoration: none;
     font-size: 18px;
     color: #fff;
-    transition: 0.3s;
+    transition: background-color 1s ease;
 }
-
-.side-menu a img {
-    margin-right: 10px; /* Ajoute un espace entre l'icône et le texte */
-}
-
 
 .side-menu a:hover {
     background-color: #575757;
 }
 
-/* Lorsqu'on clique sur le bouton burger */
 .side-menu.active {
     width: 250px;
+    left: 0;
+    height: 100%;
+}
+.fa-folder, .fa-comment, .fa-newspaper, .fa-scroll, .fa-camera{
+    padding: 5px;
+    color: black;
 }
 
 /* Hero Section */
@@ -206,11 +219,11 @@ nav ul li a:hover {
 .left-section {
     width: 45%;
     background-color: transparent;
-    padding: 20px;
+    padding: 60px;
     border-radius: 8px;
     border: 2px solid #aaa; 
     box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.2); 
-    max-width: 400px; 
+    max-width: 600px;
     margin: 0 auto; 
     display: flex;
     flex-direction: column;
@@ -241,11 +254,16 @@ nav ul li a:hover {
 .submit-button {
     padding: 10px;
     font-size: 1rem;
-    color: #fff;
-    background-color: #000;
-    border: none;
+    color: #000;
+    background-color: #fff;
+    border: 1px solid #000;
     border-radius: 8px;
     cursor: pointer;
+    transition: background-color 0.5s, color 0.5s;
+}
+.submit-button:hover {
+    background-color: #000; /* Couleur de fond change */
+    color: #fff; /* Couleur du texte change */
 }
 .input-field, .submit-button {
     width: 80%; /* Ajuster la largeur des champs */
@@ -296,7 +314,7 @@ nav ul li a:hover {
     border: 1px solid #000; 
     border-radius: 8px;
     cursor: pointer;
-    transition: background-color 0.2s, color 0.2s;
+    transition: background-color 0.5s, color 0.5s;
 }
 
 .support-button:hover {
@@ -389,6 +407,7 @@ nav ul li a:hover {
 
 .footer .support-button:hover {
     background-color: #005f6a;
+    transition: background-color 0.5s, color 0.5s;
 }
 
 
