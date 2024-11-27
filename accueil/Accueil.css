@@ -32,7 +32,7 @@ header {
     width: 100px;
 }
 
-/* Style pour la barre de recherche */
+
 .search-container {
     display: flex;
     align-items: center;
@@ -47,13 +47,13 @@ header {
     border-radius: 20px;
     font-size: 16px;
     transition: width 0.4s ease, padding 0.4s ease;
-    /* L'animation se fait sur la largeur, l'opacité et le padding */
+
 }
 
 .search-bar.active {
     width: 200px;
     opacity: 1;
-    padding: 5px 10px; /* Rétablit le padding à l'apparition */
+    padding: 5px 10px;
 }
 
 
@@ -66,7 +66,7 @@ header {
 }
 
 
-/* Navigation */
+
 nav ul {
     list-style: none;
     display: flex;
@@ -80,13 +80,13 @@ nav ul li a {
     font-weight: bold;
     padding: 10px;
     border-bottom: 2px solid transparent;
-    transition: color 0.3s ease, border-bottom-color 0.3s ease; /* Transition douce pour la couleur et la bordure */
+    transition: color 0.3s ease, border-bottom-color 0.3s ease; /* Transition pour la couleur et la bordure */
 }
 
 nav ul li a:hover {
     color: #0056b3;
-    border-bottom-color: #0056b3; /* Couleur instantanée au survol */
-    border-bottom-width: 3px; /* L'épaisseur de la bordure augmente lentement */
+    border-bottom-color: #0056b3;
+    border-bottom-width: 3px;
 }
 
 /* Menu burger utilisateur */
@@ -125,9 +125,9 @@ nav ul li a:hover {
 
 .user-side-menu.active {
 
-    width: 200px; /* Largeur du menu lorsqu'il est ouvert */
-    height: auto; /* Hauteur adaptée au contenu */
-    opacity: 1; /* Le menu devient visible */
+    width: 200px;
+    height: auto;
+    opacity: 1;
     transform: translateX(0);
 }
 
@@ -137,7 +137,7 @@ nav ul li a:hover {
 
 }
 
-/* Menu burger à gauche */
+
 .side-burger-menu {
     position: fixed;
     top: 140px;
@@ -191,7 +191,7 @@ nav ul li a:hover {
     color: black;
 }
 
-/* Section Héros */
+
 .hero {
     text-align: center;
     padding: 50px 20px;
@@ -218,7 +218,7 @@ nav ul li a:hover {
 
 
 
-/* Styles des articles */
+
 .articles {
     max-width: 70%;
     padding: 50px 50px;
@@ -228,8 +228,7 @@ nav ul li a:hover {
     margin: 100px auto;
     background-color: #A3D8F4;
     border-radius: 20px;
-
-    overflow: hidden; /* Ajouté pour masquer les articles débordants */
+    overflow: hidden;
 }
 .article-card {
     transition: transform 0.3s ease, opacity 0.3s ease; /* Animation pour les articles */
@@ -238,7 +237,7 @@ nav ul li a:hover {
 
 .article-card.active {
     opacity: 1;
-    transform: translateX(0); /* Le nouvel article glisse doucement en place */
+    transform: translateX(0);
 }
 
 
@@ -265,15 +264,15 @@ nav ul li a:hover {
 
 /* Transition au survol */
 .view-all-btn:hover {
-    transform: scale(1.05); /* Agrandissement léger */
-    background-color: #A3D8F4; /* Changement de couleur de fond */
-    box-shadow: 0 8px 15px rgba(0, 123, 255, 0.3); /* Ombre plus intense */
+    transform: scale(1.05);
+    background-color: #A3D8F4;
+    box-shadow: 0 8px 15px rgba(0, 123, 255, 0.3);
 }
 
 /* Ajout d'une transition lors du clic */
 .view-all-btn:active {
-    transform: scale(1.05); /* Réduction légère lors du clic */
-    box-shadow: 0 5px 10px rgba(0, 123, 255, 0.2); /* Réduction de l'ombre lors du clic */
+    transform: scale(1.05);
+    box-shadow: 0 5px 10px rgba(0, 123, 255, 0.2);
 }
 
 
@@ -282,7 +281,7 @@ nav ul li a:hover {
     justify-content: center;
     transition: transform 0.5s ease;
     position: relative;
-    width: 100%; /* Assure que la ligne occupe tout l'espace disponible */
+    width: 100%;
 }
 
 .article-card {
@@ -294,7 +293,7 @@ nav ul li a:hover {
     text-align: center;
     transition: transform 0.3s ease-in-out;
     height: 200px;
-    flex: 0 0 300px; /* Assure que chaque carte occupe un espace fixe */
+    flex: 0 0 300px;
 }
 
 
@@ -318,26 +317,26 @@ nav ul li a:hover {
 }
 
 .voir-plus:hover {
-    transform: scale(1.05); /* Agrandissement léger */
+    transform: scale(1.05);
 }
 
 /* Styles pour les flèches de navigation */
 
 .fa-arrow-left {
     position: absolute;
-    left: 0; /* Place la flèche à gauche du conteneur */
+    left: 0;
     cursor: pointer;
     font-size: 30px;
 }
 
 .fa-arrow-right {
     position: absolute;
-    right: 0; /* Place la flèche à droite du conteneur */
+    right: 0;
     cursor: pointer;
     font-size: 30px;
 }
 
-/* Footer */
+
 .footer {
     margin-top: 100px;
     display: flex;
@@ -353,14 +352,14 @@ nav ul li a:hover {
 
 .social-media i {
     font-size: 20px;
-    color: #fff; /* Change cette couleur selon tes besoins */
+    color: #fff;
     margin-right: 20px;
 }
 
 
 .social-media i:hover {
     color: #007bff;
-    transition: color 0.8s ease; /* Transition uniquement sur la couleur */
+    transition: color 0.8s ease;
 }
 
 .footer .contact-info {
@@ -378,7 +377,7 @@ nav ul li a:hover {
     color: #000;
     display: block;
     margin-bottom: 10px;
-    text-align: left; /* Pour aligner à gauche si nécessaire */
+    text-align: left;
 }
 
 
@@ -404,12 +403,7 @@ nav ul li a:hover {
 
 
 
-
-
-
-
-
-/* Petits écrans : Adapter la barre de recherche */
+/* Petits écrans */
 @media (max-width: 930px) {
 
 
@@ -436,9 +430,9 @@ nav ul li a:hover {
     }
 
     .article-card {
-        width: 80%; /* Réduit la largeur de l'article */
-        margin: 60px auto; /* Centre les articles avec une marge réduite */
-        padding: 30px; /* Réduit l'espace intérieur */
+        width: 80%;
+        margin: 60px auto;
+        padding: 30px;
     }
 
 
@@ -489,18 +483,18 @@ nav ul li a:hover {
     }
 
     .logo img {
-        width: 80px; /* Réduit la taille du logo */
+        width: 80px;
     }
 }
 
-/* Medium Screen Adjustments */
+/* Ecrans moyens */
 @media (min-width: 930px) and (max-width: 1400px) {
 
 
     .article-card {
-        flex: 0 0 250px; /* Réduire la taille de chaque article */
-        margin: 20px; /* Réduire l'espacement */
-        width: 33.33%; /* Chaque article occupe un tiers de l'espace sur les écrans moyens */
+        flex: 0 0 250px;
+        margin: 20px;
+        width: 33.33%;
 
     }
 
@@ -517,12 +511,12 @@ nav ul li a:hover {
 
 
     .row {
-        justify-content: space-between; /* Ajuster l'espacement entre les articles */
+        justify-content: space-between;
     }
 
     .btn {
 
-        top: 1px; /* Ajuster la position des flèches */
+        top: 1px;
     }
 
     #L1, #L2 {
