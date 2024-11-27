@@ -1,12 +1,9 @@
-/* Global Styles */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: Arial, sans-serif;
 }
-
-
 
 html, body {
     height: 100%;
@@ -21,7 +18,7 @@ body {
     background-image: url("../images/background.png");
     background-size: cover;
     background-repeat: no-repeat;
-    background-attachment: fixed; /* Fixe le fond pour qu'il reste statique lors du scroll */
+    background-attachment: fixed;
     background-position: center;
 }
 
@@ -38,16 +35,14 @@ header {
     transition: opacity 0.3s ease;
 }
 
-
 .logo img {
     width: 100px;
 }
 
-/* Style pour la barre de recherche */
 .search-container {
     display: flex;
     align-items: center;
-    position: relative; /* Pour gérer l'animation */
+    position: relative;
 }
 
 .search-bar {
@@ -73,7 +68,6 @@ header {
     margin-right: 10px;
 }
 
-/* Navigation */
 nav ul {
     list-style: none;
     display: flex;
@@ -95,7 +89,6 @@ nav ul li a:hover {
     border-bottom-color: #0056b3;
 }
 
-/* Menu burger utilisateur */
 .user-side-menu {
     position: absolute;
     top: 90px;
@@ -136,10 +129,9 @@ nav ul li a:hover {
     cursor: pointer;
 }
 
-/* Menu burger à gauche */
 .side-burger-menu {
     position: fixed;
-    top: 140px;
+    top: 170px;
     left: 6px;
     z-index: 1300;
     cursor: pointer;
@@ -147,7 +139,6 @@ nav ul li a:hover {
 
 .side-burger-menu img {
     width: 30px;
-    cursor: pointer;
 }
 
 .side-menu {
@@ -183,14 +174,8 @@ nav ul li a:hover {
     width: 250px;
     left: 0;
     height: 100%;
-
-}
-.fa-folder, .fa-comment, .fa-newspaper, .fa-scroll, .fa-camera{
-    padding: 5px;
-    color: black;
 }
 
-/* Section Héros */
 .hero {
     text-align: center;
     padding: 50px 20px;
@@ -210,15 +195,12 @@ nav ul li a:hover {
     margin-top: 10px;
 }
 
-/* About Section */
 .about-section {
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 50px 20px;
-    background-color: transparent; /* Assure que cette section ne masque pas le fond */
-    overflow: unset;
-
+    background-color: transparent;
 }
 
 .about-container {
@@ -239,23 +221,19 @@ nav ul li a:hover {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-
-/* Effet de survol (hover) sur les boîtes */
 .about-box:hover {
-    transform: translateY(-10px); /* L'élément se déplace vers le haut */
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5); /* Augmentation de l'ombre pour un effet de relief */
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
     cursor: pointer;
 }
 
 .about-box h2 {
     font-size: 24px;
     margin-bottom: 20px;
-
-
 }
 
 .about-box:hover h2 {
-    color: #0056b3; /* Change la couleur du titre lors du survol */
+    color: #0056b3;
     transition: color 0.3s ease;
 }
 
@@ -271,7 +249,6 @@ nav ul li a:hover {
     margin-top: 20px;
 }
 
-/* Footer */
 .footer {
     margin-top: 100px;
     display: flex;
@@ -287,14 +264,13 @@ nav ul li a:hover {
 
 .social-media i {
     font-size: 20px;
-    color: #fff; /* Change cette couleur selon tes besoins */
+    color: #fff;
     margin-right: 20px;
 }
 
-
 .social-media i:hover {
     color: #007bff;
-    transition: color 0.8s ease; /* Transition uniquement sur la couleur */
+    transition: color 0.8s ease;
 }
 
 .footer .contact-info {
@@ -312,7 +288,6 @@ nav ul li a:hover {
     color: #000;
     display: block;
     margin-bottom: 10px;
-    text-align: left;
 }
 
 .footer .support-button {
@@ -331,16 +306,10 @@ nav ul li a:hover {
     transition: background-color 0.5s, color 0.5s;
 }
 
-
-/* Petits écrans : Adapter la barre de recherche */
 @media (max-width: 870px) {
-
-
-
-
     nav ul {
         display: flex;
-        flex-direction: column; /* Empile les éléments verticalement */
+        flex-direction: column;
         align-items: center;
         gap: 10px;
     }
@@ -349,41 +318,9 @@ nav ul li a:hover {
         display: block;
     }
 
-
-
-
     .footer {
         flex-direction: column;
         text-align: center;
-    }
-
-    .side-burger-menu {
-        position: fixed;
-        top: 170px;
-        left: 20px;
-        z-index: 1300;
-        cursor: pointer;
-
-    }
-
-    .side-burger-menu img {
-        width: 30px;
-        cursor: pointer;
-
-    }
-
-
-    .footer .useful-links a {
-        color: #000;
-        display: block;
-        margin-bottom: 10px;
-        padding-top: 10px;
-        text-align: center;
-    }
-
-
-    .logo img {
-        width: 80px; /* Réduit la taille du logo */
     }
 
     .about-container {
@@ -392,50 +329,11 @@ nav ul li a:hover {
     }
 
     .about-box {
-        width: 90%; /* Full width for small screens */
+        width: 90%;
     }
-
-    .footer .social-media {
-        margin-bottom: 20px;
-    }
-
-    .hero h1 {
-        font-size: 25px; /* Adjusting the title size for medium screens */
-    }
-
-
-    .hero p {
-        font-size: 14px;
-        max-width: 80%; /* Adjusting the paragraph width for medium screens */
-        margin-top: 10px;
-    }
-
 }
 
-/* Medium Screen Adjustments */
 @media (min-width: 870px) and (max-width: 1400px) {
-
-
-    .side-burger-menu {
-        position: fixed;
-        top: 150px;
-        left: 40px;
-        z-index: 1300;
-        cursor: pointer;
-
-    }
-
-
-    .hero h1 {
-        font-size: 32px; /* Adjusting the title size for medium screens */
-    }
-
-    .hero p {
-        font-size: 15px;
-        max-width: 80%; /* Adjusting the paragraph width for medium screens */
-    }
-
-
     .about-container {
         flex-direction: row;
         justify-content: space-between;
@@ -443,18 +341,14 @@ nav ul li a:hover {
     }
 
     .about-box {
-        width: 30%; /* Reducing size to make room for 3 boxes side by side */
+        width: 30%;
     }
 
     .about-box h2 {
-        font-size: 20px; /* Slightly reduce the size of the headings */
+        font-size: 20px;
     }
 
     .about-box p {
-        font-size: 14px; /* Reduce paragraph font size for medium screens */
+        font-size: 14px;
     }
-
-
 }
-
-
