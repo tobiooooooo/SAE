@@ -156,7 +156,7 @@ nav ul li a:hover {
     z-index: 1200;
     width: 0;
     position: fixed;
-    left: -250px; /* Position hors écran à gauche */
+    left: -250px;
     top: 0;
     background-color: #A3D8F4;
     color: #fff;
