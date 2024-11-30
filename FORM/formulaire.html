@@ -11,8 +11,12 @@
     <h1>Formulaire d'Enquête</h1>
 </header>
 <main class="container">
+    <!-- Vérification de connexion (exemple : "Bienvenue, Nom") -->
+    <p id="welcome-message">Bienvenue, [Nom de l'utilisateur]</p>
+
     <!-- Formulaire utilisateur -->
     <form id="survey-form" method="POST" action="process_form.php">
+        <!-- Informations personnelles -->
         <fieldset>
             <legend>Informations personnelles</legend>
             <div class="form-group">
@@ -24,8 +28,10 @@
                 <input type="number" id="age" name="age" min="16" max="100" placeholder="Votre âge" required>
             </div>
         </fieldset>
+
+        <!-- Lieu de vie -->
         <fieldset>
-            <legend>Votre situation</legend>
+            <legend>Lieu de vie</legend>
             <div class="form-group">
                 <label for="region">Région *</label>
                 <select id="region" name="region" required>
@@ -33,35 +39,82 @@
                     <option value="ile-de-france">Île-de-France</option>
                     <option value="auvergne-rhone-alpes">Auvergne-Rhône-Alpes</option>
                     <option value="occitanie">Occitanie</option>
+                    <!-- Ajouter d'autres régions ici -->
                 </select>
             </div>
             <div class="form-group">
-                <label for="satisfaction">Qualité de vie *</label>
-                <select id="satisfaction" name="satisfaction" required>
+                <label for="environment">Environnement de vie *</label>
+                <select id="environment" name="environment" required>
+                    <option value="">Sélectionnez une option</option>
+                    <option value="urbain">Urbain</option>
+                    <option value="suburbain">Suburbain</option>
+                    <option value="rural">Rural</option>
+                </select>
+            </div>
+        </fieldset>
+
+        <!-- Situation professionnelle et sociale -->
+        <fieldset>
+            <legend>Votre situation</legend>
+            <div class="form-group">
+                <label for="employment">Situation professionnelle *</label>
+                <select id="employment" name="employment" required>
+                    <option value="">Sélectionnez votre situation</option>
+                    <option value="emploi">En emploi</option>
+                    <option value="formation">En formation</option>
+                    <option value="sans-emploi">Sans emploi</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="social-activities">Participations sociales *</label>
+                <select id="social-activities" name="social_activities" required>
+                    <option value="">Sélectionnez une réponse</option>
+                    <option value="reguliere">Régulière</option>
+                    <option value="occasionnelle">Occasionnelle</option>
+                    <option value="rare">Rare</option>
+                </select>
+            </div>
+        </fieldset>
+
+        <!-- Qualité de vie -->
+        <fieldset>
+            <legend>Qualité de vie</legend>
+            <div class="form-group">
+                <label for="life-quality">Évaluez votre qualité de vie (1 à 10) *</label>
+                <input type="number" id="life-quality" name="life_quality" min="1" max="10" placeholder="1 (mauvaise) - 10 (excellente)" required>
+            </div>
+            <div class="form-group">
+                <label for="health-issues">Problèmes de santé majeurs ? *</label>
+                <select id="health-issues" name="health_issues" required>
                     <option value="">Sélectionnez une réponse</option>
                     <option value="oui">Oui</option>
                     <option value="non">Non</option>
                 </select>
             </div>
         </fieldset>
+
+        <!-- Besoins de soutien -->
+        <fieldset>
+            <legend>Besoins de soutien</legend>
+            <div class="form-group">
+                <label for="support-type">Type de soutien souhaité *</label>
+                <select id="support-type" name="support_type" required>
+                    <option value="">Sélectionnez une option</option>
+                    <option value="moral">Soutien moral</option>
+                    <option value="materiel">Soutien matériel</option>
+                    <option value="professionnel">Soutien professionnel</option>
+                    <option value="autre">Autre</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="daily-issues">Décrivez vos difficultés majeures *</label>
+                <textarea id="daily-issues" name="daily_issues" placeholder="Expliquez brièvement..." required></textarea>
+            </div>
+        </fieldset>
+
+        <!-- Bouton d'envoi -->
         <div class="form-group">
             <button type="submit">Envoyer</button>
-        </div>
-    </form>
-
-    <!-- Connexion admin -->
-    <form id="admin-login-form" method="POST" action="admin_login.php">
-        <h2>Connexion Administrateur</h2>
-        <div class="form-group">
-            <label for="username">Nom d'utilisateur</label>
-            <input type="text" id="username" name="username" required>
-        </div>
-        <div class="form-group">
-            <label for="password">Mot de passe</label>
-            <input type="password" id="password" name="password" required>
-        </div>
-        <div class="form-group">
-            <button type="submit">Se connecter</button>
         </div>
     </form>
 </main>

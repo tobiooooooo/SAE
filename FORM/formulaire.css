@@ -1,73 +1,137 @@
-
+/* Global Styles */
 body {
     font-family: Arial, sans-serif;
-    background-color: #f9f9f9;
     margin: 0;
     padding: 0;
+    background-image: url("../images/background.png");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: #333;
 }
 
 header {
-    background-color: #007BFF;
-    color: white;
+    background-color: rgba(163, 216, 244, 0.8);
+    padding: 20px;
     text-align: center;
-    padding: 20px 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 main {
-    max-width: 600px;
-    margin: 20px auto;
-    background: white;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    margin: 40px auto;
+    background: #A3D8F4;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-form .form-group {
+h1, h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 30px;
+}
+
+/* Formulaire principal */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+/* Sections du formulaire */
+fieldset {
+    border: none;
+    margin-bottom: 30px;
+}
+
+legend {
+    font-size: 1.3em;
+    font-weight: bold;
+    color: #0056b3;
+    margin-bottom: 15px;
+}
+
+/* Groupes de champs */
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
     margin-bottom: 20px;
 }
 
-form .form-group label {
+label {
     font-weight: bold;
-    display: block;
+    color: #333;
     margin-bottom: 5px;
 }
 
-form .form-group input,
-form .form-group select,
-form .form-group textarea {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    font-size: 16px;
-}
-
-form .form-group textarea {
-    resize: none;
-    height: 100px;
-}
-
-form .form-group button {
-    background-color: #007BFF;
-    color: white;
+/* Champs d'entrée */
+input, select, textarea {
+    padding: 12px;
+    font-size: 1em;
     border: none;
-    padding: 10px 20px;
-    font-size: 16px;
+    border-bottom: 2px solid #ccc;
     border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
+    background-color: #fff;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-form .form-group button:hover {
+/* Effets de focus */
+input:focus, select:focus, textarea:focus {
+    border-color: #0056b3;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    outline: none;
+}
+
+/* Textarea spécifique */
+textarea {
+    resize: none;
+    height: 120px;
+}
+
+/* Boutons */
+button {
     background-color: #0056b3;
+    color: white;
+    padding: 15px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-.charts-container {
-    margin: 20px auto;
-    max-width: 800px;
+button:hover {
+    background-color: #004494;
+    transform: translateY(-3px);
+}
+
+button:active {
+    transform: translateY(1px);
+}
+
+/* Footer (si nécessaire) */
+footer {
     text-align: center;
+    padding: 20px;
+    background-color: rgba(163, 216, 244, 0.8);
+    color: #333;
+    margin-top: 40px;
 }
 
-canvas {
-    margin: 20px auto;
+/* Adaptation pour les écrans plus petits */
+@media (max-width: 768px) {
+    main {
+        padding: 20px;
+    }
+
+    .form-group {
+        gap: 15px;
+    }
+
+    button {
+        padding: 12px;
+    }
 }
