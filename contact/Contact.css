@@ -1,4 +1,4 @@
-/* Global Styles */
+
 * {
     margin: 0;
     padding: 0;
@@ -8,7 +8,7 @@
 
 html {
     background-image: url("../images/background.png");
-    background-attachment: fixed; /* Fixe le fond pour qu'il reste statique lors du scroll */
+    background-attachment: fixed;
     background-position: center;
 }
 
@@ -32,11 +32,11 @@ header {
     width: 100px;
 }
 
-/* Style pour la barre de recherche */
+
 .search-container {
     display: flex;
     align-items: center;
-    position: relative; /* Pour gérer l'animation */
+    position: relative;
 }
 
 .search-bar {
@@ -47,13 +47,13 @@ header {
     border-radius: 20px;
     font-size: 16px;
     transition: width 0.4s ease, padding 0.4s ease;
-    /* L'animation se fait sur la largeur, l'opacité et le padding */
+
 }
 
 .search-bar.active {
     width: 200px;
     opacity: 1;
-    padding: 5px 10px; /* Rétablit le padding à l'apparition */
+    padding: 5px 10px;
 }
 
 .search-icon {
@@ -78,16 +78,16 @@ nav ul li a {
     font-weight: bold;
     padding: 10px;
     border-bottom: 2px solid transparent;
-    transition: color 0.3s ease, border-bottom-color 0.3s ease; /* Transition douce pour la couleur et la bordure */
+    transition: color 0.3s ease, border-bottom-color 0.3s ease;
 }
 
 nav ul li a:hover {
     color: #0056b3;
-    border-bottom-color: #0056b3; /* Couleur instantanée au survol */
-    border-bottom-width: 3px; /* L'épaisseur de la bordure augmente lentement */
+    border-bottom-color: #0056b3;
+    border-bottom-width: 3px;
 }
 
-/* Menu burger utilisateur */
+
 .user-side-menu {
 
     position: absolute;
@@ -100,7 +100,7 @@ nav ul li a:hover {
     padding-top: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     z-index: 1000;
-    transform: translateX(100%); /* Cacher sur le côté droit */
+    transform: translateX(100%);
     transition: transform 0.7s ease-in-out, opacity 0.4s ease-in-out;
     opacity: 0;
 }
@@ -123,9 +123,9 @@ nav ul li a:hover {
 
 .user-side-menu.active {
 
-    width: 200px; /* Largeur du menu lorsqu'il est ouvert */
-    height: auto; /* Hauteur adaptée au contenu */
-    opacity: 1; /* Le menu devient visible */
+    width: 200px;
+    height: auto;
+    opacity: 1;
     transform: translateX(0);
 }
 
@@ -137,7 +137,7 @@ nav ul li a:hover {
 
 }
 
-/* Menu burger à gauche */
+
 .side-burger-menu {
     position: fixed;
     top: 140px;
@@ -157,7 +157,7 @@ nav ul li a:hover {
     z-index: 1200;
     width: 0;
     position: fixed;
-    left: -250px; /* Position hors écran à gauche */
+    left: -250px;
     top: 0;
     background-color: #A3D8F4;
     color: #fff;
@@ -193,7 +193,7 @@ nav ul li a:hover {
     color: black;
 }
 
-/* Section Héros */
+
 .hero {
     text-align: center;
     padding: 50px 20px;
@@ -204,10 +204,6 @@ nav ul li a:hover {
     color: #333;
     margin-top: 120px;
 }
-
-
-
-
 
 
 .contactUs {
@@ -232,17 +228,15 @@ nav ul li a:hover {
 .contact.form {
     grid-area: form;
     padding: 40px;
-    background-color: transparent;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    background: #A3D8F4;;
+    background: #A3D8F4;
     overflow: hidden;
 }
 
 .contact.info {
     grid-area: info;
     padding: 20px;
-    background-color: transparent;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     background: #A3D8F4;;
@@ -252,7 +246,6 @@ nav ul li a:hover {
 .contact.map {
     grid-area: map;
     padding: 20px;
-    background-color: transparent;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     background:#A3D8F4;;
@@ -265,12 +258,6 @@ nav ul li a:hover {
     font-size: 1.6em;
     margin-bottom: 20px;
 }
-
-
-
-
-
-
 
 
 .formBox {
@@ -346,9 +333,9 @@ nav ul li a:hover {
     margin-bottom: 15px;
 }
 .info .infoBox div i {
-    font-size: 2.5em; /* Augmente la taille des icônes */
+    font-size: 2.5em;
     color:white ;
-    margin-right: 20px; /* Espace entre les icônes et le texte */
+    margin-right: 20px;
 }
 
 
@@ -414,15 +401,15 @@ nav ul li a:hover {
 
 .social-media i {
     font-size: 20px;
-    color: #fff; /* Change cette couleur selon tes besoins */
+    color: #fff;
     margin-right: 20px;
 }
 
 
 .social-media i:hover {
-    color: #007bff; /* Change la couleur au survol */
     color: #007bff;
-    transition: color 0.8s ease; /* Transition uniquement sur la couleur */
+
+    transition: color 0.8s ease;
 }
 
 .footer .contact-info {
@@ -464,12 +451,12 @@ nav ul li a:hover {
     background-color: #005f6a;
     transition: background-color 0.5s, color 0.5s;
 }
-/* Pour les écrans plus petits que 768px (tablettes et mobiles) */
+
 
 @media (max-width: 930px){
     nav ul {
         display: flex;
-        flex-direction: column; /* Empile les éléments verticalement */
+        flex-direction: column;
         align-items: center;
         gap: 10px;
     }
@@ -480,10 +467,7 @@ nav ul li a:hover {
 }
 
 
-/* Pour les écrans de taille tablette et plus petits */
 @media (max-width: 1270px) {
-
-
 
     .side-burger-menu {
         position: fixed;
@@ -501,14 +485,12 @@ nav ul li a:hover {
     }
 
 
-
-
     .contactUs {
-        grid-template-columns: 1fr; /* Passe à une seule colonne pour les petits écrans */
+        grid-template-columns: 1fr;
         grid-template-areas:
             "form"
             "info"
-            "map"; /* Réorganise les sections en une colonne */
+            "map";
     }
 
     .contact.form, .contact.info, .contact.map {
@@ -518,12 +500,12 @@ nav ul li a:hover {
 
     .infoBox div {
         flex-direction: column;
-        align-items: flex-start; /* Les icônes et le texte sont placés l'un sous l'autre */
+        align-items: flex-start;
     }
 
     .infoBox div i {
-        font-size: 2.5em; /* Garde les icônes grandes même sur petits écrans */
-        margin-bottom: 10px; /* Espace sous l'icône */
+        font-size: 2.5em;
+        margin-bottom: 10px;
     }
 
     .footer {
@@ -544,18 +526,18 @@ nav ul li a:hover {
         margin-bottom: 20px;
     }
 
-    /* Les inputs du formulaire apparaissent les uns sous les autres */
+
     .formBox .row50 {
         flex-direction: column;
         gap: 0;
     }
 
     .inputBox {
-        width: 100%; /* Chaque champ de saisie occupe toute la largeur */
+        width: 100%;
     }
 
     .logo img {
-        width: 80px; /* Réduit la taille du logo */
+        width: 80px;
     }
 
 }
