@@ -32,6 +32,26 @@
         <h2>Répartition de la Satisfaction</h2>
         <div id="chart-satisfaction"></div>
     </section>
+
+    <section id="support-chart">
+        <h2>Répartition des Besoins de Soutien</h2>
+        <div id="chart-support"></div>
+    </section>
+
+    <section id="environment-chart">
+        <h2>Répartition par Environnement de Vie</h2>
+        <div id="chart-environment"></div>
+    </section>
+
+    <section id="social-activities-chart">
+        <h2>Activités Sociales</h2>
+        <div id="chart-social-activities"></div>
+    </section>
+
+    <section id="health-issues-chart">
+        <h2>Problèmes de Santé Majeurs</h2>
+        <div id="chart-health-issues"></div>
+    </section>
 </main>
 
 <script>
@@ -44,63 +64,112 @@
                 document.getElementById('total-users').textContent = `Total utilisateurs : ${data.data.total_users}`;
                 document.getElementById('average-age').textContent = `Âge moyen : ${data.data.average_age}`;
 
-                // Créer les graphiques avec D3.js
+                // Données pour les graphiques
                 const regions = Object.entries(data.data.regions);
                 const satisfaction = Object.entries(data.data.satisfaction);
+                const supportTypes = Object.entries(data.data.support_types);
+                const environments = Object.entries(data.data.environments);
+                const socialActivities = Object.entries(data.data.social_activities);
+                const healthIssues = Object.entries(data.data.health_issues);
 
-                // Répartition par région
-                const regionSvg = d3.select('#chart-region')
-                    .append('svg')
-                    .attr('width', 500)
-                    .attr('height', 300);
+                // Fonction générique pour créer des graphiques
+                const createChart = (selector, data, color, xLabel, yLabel, title) => {
+                    const width = 500;
+                    const height = 300;
+                    const margin = { top: 30, right: 20, bottom: 50, left: 50 };
 
-                regionSvg.selectAll('rect')
-                    .data(regions)
-                    .enter()
-                    .append('rect')
-                    .attr('x', (d, i) => i * 100)
-                    .attr('y', d => 300 - d[1] * 20)
-                    .attr('width', 50)
-                    .attr('height', d => d[1] * 20)
-                    .attr('fill', 'steelblue');
+                    const svg = d3.select(selector)
+                        .append('svg')
+                        .attr('width', width + margin.left + margin.right)
+                        .attr('height', height + margin.top + margin.bottom)
+                        .append('g')
+                        .attr('transform', `translate(${margin.left},${margin.top})`);
 
-                regionSvg.selectAll('text')
-                    .data(regions)
-                    .enter()
-                    .append('text')
-                    .attr('x', (d, i) => i * 100 + 25)
-                    .attr('y', d => 300 - d[1] * 20 - 5)
-                    .attr('text-anchor', 'middle')
-                    .text(d => d[1]);
+                    // Echelle pour l'axe X
+                    const xScale = d3.scaleBand()
+                        .domain(data.map(d => d[0]))
+                        .range([0, width])
+                        .padding(0.4);
 
-                // Répartition de la satisfaction
-                const satisfactionSvg = d3.select('#chart-satisfaction')
-                    .append('svg')
-                    .attr('width', 500)
-                    .attr('height', 300);
+                    // Echelle pour l'axe Y
+                    const yScale = d3.scaleLinear()
+                        .domain([0, d3.max(data, d => d[1])])
+                        .range([height, 0]);
 
-                satisfactionSvg.selectAll('rect')
-                    .data(satisfaction)
-                    .enter()
-                    .append('rect')
-                    .attr('x', (d, i) => i * 100)
-                    .attr('y', d => 300 - d[1] * 20)
-                    .attr('width', 50)
-                    .attr('height', d => d[1] * 20)
-                    .attr('fill', 'orange');
+                    // Ajouter les barres
+                    svg.selectAll('.bar')
+                        .data(data)
+                        .enter()
+                        .append('rect')
+                        .attr('class', 'bar')
+                        .attr('x', d => xScale(d[0]))
+                        .attr('y', d => yScale(d[1]))
+                        .attr('width', xScale.bandwidth())
+                        .attr('height', d => height - yScale(d[1]))
+                        .attr('fill', color);
 
-                satisfactionSvg.selectAll('text')
-                    .data(satisfaction)
-                    .enter()
-                    .append('text')
-                    .attr('x', (d, i) => i * 100 + 25)
-                    .attr('y', d => 300 - d[1] * 20 - 5)
-                    .attr('text-anchor', 'middle')
-                    .text(d => d[1]);
+                    // Ajouter les étiquettes sur les barres
+                    svg.selectAll('.label')
+                        .data(data)
+                        .enter()
+                        .append('text')
+                        .attr('class', 'label')
+                        .attr('x', d => xScale(d[0]) + xScale.bandwidth() / 2)
+                        .attr('y', d => yScale(d[1]) - 5)
+                        .attr('text-anchor', 'middle')
+                        .text(d => d[1]);
+
+                    // Ajouter l'axe X
+                    svg.append('g')
+                        .attr('transform', `translate(0,${height})`)
+                        .call(d3.axisBottom(xScale))
+                        .selectAll('text')
+                        .attr('transform', 'rotate(-45)')
+                        .style('text-anchor', 'end');
+
+                    // Ajouter l'axe Y
+                    svg.append('g')
+                        .call(d3.axisLeft(yScale));
+
+                    // Ajouter un titre
+                    svg.append('text')
+                        .attr('x', width / 2)
+                        .attr('y', -10)
+                        .attr('text-anchor', 'middle')
+                        .style('font-size', '16px')
+                        .style('font-weight', 'bold')
+                        .text(title);
+
+                    // Ajouter l'étiquette de l'axe X
+                    svg.append('text')
+                        .attr('x', width / 2)
+                        .attr('y', height + margin.bottom - 10)
+                        .attr('text-anchor', 'middle')
+                        .style('font-size', '12px')
+                        .text(xLabel);
+
+                    // Ajouter l'étiquette de l'axe Y
+                    svg.append('text')
+                        .attr('x', -height / 2)
+                        .attr('y', -margin.left + 10)
+                        .attr('transform', 'rotate(-90)')
+                        .attr('text-anchor', 'middle')
+                        .style('font-size', '12px')
+                        .text(yLabel);
+                };
+
+                // Graphiques spécifiques
+                createChart('#chart-region', regions, 'steelblue', 'Régions', 'Nombre d\'utilisateurs', 'Répartition par Région');
+                createChart('#chart-satisfaction', satisfaction, 'orange', 'Niveaux de Satisfaction', 'Nombre d\'utilisateurs', 'Répartition de la Satisfaction');
+                createChart('#chart-support', supportTypes, 'green', 'Types de Soutien', 'Nombre de Demandes', 'Répartition des Besoins de Soutien');
+                createChart('#chart-environment', environments, 'purple', 'Environnements', 'Nombre d\'utilisateurs', 'Répartition par Environnement');
+                createChart('#chart-social-activities', socialActivities, 'teal', 'Activités Sociales', 'Nombre d\'utilisateurs', 'Répartition des Activités Sociales');
+                createChart('#chart-health-issues', healthIssues, 'red', 'Problèmes de Santé', 'Nombre d\'utilisateurs', 'Problèmes de Santé Majeurs');
             } else {
                 alert(data.message);
             }
         });
+
 </script>
 </body>
 </html>
