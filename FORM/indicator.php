@@ -17,13 +17,15 @@ if (file_exists($dataFile)) {
 
     // Calculer les indicateurs
     $totalUsers = count($users);
-    $averageAge = array_sum(array_column($users, 'age')) / $totalUsers;
+    $averageAge = $totalUsers > 0 ? array_sum(array_column($users, 'age')) / $totalUsers : 0;
 
-    // Répartition par région
+    // Répartition des données
     $regions = array_count_values(array_column($users, 'region'));
-
-    // Satisfaction globale
-    $satisfactionCounts = array_count_values(array_column($users, 'satisfaction'));
+    $satisfaction = array_count_values(array_column($users, 'life_quality'));
+    $environments = array_count_values(array_column($users, 'environment'));
+    $socialActivities = array_count_values(array_column($users, 'social_activities'));
+    $healthIssues = array_count_values(array_column($users, 'health_issues'));
+    $supportTypes = array_count_values(array_column($users, 'support_type'));
 
     // Retourner les indicateurs
     echo json_encode([
@@ -32,10 +34,13 @@ if (file_exists($dataFile)) {
             'total_users' => $totalUsers,
             'average_age' => round($averageAge, 2),
             'regions' => $regions,
-            'satisfaction' => $satisfactionCounts,
+            'satisfaction' => $satisfaction,
+            'environments' => $environments,
+            'social_activities' => $socialActivities,
+            'health_issues' => $healthIssues,
+            'support_types' => $supportTypes,
         ]
     ]);
 } else {
     echo json_encode(['success' => false, 'message' => 'Aucune donnée disponible.']);
 }
-
