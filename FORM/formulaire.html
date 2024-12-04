@@ -118,5 +118,28 @@
         </div>
     </form>
 </main>
+
+
+<!-- Formulaire administrateur (affiché conditionnellement en fonction du rôle) -->
+<form id="admin-form" method="POST" action="admin_login.php" style="margin-top: 50px;">
+    <fieldset>
+        <legend>Connexion Administrateur</legend>
+        <div class="form-group">
+            <label for="admin-username">Nom d'utilisateur (Admin) *</label>
+            <input type="text" id="admin-username" name="username" placeholder="Admin username" required>
+        </div>
+        <div class="form-group">
+            <label for="admin-password">Mot de passe *</label>
+            <input type="password" id="admin-password" name="password" placeholder="Mot de passe" required>
+        </div>
+    </fieldset>
+
+    <!-- Bouton de connexion admin -->
+    <div class="form-group">
+        <button type="submit">Connexion Admin</button>
+    </div>
+</form>
+</main>
+
 </body>
 </html>
