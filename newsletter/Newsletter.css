@@ -217,14 +217,14 @@ nav ul li a:hover {
 
 /* Section de gauche */
 .left-section {
-    width: 45%;
+    width: 60%;
     background-color: transparent;
     padding: 60px;
     border-radius: 8px;
     border: 2px solid #aaa; 
-    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.2); 
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
     max-width: 600px;
-    margin: 0 auto; 
+    margin: 20px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -237,8 +237,8 @@ nav ul li a:hover {
     font-style: italic;
     font-size: 1rem;
     color: #555;
-    max-width: 100%; 
-    padding: 15px;
+    padding-bottom: 15px;
+    text-align: center;
 }
 
 
@@ -248,9 +248,9 @@ nav ul li a:hover {
     border: 1px solid #aaa; /* Bordure douce pour les champs de saisie */
     border-radius: 8px;
     background-color: #A3D8F4; /* Couleur de fond pour les champs de saisie */
-    width: 80%; /* Assure que les champs occupent 80% de la largeur de la section */
     margin-bottom: 15px; /* Espace entre les champs de saisie */
 }
+
 .submit-button {
     padding: 10px;
     font-size: 1rem;
@@ -266,12 +266,12 @@ nav ul li a:hover {
     color: #fff; /* Couleur du texte change */
 }
 .input-field, .submit-button {
-    width: 80%; /* Ajuster la largeur des champs */
+    width: 100%; /* Ajuster la largeur des champs */
 }
 
 /* Section de droite */
 .right-section {
-    width: 45%;
+    width: 60%;
     text-align: center; 
 }
 /* Styles pour la section de soutien et la newsletter */
@@ -281,7 +281,7 @@ nav ul li a:hover {
     border: 1px solid #aaa; 
     border-radius: 8px;
     margin-top: 20px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     text-align: center; 
 }
 
@@ -301,10 +301,8 @@ nav ul li a:hover {
 .support-button-container {
     text-align: center;
 }
-.heart-icon {
-    font-size: 1.2em;
+.fa-heart{
     color: red;
-    margin-right: 5px;
 }
 .support-button {
     padding: 10px 20px;
@@ -329,7 +327,7 @@ nav ul li a:hover {
     border: 1px solid #aaa; 
     border-radius: 8px;
     margin-top: 20px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     text-align: center; 
 }
 .newsletter-content {
@@ -414,12 +412,9 @@ nav ul li a:hover {
 /* Petits écrans : Adapter la barre de recherche */
 @media (max-width: 870px) {
 
-
-
-
     nav ul {
         display: flex;
-        flex-direction: column; /* Empile les éléments verticalement */
+        flex-direction: column;
         align-items: center;
         gap: 10px;
     }
@@ -427,9 +422,6 @@ nav ul li a:hover {
     nav ul li {
         display: block;
     }
-
-
-
 
     .footer {
         flex-direction: column;
@@ -452,6 +444,7 @@ nav ul li a:hover {
     }
 
 
+
     .footer .useful-links a {
         color: #000;
         display: block;
@@ -462,7 +455,10 @@ nav ul li a:hover {
 
 
     .logo img {
-        width: 80px; /* Réduit la taille du logo */
+        width: 80px;
+    }
+    .main-container {
+        flex-direction: column;
     }
 
     .about-container {
@@ -470,17 +466,14 @@ nav ul li a:hover {
         align-items: center;
     }
 
-    .about-box {
-        width: 90%; /* Full width for small screens */
-    }
-
     .footer .social-media {
         margin-bottom: 20px;
     }
 
     .hero h1 {
-        font-size: 25px; /* Adjusting the title size for medium screens */
+        font-size: 25px;
     }
+
 
 
 }
