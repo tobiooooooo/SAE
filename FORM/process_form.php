@@ -1,17 +1,17 @@
 <?php
-/*
+
 // Ce fichier traite les données soumises par le
 // formulaire utilisateur et les insère dans la base de données.
 
 // Connexion à la base de données MariaDB
 $host = '172.16.8.65';
-$dbname = 'grp_204';
-$username = 'lucas.revault';  // Remplace par ton utilisateur MariaDB
-$password = 'de408f2a';      // Remplace par ton mot de passe MariaDB
+$dbname = 'grp_204_1';
+$username = 'imadeddine.bahij';  // Remplace par ton utilisateur MariaDB
+$password = 'b7b431a0';      // Remplace par ton mot de passe MariaDB
 
 try {
-    // Connexion avec PDO
-    $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8mb4", $username, $password);
+    // Connexion avec PDO, modifier pdo si tu testes sur ta base
+    $pdo = new PDO("mysql:host=172.16.8.65;dbname=grp204_1;charset=utf8mb4", 'imadeddine.bahij', 'b7b431a0');
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
     // Récupérer les données envoyées depuis le formulaire
@@ -40,7 +40,7 @@ try {
 }
 
 
-*/
+
 
 
 
