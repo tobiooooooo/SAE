@@ -1,44 +1,65 @@
 <?php
 
-// Ce fichier traite les données soumises par le
-// formulaire utilisateur et les insère dans la base de données.
-
-// Connexion à la base de données MariaDB
+// Configuration de la base de données
 $host = '172.16.8.65';
 $dbname = 'grp_204_1';
-$username = 'imadeddine.bahij';  // Remplace par ton utilisateur MariaDB
-$password = 'b7b431a0';      // Remplace par ton mot de passe MariaDB
+$username = 'lucas.revault';  // Remplace par ton utilisateur MariaDB
+$password = 'de408f2a';       // Remplace par ton mot de passe MariaDB
 
 try {
-    // Connexion avec PDO, modifier pdo si tu testes sur ta base
-    $pdo = new PDO("mysql:host=172.16.8.65;dbname=grp204_1;charset=utf8mb4", 'imadeddine.bahij', 'b7b431a0');
+    // Connexion avec PDO
+    $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8mb4", $username, $password);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-    // Récupérer les données envoyées depuis le formulaire
-    $name = $_POST['name'] ?? '';
-    $age = $_POST['age'] ?? '';
-    $region = $_POST['region'] ?? '';
-    $satisfaction = $_POST['satisfaction'] ?? '';
-    $comments = $_POST['comments'] ?? '';
+    // Récupérer les données envoyées depuis le formulaire avec validation basique
+    $name = htmlspecialchars($_POST['name'] ?? '');
+    $age = (int)($_POST['age'] ?? 0);
+    $region = htmlspecialchars($_POST['region'] ?? '');
+    $environment = htmlspecialchars($_POST['environment'] ?? '');
+    $employment = htmlspecialchars($_POST['employment'] ?? '');
+    $socialActivities = htmlspecialchars($_POST['social_activities'] ?? '');
+    $lifeQuality = htmlspecialchars($_POST['life_quality'] ?? '');
+    $healthIssues = htmlspecialchars($_POST['health_issues'] ?? '');
+    $supportType = htmlspecialchars($_POST['support_type'] ?? '');
+    $dailyIssues = htmlspecialchars($_POST['daily_issues'] ?? '');
+    $role = htmlspecialchars($_POST['role'] ?? 'user');
 
-    // Insérer les données dans la table `users`
-    $sql = "INSERT INTO users (name, age, region, satisfaction, comments) 
-            VALUES (:name, :age, :region, :satisfaction, :comments)";
+    // Validation des champs obligatoires
+    if (empty($name) || empty($age) || empty($region)) {
+        throw new Exception("Certains champs obligatoires sont manquants.");
+    }
+
+    // Insérer les données dans la table `users3`
+    $sql = "INSERT INTO users3 (name, age, region, environnement, employment,
+                                socialActivities, lifeQuality, healthIssues, 
+                                supportType, dailyIssues, role) 
+            VALUES (:name, :age, :region, :environment, :employment, :socialActivities,
+                    :lifeQuality, :healthIssues, :supportType, :dailyIssues, :role)";
     $stmt = $pdo->prepare($sql);
     $stmt->execute([
         ':name' => $name,
         ':age' => $age,
         ':region' => $region,
-        ':satisfaction' => $satisfaction,
-        ':comments' => $comments
+        ':environment' => $environment,
+        ':employment' => $employment,
+        ':socialActivities' => $socialActivities,
+        ':lifeQuality' => $lifeQuality,
+        ':healthIssues' => $healthIssues,
+        ':supportType' => $supportType,
+        ':dailyIssues' => $dailyIssues,
+        ':role' => $role,
     ]);
 
     echo "Données insérées avec succès !";
 
 } catch (PDOException $e) {
-    die("Erreur de connexion ou d'insertion : " . $e->getMessage());
+    // Gérer les erreurs liées à la base de données
+    error_log("Erreur PDO : " . $e->getMessage());
+    echo "Une erreur s'est produite. Veuillez réessayer plus tard.";
+} catch (Exception $e) {
+    // Gérer les erreurs générales
+    echo "Erreur : " . $e->getMessage();
 }
-
 
 
 
