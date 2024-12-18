@@ -1,53 +1,54 @@
 <?php
-
 // Configuration de la base de données
 $host = '172.16.8.65';
 $dbname = 'grp204_1';
-$username = 'lucas.revault';  // Remplace par ton utilisateur MariaDB
-$password = 'de408f2a';       // Remplace par ton mot de passe MariaDB
+$username = 'lucas.revault';
+$password = 'de408f2a';
 
 try {
     // Connexion avec PDO
     $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8mb4", $username, $password);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-    // Récupérer les données envoyées depuis le formulaire avec validation basique
-    $name = htmlspecialchars($_POST['name'] ?? '');
-    $age = (int)($_POST['age'] ?? 0);
-    $region = htmlspecialchars($_POST['region'] ?? '');
-    $environment = htmlspecialchars($_POST['environment'] ?? '');
-    $employment = htmlspecialchars($_POST['employment'] ?? '');
-    $socialActivities = htmlspecialchars($_POST['social_activities'] ?? '');
-    $lifeQuality = htmlspecialchars($_POST['life_quality'] ?? '');
-    $healthIssues = htmlspecialchars($_POST['health_issues'] ?? '');
-    $supportType = htmlspecialchars($_POST['support_type'] ?? '');
-    $dailyIssues = htmlspecialchars($_POST['daily_issues'] ?? '');
-    $role = htmlspecialchars($_POST['role'] ?? 'user');
+    // Récupérer les données envoyées depuis le formulaire
+    $fields = [
+        'name', 'age', 'region', 'environment', 'employment',
+        'social_activities', 'life_quality', 'health_issues',
+        'support_type', 'daily_issues', 'role'
+    ];
 
-    // Validation des champs obligatoires
-    if (empty($name) || empty($age) || empty($region)) {
-        throw new Exception("Certains champs obligatoires sont manquants.");
+    $data = [];
+    foreach ($fields as $field) {
+        if (empty($_POST[$field])) {
+            throw new Exception("Le champ '$field' est obligatoire.");
+        }
+        $data[$field] = htmlspecialchars($_POST[$field]);
     }
+
+    // Débogage des données POST (à commenter après débogage)
+    echo '<pre>';
+    print_r($data);
+    echo '</pre>';
 
     // Insérer les données dans la table `users3`
     $sql = "INSERT INTO users3 (name, age, region, environnement, employment,
                                 socialActivities, lifeQuality, healthIssues, 
                                 supportType, dailyIssues, role) 
-            VALUES (:name, :age, :region, :environment, :employment, :socialActivities,
-                    :lifeQuality, :healthIssues, :supportType, :dailyIssues, :role)";
+            VALUES (:name, :age, :region, :environment, :employment, :social_activities,
+                    :life_quality, :health_issues, :support_type, :daily_issues, :role)";
     $stmt = $pdo->prepare($sql);
     $stmt->execute([
-        ':name' => $name,
-        ':age' => $age,
-        ':region' => $region,
-        ':environment' => $environment,
-        ':employment' => $employment,
-        ':socialActivities' => $socialActivities,
-        ':lifeQuality' => $lifeQuality,
-        ':healthIssues' => $healthIssues,
-        ':supportType' => $supportType,
-        ':dailyIssues' => $dailyIssues,
-        ':role' => $role,
+        ':name' => $data['name'],
+        ':age' => (int)$data['age'],
+        ':region' => $data['region'],
+        ':environment' => $data['environment'],
+        ':employment' => $data['employment'],
+        ':social_activities' => $data['social_activities'],
+        ':life_quality' => (int)$data['life_quality'],
+        ':health_issues' => $data['health_issues'],
+        ':support_type' => $data['support_type'],
+        ':daily_issues' => $data['daily_issues'],
+        ':role' => $data['role'] ?? 'user',
     ]);
 
     echo "Données insérées avec succès !";
@@ -60,6 +61,7 @@ try {
     // Gérer les erreurs générales
     echo "Erreur : " . $e->getMessage();
 }
+
 
 
 
