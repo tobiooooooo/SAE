@@ -2,7 +2,7 @@
 
 // Configuration de la base de données
 $host = '172.16.8.65';
-$dbname = 'grp_204_1';
+$dbname = 'grp204_1';
 $username = 'lucas.revault';  // Remplace par ton utilisateur MariaDB
 $password = 'de408f2a';       // Remplace par ton mot de passe MariaDB
 
@@ -63,7 +63,7 @@ try {
 
 
 
-
+/*
 
 session_start();
 header("Content-Type: application/json");
@@ -135,3 +135,4 @@ if (file_put_contents($dataFile, json_encode($users, JSON_PRETTY_PRINT | JSON_UN
 
 
 
+*/

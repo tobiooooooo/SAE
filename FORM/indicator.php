@@ -8,31 +8,49 @@ if (!isset($_SESSION['admin']) || $_SESSION['admin'] !== true) {
     exit;
 }
 
-// Chemin vers le fichier JSON contenant les utilisateurs
-$dataFile = __DIR__ . '/data/users.json';
+// Configuration de la base de données
+$host = '172.16.8.65';
+$dbname = 'grp204_1';
+$username = 'lucas.revault';  // Remplacez par vos identifiants
+$password = 'de408f2a';       // Remplacez par votre mot de passe
 
-// Charger les données
-if (file_exists($dataFile)) {
-    $users = json_decode(file_get_contents($dataFile), true) ?? [];
+try {
+    // Connexion à la base de données avec PDO
+    $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8mb4", $username, $password);
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-    // Calculer les indicateurs
-    $totalUsers = count($users);
-    $averageAge = $totalUsers > 0 ? array_sum(array_column($users, 'age')) / $totalUsers : 0;
+    // Calcul des indicateurs à partir des données de la table `users3`
+    $stmt = $pdo->query("SELECT COUNT(*) AS total_users, AVG(age) AS average_age FROM users3");
+    $generalStats = $stmt->fetch(PDO::FETCH_ASSOC);
+
+    $totalUsers = $generalStats['total_users'] ?? 0;
+    $averageAge = round($generalStats['average_age'] ?? 0, 2);
 
     // Répartition des données
-    $regions = array_count_values(array_column($users, 'region'));
-    $satisfaction = array_count_values(array_column($users, 'life_quality'));
-    $environments = array_count_values(array_column($users, 'environment'));
-    $socialActivities = array_count_values(array_column($users, 'social_activities'));
-    $healthIssues = array_count_values(array_column($users, 'health_issues'));
-    $supportTypes = array_count_values(array_column($users, 'support_type'));
+    $regions = $pdo->query("SELECT region, COUNT(*) AS count FROM users3 GROUP BY region")
+        ->fetchAll(PDO::FETCH_KEY_PAIR);
 
-    // Retourner les indicateurs
+    $satisfaction = $pdo->query("SELECT lifeQuality, COUNT(*) AS count FROM users3 GROUP BY lifeQuality")
+        ->fetchAll(PDO::FETCH_KEY_PAIR);
+
+    $environments = $pdo->query("SELECT environnement, COUNT(*) AS count FROM users3 GROUP BY environnement")
+        ->fetchAll(PDO::FETCH_KEY_PAIR);
+
+    $socialActivities = $pdo->query("SELECT socialActivities, COUNT(*) AS count FROM users3 GROUP BY socialActivities")
+        ->fetchAll(PDO::FETCH_KEY_PAIR);
+
+    $healthIssues = $pdo->query("SELECT healthIssues, COUNT(*) AS count FROM users3 GROUP BY healthIssues")
+        ->fetchAll(PDO::FETCH_KEY_PAIR);
+
+    $supportTypes = $pdo->query("SELECT supportType, COUNT(*) AS count FROM users3 GROUP BY supportType")
+        ->fetchAll(PDO::FETCH_KEY_PAIR);
+
+    // Retourner les indicateurs en JSON
     echo json_encode([
         'success' => true,
         'data' => [
             'total_users' => $totalUsers,
-            'average_age' => round($averageAge, 2),
+            'average_age' => $averageAge,
             'regions' => $regions,
             'satisfaction' => $satisfaction,
             'environments' => $environments,
@@ -41,6 +59,9 @@ if (file_exists($dataFile)) {
             'support_types' => $supportTypes,
         ]
     ]);
-} else {
-    echo json_encode(['success' => false, 'message' => 'Aucune donnée disponible.']);
+
+} catch (PDOException $e) {
+    // Gérer les erreurs de base de données
+    error_log("Erreur PDO : " . $e->getMessage());
+    echo json_encode(['success' => false, 'message' => 'Erreur de base de données.']);
 }
