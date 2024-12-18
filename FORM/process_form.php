@@ -14,7 +14,7 @@ try {
     $fields = [
         'name', 'age', 'region', 'environment', 'employment',
         'social_activities', 'life_quality', 'health_issues',
-        'support_type', 'daily_issues', 'role'
+        'support_type', 'daily_issues'
     ];
 
     $data = [];
@@ -31,7 +31,7 @@ try {
     echo '</pre>';
 
     // Insérer les données dans la table `users3`
-    $sql = "INSERT INTO users3 (name, age, region, environnement, employment,
+    $sql = "INSERT INTO users3 (name, age, region, environment, employment,
                                 socialActivities, lifeQuality, healthIssues, 
                                 supportType, dailyIssues, role) 
             VALUES (:name, :age, :region, :environment, :employment, :social_activities,

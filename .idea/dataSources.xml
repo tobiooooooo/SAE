@@ -8,12 +8,5 @@
       <jdbc-url>jdbc:mariadb://172.16.8.65:3306/grp204_1</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
-    <data-source source="LOCAL" name="grp204_1@172.16.8.65 [2]" uuid="651bd24b-a114-4238-a0db-7668c804dcbc">
-      <driver-ref>mariadb</driver-ref>
-      <synchronize>true</synchronize>
-      <jdbc-driver>org.mariadb.jdbc.Driver</jdbc-driver>
-      <jdbc-url>jdbc:mariadb://172.16.8.65:3306/grp204_1</jdbc-url>
-      <working-dir>$ProjectFileDir$</working-dir>
-    </data-source>
   </component>
 </project>

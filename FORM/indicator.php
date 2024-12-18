@@ -24,7 +24,8 @@ try {
     $generalStats = $stmt->fetch(PDO::FETCH_ASSOC);
 
     $totalUsers = $generalStats['total_users'] ?? 0;
-    $averageAge = round($generalStats['average_age'] ?? 0, 2);
+    $averageAge = isset($generalStats['average_age']) ? round($generalStats['average_age'], 2) : 0;
+
 
     // Répartition des données
     $regions = $pdo->query("SELECT region, COUNT(*) AS count FROM users3 GROUP BY region")
@@ -33,7 +34,7 @@ try {
     $satisfaction = $pdo->query("SELECT lifeQuality, COUNT(*) AS count FROM users3 GROUP BY lifeQuality")
         ->fetchAll(PDO::FETCH_KEY_PAIR);
 
-    $environments = $pdo->query("SELECT environnement, COUNT(*) AS count FROM users3 GROUP BY environnement")
+    $environments = $pdo->query("SELECT environment, COUNT(*) AS count FROM users3 GROUP BY environment")
         ->fetchAll(PDO::FETCH_KEY_PAIR);
 
     $socialActivities = $pdo->query("SELECT socialActivities, COUNT(*) AS count FROM users3 GROUP BY socialActivities")

@@ -34,7 +34,7 @@
             <legend>Lieu de vie</legend>
             <div class="form-group">
                 <label for="region">Région *</label>
-                <select id="region" name="region" required>
+                <select id="region" name="region" >
                     <option value="">Sélectionnez une région</option>
                     <option value="ile-de-france">Île-de-France</option>
                     <option value="auvergne-rhone-alpes">Auvergne-Rhône-Alpes</option>
@@ -44,7 +44,7 @@
             </div>
             <div class="form-group">
                 <label for="environment">Environnement de vie *</label>
-                <select id="environment" name="environment" required>
+                <select id="environment" name="environment" >
                     <option value="">Sélectionnez une option</option>
                     <option value="urbain">Urbain</option>
                     <option value="suburbain">Suburbain</option>
@@ -58,7 +58,7 @@
             <legend>Votre situation</legend>
             <div class="form-group">
                 <label for="employment">Situation professionnelle *</label>
-                <select id="employment" name="employment" required>
+                <select id="employment" name="employment" >
                     <option value="">Sélectionnez votre situation</option>
                     <option value="emploi">En emploi</option>
                     <option value="formation">En formation</option>
@@ -67,7 +67,7 @@
             </div>
             <div class="form-group">
                 <label for="social-activities">Participations sociales *</label>
-                <select id="social-activities" name="social_activities" required>
+                <select id="social-activities" name="social_activities" >
                     <option value="">Sélectionnez une réponse</option>
                     <option value="reguliere">Régulière</option>
                     <option value="occasionnelle">Occasionnelle</option>
@@ -81,11 +81,11 @@
             <legend>Qualité de vie</legend>
             <div class="form-group">
                 <label for="life-quality">Évaluez votre qualité de vie (1 à 10) *</label>
-                <input type="number" id="life-quality" name="life_quality" min="1" max="10" placeholder="1 (mauvaise) - 10 (excellente)" required>
+                <input type="number" id="life-quality" name="life_quality" min="1" max="10" placeholder="1 (mauvaise) - 10 (excellente)" >
             </div>
             <div class="form-group">
                 <label for="health-issues">Problèmes de santé majeurs ? *</label>
-                <select id="health-issues" name="health_issues" required>
+                <select id="health-issues" name="health_issues" >
                     <option value="">Sélectionnez une réponse</option>
                     <option value="oui">Oui</option>
                     <option value="non">Non</option>
@@ -98,7 +98,7 @@
             <legend>Besoins de soutien</legend>
             <div class="form-group">
                 <label for="support-type">Type de soutien souhaité *</label>
-                <select id="support-type" name="support_type" required>
+                <select id="support-type" name="support_type" >
                     <option value="">Sélectionnez une option</option>
                     <option value="moral">Soutien moral</option>
                     <option value="materiel">Soutien matériel</option>
@@ -108,7 +108,7 @@
             </div>
             <div class="form-group">
                 <label for="daily-issues">Décrivez vos difficultés majeures *</label>
-                <textarea id="daily-issues" name="daily_issues" placeholder="Expliquez brièvement..." required></textarea>
+                <textarea id="daily-issues" name="daily_issues" placeholder="Expliquez brièvement..." ></textarea>
             </div>
         </fieldset>
 
@@ -126,11 +126,11 @@
         <legend>Connexion Administrateur</legend>
         <div class="form-group">
             <label for="admin-username">Nom d'utilisateur (Admin) *</label>
-            <input type="text" id="admin-username" name="username" placeholder="Admin username" required>
+            <input type="text" id="admin-username" name="username" placeholder="Admin username" >
         </div>
         <div class="form-group">
             <label for="admin-password">Mot de passe *</label>
-            <input type="password" id="admin-password" name="password" placeholder="Mot de passe" required>
+            <input type="password" id="admin-password" name="password" placeholder="Mot de passe" >
         </div>
     </fieldset>
 

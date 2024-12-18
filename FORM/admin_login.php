@@ -14,13 +14,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // Vérifier les identifiants
     if ($username === $adminCredentials['username'] && $password === $adminCredentials['password']) {
-        $_SESSION['admin'] = true; // Activer la session admin
-
-        // Redirection vers le tableau de bord
-        header('Location: admin_dashboard.html');
+        $_SESSION['admin'] = true;
+        header('Location: admin_dashboard.html'); // Redirige vers le tableau de bord
         exit;
     } else {
-        echo json_encode(['success' => false, 'message' => 'Identifiants invalides.']);
+        $_SESSION['admin'] = false;
+        echo "<p style='color: red;'>Identifiants invalides.</p>";
     }
 } else {
     echo json_encode(['success' => false, 'message' => 'Requête invalide.']);

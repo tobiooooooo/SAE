@@ -55,7 +55,6 @@
 </main>
 
 <script>
-    // Charger les indicateurs depuis l'API PHP
     fetch('indicator.php')
         .then(response => response.json())
         .then(data => {
@@ -65,14 +64,14 @@
                 document.getElementById('average-age').textContent = `Âge moyen : ${data.data.average_age}`;
 
                 // Données pour les graphiques
-                const regions = Object.entries(data.data.regions);
-                const satisfaction = Object.entries(data.data.satisfaction);
-                const supportTypes = Object.entries(data.data.support_types);
-                const environments = Object.entries(data.data.environments);
-                const socialActivities = Object.entries(data.data.social_activities);
-                const healthIssues = Object.entries(data.data.health_issues);
+                const regions = Object.entries(data.data.regions || {});
+                const satisfaction = Object.entries(data.data.satisfaction || {});
+                const supportTypes = Object.entries(data.data.support_types || {});
+                const environments = Object.entries(data.data.environments || {});
+                const socialActivities = Object.entries(data.data.social_activities || {});
+                const healthIssues = Object.entries(data.data.health_issues || {});
 
-                // Fonction générique pour créer des graphiques
+                // Fonction pour créer un graphique générique
                 const createChart = (selector, data, color, xLabel, yLabel, title) => {
                     const width = 500;
                     const height = 300;
@@ -85,13 +84,12 @@
                         .append('g')
                         .attr('transform', `translate(${margin.left},${margin.top})`);
 
-                    // Echelle pour l'axe X
+                    // Échelles pour les axes X et Y
                     const xScale = d3.scaleBand()
                         .domain(data.map(d => d[0]))
                         .range([0, width])
                         .padding(0.4);
 
-                    // Echelle pour l'axe Y
                     const yScale = d3.scaleLinear()
                         .domain([0, d3.max(data, d => d[1])])
                         .range([height, 0]);
@@ -108,18 +106,7 @@
                         .attr('height', d => height - yScale(d[1]))
                         .attr('fill', color);
 
-                    // Ajouter les étiquettes sur les barres
-                    svg.selectAll('.label')
-                        .data(data)
-                        .enter()
-                        .append('text')
-                        .attr('class', 'label')
-                        .attr('x', d => xScale(d[0]) + xScale.bandwidth() / 2)
-                        .attr('y', d => yScale(d[1]) - 5)
-                        .attr('text-anchor', 'middle')
-                        .text(d => d[1]);
-
-                    // Ajouter l'axe X
+                    // Ajouter les axes
                     svg.append('g')
                         .attr('transform', `translate(0,${height})`)
                         .call(d3.axisBottom(xScale))
@@ -127,11 +114,10 @@
                         .attr('transform', 'rotate(-45)')
                         .style('text-anchor', 'end');
 
-                    // Ajouter l'axe Y
                     svg.append('g')
                         .call(d3.axisLeft(yScale));
 
-                    // Ajouter un titre
+                    // Ajouter les titres et les étiquettes
                     svg.append('text')
                         .attr('x', width / 2)
                         .attr('y', -10)
@@ -139,37 +125,23 @@
                         .style('font-size', '16px')
                         .style('font-weight', 'bold')
                         .text(title);
-
-                    // Ajouter l'étiquette de l'axe X
-                    svg.append('text')
-                        .attr('x', width / 2)
-                        .attr('y', height + margin.bottom - 10)
-                        .attr('text-anchor', 'middle')
-                        .style('font-size', '12px')
-                        .text(xLabel);
-
-                    // Ajouter l'étiquette de l'axe Y
-                    svg.append('text')
-                        .attr('x', -height / 2)
-                        .attr('y', -margin.left + 10)
-                        .attr('transform', 'rotate(-90)')
-                        .attr('text-anchor', 'middle')
-                        .style('font-size', '12px')
-                        .text(yLabel);
                 };
 
-                // Graphiques spécifiques
+                // Créer les graphiques
                 createChart('#chart-region', regions, 'steelblue', 'Régions', 'Nombre d\'utilisateurs', 'Répartition par Région');
-                createChart('#chart-satisfaction', satisfaction, 'orange', 'Niveaux de Satisfaction', 'Nombre d\'utilisateurs', 'Répartition de la Satisfaction');
-                createChart('#chart-support', supportTypes, 'green', 'Types de Soutien', 'Nombre de Demandes', 'Répartition des Besoins de Soutien');
+                createChart('#chart-satisfaction', satisfaction, 'orange', 'Satisfaction', 'Nombre d\'utilisateurs', 'Satisfaction Globale');
+                createChart('#chart-support', supportTypes, 'green', 'Types de Soutien', 'Nombre', 'Répartition des Besoins de Soutien');
                 createChart('#chart-environment', environments, 'purple', 'Environnements', 'Nombre d\'utilisateurs', 'Répartition par Environnement');
-                createChart('#chart-social-activities', socialActivities, 'teal', 'Activités Sociales', 'Nombre d\'utilisateurs', 'Répartition des Activités Sociales');
+                createChart('#chart-social-activities', socialActivities, 'teal', 'Activités Sociales', 'Nombre d\'utilisateurs', 'Activités Sociales');
                 createChart('#chart-health-issues', healthIssues, 'red', 'Problèmes de Santé', 'Nombre d\'utilisateurs', 'Problèmes de Santé Majeurs');
             } else {
-                alert(data.message);
+                alert(data.message || 'Erreur inconnue.');
             }
+        })
+        .catch(error => {
+            console.error('Erreur lors du chargement des données :', error);
+            alert("Une erreur s'est produite lors du chargement des statistiques.");
         });
-
 </script>
 </body>
 </html>
