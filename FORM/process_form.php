@@ -1,5 +1,6 @@
 <?php
 // Configuration de la base de données
+session_start();
 $host = '172.16.8.65';
 $dbname = 'grp204_1';
 $username = 'lucas.revault';

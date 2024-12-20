@@ -32,8 +32,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         } else {
             echo "Adresse e-mail ou mot de passe incorrect.";
         }
+
     } catch (PDOException $e) {
         echo "Erreur lors de la connexion : " . $e->getMessage();
     }
+    session_start();
+    $_SESSION['user_id'] = $pdo->lastInsertId(); // ID de l'utilisateur ajouté
+    $_SESSION['user_name'] = $prenom . ' ' . $nom; // Nom complet
+    header("Location: ../accueil/Accueil.html");
+    exit;
+    $etatconnecter = true;
 }
 ?>

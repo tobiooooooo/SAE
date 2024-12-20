@@ -56,5 +56,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             echo "Erreur lors de l'ajout de l'adhérent : " . $e->getMessage();
         }
     }
+    session_start();
+    $_SESSION['user_id'] = $pdo->lastInsertId(); // ID de l'utilisateur ajouté
+    $_SESSION['user_name'] = $prenom . ' ' . $nom; // Nom complet
+    header("Location: ../accueil/Accueil.html");
+    exit;
 }
 ?>
