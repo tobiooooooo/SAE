@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Connexion - PRIARTEM</title>
+  <link rel="stylesheet" href="SeConnecter.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+<header>
+  <div class="logo">
+    <img src="../images/priarterm.png" alt="Logo PRIARTEM" class="logo-priartem">
+  </div>
+  <nav>
+    <ul>
+      <li><a href="../accueil/Accueil.html">Accueil</a></li>
+      <li><a href="../documentation/Documentation.html">Documentation</a></li>
+      <li><a href="../newsletter/Newsletter.html">Newsletter/Don</a></li>
+      <li><a href="../contact/Contact.html">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+  <section class="form-container">
+    <h2>Connexion</h2>
+    <form action="SeConnecter.php" method="POST">
+      <div class="form-group">
+        <label for="email">Adresse e-mail :</label>
+        <input type="email" id="email" name="email" required>
+      </div>
+      <div class="form-group">
+        <label for="password">Mot de passe :</label>
+        <input type="password" id="password" name="mot_de_passe" required>
+      </div>
+      <button type="submit" class="submit-button">Se connecter</button>
+    </form>
+  </section>
+</main>
+
+<footer>
+  <div class="social-media">
+    <a href="https://instagram.com"><i class="fa-brands fa-instagram"></i></a>
+    <a href="https://twitter.com"><i class="fa-brands fa-twitter"></i></a>
+    <a href="https://youtube.com"><i class="fa-brands fa-youtube"></i></a>
+    <a href="https://linkedin.com"><i class="fa-brands fa-linkedin"></i></a>
+  </div>
+  <div class="contact-info">
+    <p>P.R.I.A.R.T.E.M - Association Loi de 1901</p>
+    <p>Boîte 64 - 208 quai de Valmy - 75010 Paris</p>
+    <p>Tél: 01 42 47 81 54 - Fax: 01 42 47 01 65</p>
+  </div>
+  <div class="useful-links">
+    <a href="#">Qui sommes-nous ?</a>
+    <a href="#">Contact</a>
+    <a href="#">Mentions légales</a>
+    <a href="#">Politique de confidentialité</a>
+  </div>
+</footer>
+</body>
+</html>
