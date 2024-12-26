@@ -40,20 +40,9 @@
 
     <!-- Menu burger pour l'utilisateur -->
     <div id="user-side-menu" class="user-side-menu">
-        <?php session_start();?>
-        <?php if (isset($_SESSION['user_id'])): ?>
-        <a href="../formulaire/formulaire.html">Formulaire</a></li>
         <a href="../sinscrire/logout.php">Se déconnecter</a></li>
-        <?php else: ?>
         <a href="../seconnecter/SeConnecter.html">Se connecter</a></li>
         <a href="../sinscrire/Sinscrire.html">Créer un compte</a></li>
-        <?php endif; ?>
-        <?php
-        session_start();
-        echo '<pre>';
-        print_r($_SESSION);
-        echo '</pre>';
-        ?>
 
 
     </div>

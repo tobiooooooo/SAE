@@ -12,6 +12,8 @@ try {
     die("Erreur de connexion à la base de données : " . $e->getMessage());
 }
 
+session_start();
+
 // Traitement du formulaire
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $email = trim($_POST['email']);
@@ -28,7 +30,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
         if ($user && password_verify($mot_de_passe, $user['mot_de_passe'])) {
-            echo "Connexion réussie. Bienvenue, " . htmlspecialchars($user['prenom']) . "!";
+            if ($user['formulaire_rempli']) {
+                header('Location: accueil.php'); // Rediriger vers l'accueil si le formulaire est déjà rempli
+            } else {
+                header('Location: ../FORM/formulaire.html'); // Rediriger vers le formulaire si non rempli
+            }
+            exit();
         } else {
             echo "Adresse e-mail ou mot de passe incorrect.";
         }
@@ -36,11 +43,5 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     } catch (PDOException $e) {
         echo "Erreur lors de la connexion : " . $e->getMessage();
     }
-    session_start();
-    $_SESSION['user_id'] = $pdo->lastInsertId(); // ID de l'utilisateur ajouté
-    $_SESSION['user_name'] = $prenom . ' ' . $nom; // Nom complet
-    header("Location: ../accueil/Accueil.html");
-    exit;
-    $etatconnecter = true;
 }
 ?>

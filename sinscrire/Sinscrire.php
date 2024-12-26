@@ -13,6 +13,8 @@ try {
     die("Erreur de connexion à la base de données : " . $e->getMessage());
 }
 
+session_start();
+
 // Vérification des données envoyées par le formulaire
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $prenom = trim($_POST['prenom']);
@@ -56,10 +58,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             echo "Erreur lors de l'ajout de l'adhérent : " . $e->getMessage();
         }
     }
-    session_start();
+
     $_SESSION['user_id'] = $pdo->lastInsertId(); // ID de l'utilisateur ajouté
     $_SESSION['user_name'] = $prenom . ' ' . $nom; // Nom complet
-    header("Location: ../accueil/Accueil.html");
+
+    // Vérifier si l'utilisateur a déjà rempli le formulaire
+    $stmt = $pdo->prepare("SELECT formulaire_rempli FROM Adherent WHERE id = :id");
+    $stmt->execute([':id' => $_SESSION['user_id']]);
+    $user = $stmt->fetch(PDO::FETCH_ASSOC);
+
+    if ($user['formulaire_rempli']) {
+        header("Location: ../accueil/Accueil.html"); // Rediriger vers l'accueil si le formulaire est déjà rempli
+    } else {
+        header("Location: ../FORM/formulaire.html"); // Rediriger vers le formulaire si non rempli
+    }
     exit;
 }
 ?>

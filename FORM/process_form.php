@@ -51,7 +51,9 @@ try {
         ':daily_issues' => $data['daily_issues'],
         ':role' => $data['role'] ?? 'user',
     ]);
-
+    // Mettre à jour la colonne formulaire_rempli
+    //$stmt = $pdo->prepare("UPDATE Adherent SET formulaire_rempli = TRUE WHERE id = :id");
+    //$stmt->execute([':id' => $_SESSION['user_id']]);
     echo "Données insérées avec succès !";
 
 } catch (PDOException $e) {
