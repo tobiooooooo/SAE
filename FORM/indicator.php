@@ -8,11 +8,18 @@ if (!isset($_SESSION['admin']) || $_SESSION['admin'] !== true) {
     exit;
 }
 
-// Configuration de la base de données
-$host = '172.16.8.65';
-$dbname = 'grp204_1';
-$username = 'lucas.revault';  // Remplacez par vos identifiants
-$password = 'de408f2a';       // Remplacez par votre mot de passe
+//// Configuration de la base de données
+//$host = '172.16.8.65';
+//$dbname = 'grp204_1';
+//$username = 'lucas.revault';  // Remplacez par vos identifiants
+//$password = 'de408f2a';       // Remplacez par votre mot de passe
+
+$host = '127.0.0.1'; // Adresse locale (localhost)
+$dbname = 'grp204_1'; // Nom de la base de données locale
+$username = 'root'; // Nom d'utilisateur MySQL par défaut sur XAMPP
+$password = ''; // Le mot de passe par défaut pour root est vide sur XAMPP
+
+
 
 try {
     // Connexion à la base de données avec PDO

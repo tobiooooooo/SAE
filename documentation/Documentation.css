@@ -37,6 +37,7 @@ header {
 
 .logo img {
     width: 100px;
+    cursor: pointer;
 }
 
 .search-container {
@@ -141,7 +142,9 @@ nav ul li a:hover {
     width: 30px;
 }
 
+
 .side-menu {
+
     z-index: 1200;
     width: 0;
     position: fixed;
@@ -174,7 +177,15 @@ nav ul li a:hover {
     width: 250px;
     left: 0;
     height: 100%;
+
 }
+
+
+.fa-folder, .fa-comment, .fa-newspaper, .fa-scroll, .fa-camera{
+    padding: 5px;
+    color: black;
+}
+
 
 .hero {
     text-align: center;

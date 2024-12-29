@@ -1,9 +1,17 @@
 <?php
-// Configuration de la base de données
-$host = '172.16.8.65'; // Remplace par l'adresse de ton serveur
-$dbname = 'grp204_1'; // Nom de la base de données
-$username = 'lucas.revault'; // Nom d'utilisateur
-$password = 'de408f2a'; // Mot de passe
+//// Configuration de la base de données
+//$host = '172.16.8.65'; // Remplace par l'adresse de ton serveur
+//$dbname = 'grp204_1'; // Nom de la base de données
+//$username = 'lucas.revault'; // Nom d'utilisateur
+//$password = 'de408f2a'; // Mot de passe
+
+
+
+$host = '127.0.0.1'; // Adresse locale (localhost)
+$dbname = 'grp204_1'; // Nom de la base de données locale
+$username = 'root'; // Nom d'utilisateur MySQL par défaut sur XAMPP
+$password = ''; // Le mot de passe par défaut pour root est vide sur XAMPP
+
 
 try {
     // Connexion à la base de données
@@ -67,11 +75,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $stmt->execute([':id' => $_SESSION['user_id']]);
     $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
-    if ($user['formulaire_rempli']) {
-        header("Location: ../accueil/Accueil.html"); // Rediriger vers l'accueil si le formulaire est déjà rempli
-    } else {
         header("Location: ../FORM/formulaire.html"); // Rediriger vers le formulaire si non rempli
-    }
-    exit;
+
 }
 ?>

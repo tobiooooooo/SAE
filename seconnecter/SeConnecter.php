@@ -1,9 +1,19 @@
 <?php
-// Configuration de la base de données
-$host = '172.16.8.65';
-$dbname = 'grp204_1';
-$username = 'lucas.revault';
-$password = 'de408f2a';
+//// Configuration de la base de données
+//$host = '172.16.8.65';
+//$dbname = 'grp204_1';
+//$username = 'lucas.revault';
+//$password = 'de408f2a';
+
+
+$host = '127.0.0.1'; // Adresse locale (localhost)
+$dbname = 'grp204_1'; // Nom de la base de données locale
+$username = 'root'; // Nom d'utilisateur MySQL par défaut sur XAMPP
+$password = ''; // Le mot de passe par défaut pour root est vide sur XAMPP
+
+
+
+
 
 try {
     $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8", $username, $password);
@@ -31,9 +41,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         if ($user && password_verify($mot_de_passe, $user['mot_de_passe'])) {
             if ($user['formulaire_rempli']) {
-                header('Location: accueil.php'); // Rediriger vers l'accueil si le formulaire est déjà rempli
+                header("Location: ../accueil/Accueil.html"); // Rediriger vers l'accueil si le formulaire est déjà rempli
             } else {
-                header('Location: ../FORM/formulaire.html'); // Rediriger vers le formulaire si non rempli
+                header("Location: ../accueil/Accueil.html");// Rediriger vers le formulaire si non rempli
             }
             exit();
         } else {

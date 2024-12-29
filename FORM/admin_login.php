@@ -4,7 +4,7 @@ session_start();
 // Identifiants admin (à personnaliser)
 $adminCredentials = [
     'username' => 'admin',
-    'password' => 'password123',
+    'password' => 'oui',
 ];
 
 // Vérifier si la méthode est POST
