@@ -13,7 +13,7 @@ $password = ''; // Le mot de passe par défaut pour root est vide sur XAMPP
 
 
 
-
+session_start();
 
 try {
     $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8", $username, $password);
@@ -22,7 +22,7 @@ try {
     die("Erreur de connexion à la base de données : " . $e->getMessage());
 }
 
-session_start();
+
 
 // Traitement du formulaire
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -40,14 +40,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
         if ($user && password_verify($mot_de_passe, $user['mot_de_passe'])) {
+            // Stocker les données utilisateur dans la session
+            $_SESSION['user_id'] = $user['id'];
+            $_SESSION['user_name'] = $user['prenom'] . ' ' . $user['nom'];
+            $_SESSION['formulaire_rempli'] = $user['formulaire_rempli'];
+
+
             if ($user['formulaire_rempli']) {
                 header("Location: ../accueil/Accueil.html"); // Rediriger vers l'accueil si le formulaire est déjà rempli
             } else {
-                header("Location: ../accueil/Accueil.html");// Rediriger vers le formulaire si non rempli
+                header("Location: ../FORM/formulaire.html");// Rediriger vers le formulaire si non rempli
             }
             exit();
-        } else {
-            echo "Adresse e-mail ou mot de passe incorrect.";
         }
 
     } catch (PDOException $e) {

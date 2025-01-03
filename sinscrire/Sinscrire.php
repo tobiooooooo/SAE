@@ -5,6 +5,7 @@
 //$username = 'lucas.revault'; // Nom d'utilisateur
 //$password = 'de408f2a'; // Mot de passe
 
+session_start();
 
 
 $host = '127.0.0.1'; // Adresse locale (localhost)
@@ -21,7 +22,6 @@ try {
     die("Erreur de connexion à la base de données : " . $e->getMessage());
 }
 
-session_start();
 
 // Vérification des données envoyées par le formulaire
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -70,10 +70,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $_SESSION['user_id'] = $pdo->lastInsertId(); // ID de l'utilisateur ajouté
     $_SESSION['user_name'] = $prenom . ' ' . $nom; // Nom complet
 
-    // Vérifier si l'utilisateur a déjà rempli le formulaire
-    $stmt = $pdo->prepare("SELECT formulaire_rempli FROM Adherent WHERE id = :id");
-    $stmt->execute([':id' => $_SESSION['user_id']]);
-    $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
         header("Location: ../FORM/formulaire.html"); // Rediriger vers le formulaire si non rempli
 

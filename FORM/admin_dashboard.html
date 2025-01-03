@@ -39,15 +39,16 @@
         <div id="chart-support"></div>
     </section>
 
-    <section id="environment-chart">
-        <h2>Répartition par Environnement de Vie</h2>
-        <div id="chart-environment"></div>
+    <section id="environment-pie-chart">
+        <h2>Répartition par Environnement de Vie (Camembert)</h2>
+        <div id="pie-environment"></div>
     </section>
 
-    <section id="social-activities-chart">
-        <h2>Activités Sociales</h2>
-        <div id="chart-social-activities"></div>
+    <section id="social-pie-chart">
+        <h2>Activités Sociales (Camembert)</h2>
+        <div id="pie-social"></div>
     </section>
+
 
     <section id="health-issues-chart">
         <h2>Problèmes de Santé Majeurs</h2>
@@ -72,11 +73,10 @@
                 const socialActivities = Object.entries(data.data.social_activities || {});
                 const healthIssues = Object.entries(data.data.health_issues || {});
 
-                // Fonction pour créer un graphique générique
-                const createChart = (selector, data, color, xLabel, yLabel, title) => {
+                const createChart = (selector, data, color, title) => {
                     const width = 500;
                     const height = 300;
-                    const margin = { top: 30, right: 20, bottom: 50, left: 50 };
+                    const margin = { top: 40, right: 20, bottom: 60, left: 60 };
 
                     const svg = d3.select(selector)
                         .append('svg')
@@ -85,48 +85,127 @@
                         .append('g')
                         .attr('transform', `translate(${margin.left},${margin.top})`);
 
-                    // Échelles pour les axes X et Y
                     const xScale = d3.scaleBand()
                         .domain(data.map(d => d[0]))
                         .range([0, width])
-                        .padding(0.4);
+                        .padding(0.3);
 
                     const yScale = d3.scaleLinear()
                         .domain([0, d3.max(data, d => d[1])])
                         .range([height, 0]);
 
-                    // Ajouter les barres
+                    const colorScale = d3.scaleOrdinal(d3.schemeCategory10);
+
+
+                    // Barres
                     svg.selectAll('.bar')
                         .data(data)
                         .enter()
                         .append('rect')
                         .attr('class', 'bar')
                         .attr('x', d => xScale(d[0]))
-                        .attr('y', d => yScale(d[1]))
+                        .attr('y', height)
                         .attr('width', xScale.bandwidth())
-                        .attr('height', d => height - yScale(d[1]))
-                        .attr('fill', color);
+                        .attr('height', 0)
+                        .attr('fill', d => colorScale(d[0]))
+                        .transition()
+                        .duration(1000)
+                        .attr('y', d => yScale(d[1]))
+                        .attr('height', d => height - yScale(d[1]));
 
-                    // Ajouter les axes
+
+                    svg.selectAll('.label')
+                        .data(data)
+                        .enter()
+                        .append('text')
+                        .attr('x', d => xScale(d[0]) + xScale.bandwidth() / 2)
+                        .attr('y', d => yScale(d[1]) - 5)
+                        .attr('text-anchor', 'middle')
+                        .style('font-size', '12px')
+                        .style('font-weight', 'bold')
+                        .text(d => d[1]);
+
+
+
+                    // Axe X
                     svg.append('g')
                         .attr('transform', `translate(0,${height})`)
                         .call(d3.axisBottom(xScale))
                         .selectAll('text')
                         .attr('transform', 'rotate(-45)')
-                        .style('text-anchor', 'end');
+                        .style('text-anchor', 'end')
+                        .style('font-size', '12px')
+                        .style('font-weight', 'bold');
 
+                    // Axe Y
                     svg.append('g')
-                        .call(d3.axisLeft(yScale));
+                        .call(d3.axisLeft(yScale))
+                        .style('font-size', '12px')
+                        .style('font-weight', 'bold');
 
-                    // Ajouter les titres et les étiquettes
+                    // Titre
                     svg.append('text')
                         .attr('x', width / 2)
                         .attr('y', -10)
+                        .attr('text-anchor', 'middle')
+                        .style('font-size', '18px')
+                        .style('font-weight', 'bold')
+                        .text(title);
+                };
+
+
+                const createPieChart = (selector, data, colors, title) => {
+                    const width = 400;
+                    const height = 400;
+                    const radius = Math.min(width, height) / 2;
+
+                    const svg = d3.select(selector)
+                        .append('svg')
+                        .attr('width', width)
+                        .attr('height', height)
+                        .append('g')
+                        .attr('transform', `translate(${width / 2},${height / 2})`);
+
+                    const color = d3.scaleOrdinal(colors);
+
+                    const pie = d3.pie().value(d => d[1]);
+
+                    const arc = d3.arc()
+                        .innerRadius(0)
+                        .outerRadius(radius);
+
+                    const dataReady = pie(data);
+
+                    // Dessiner les segments
+                    svg.selectAll('path')
+                        .data(dataReady)
+                        .join('path')
+                        .attr('d', arc)
+                        .attr('fill', d => color(d.data[0]))
+                        .attr('stroke', 'white')
+                        .style('stroke-width', '2px');
+
+                    // Ajouter des étiquettes (textes)
+                    svg.selectAll('text')
+                        .data(dataReady)
+                        .join('text')
+                        .attr('transform', d => `translate(${arc.centroid(d)})`)
+                        .attr('text-anchor', 'middle')
+                        .style('font-size', '12px')
+                        .style('font-weight', 'bold')
+                        .text(d => `${d.data[0]}: ${d.data[1]}`);
+
+                    // Ajouter un titre au graphique
+                    svg.append('text')
+                        .attr('x', 0)
+                        .attr('y', -height / 2 + 20)
                         .attr('text-anchor', 'middle')
                         .style('font-size', '16px')
                         .style('font-weight', 'bold')
                         .text(title);
                 };
+
+
 
                 // Créer les graphiques
                 createChart('#chart-region', regions, 'steelblue', 'Régions', 'Nombre d\'utilisateurs', 'Répartition par Région');
@@ -135,6 +214,16 @@
                 createChart('#chart-environment', environments, 'purple', 'Environnements', 'Nombre d\'utilisateurs', 'Répartition par Environnement');
                 createChart('#chart-social-activities', socialActivities, 'teal', 'Activités Sociales', 'Nombre d\'utilisateurs', 'Activités Sociales');
                 createChart('#chart-health-issues', healthIssues, 'red', 'Problèmes de Santé', 'Nombre d\'utilisateurs', 'Problèmes de Santé Majeurs');
+
+                // Camembert pour l'environnement
+                const environmentColors = ['#FF9999', '#66B3FF', '#99FF99', '#FFCC99'];
+                createPieChart('#pie-environment', environments, environmentColors, 'Répartition par Environnement');
+
+               // Camembert pour les activités sociales
+                const socialColors = ['#FFB6C1', '#8A2BE2', '#7FFF00', '#FFD700'];
+                createPieChart('#pie-social', socialActivities, socialColors, 'Activités Sociales');
+
+
             } else {
                 alert(data.message || 'Erreur inconnue.');
             }

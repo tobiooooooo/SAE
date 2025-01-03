@@ -58,18 +58,23 @@ try {
         ':daily_issues' => $data['daily_issues'],
         ':role' => $data['role'] ?? 'user',
     ]);
+
+
+    if (!isset($_SESSION['user_id'])) {
+        echo "Erreur : utilisateur non identifié. Veuillez vous reconnecter.";
+        header("Location: ../SeConnecter.html");
+        exit;
+    }
+
     // Mettre à jour la colonne formulaire_rempli
-    //$stmt = $pdo->prepare("UPDATE Adherent SET formulaire_rempli = TRUE WHERE id = :id");
-    //$stmt->execute([':id' => $_SESSION['user_id']]);
+    $stmt = $pdo->prepare("UPDATE Adherent SET formulaire_rempli = TRUE WHERE id = :id");
+    $stmt->execute([':id' => $_SESSION['user_id']]);
     echo "Données insérées avec succès !";
 
 } catch (PDOException $e) {
     // Gérer les erreurs liées à la base de données
     error_log("Erreur PDO : " . $e->getMessage());
     echo "Une erreur s'est produite. Veuillez réessayer plus tard.";
-} catch (Exception $e) {
-    // Gérer les erreurs générales
-    echo "Erreur : " . $e->getMessage();
 }
 
 
