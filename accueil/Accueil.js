@@ -19,6 +19,17 @@ document.addEventListener("click", function() {
     }
 });
 
+
+
+
+
+
+
+
+
+
+
+
 const userBurgerMenu = document.querySelector('.auth-icon img');
 const userSideMenu = document.querySelector('.user-side-menu');
 
@@ -30,9 +41,21 @@ userBurgerMenu.addEventListener('click', function () {
     }
 });
 
+
+
+
+
+
+
+
+
+
+
+
 const searchIcon = document.querySelector('.search-icon');
 const searchBar = document.querySelector('.search-bar');
 const navigation = document.querySelector('nav');
+
 
 function adjustLayout() {
     if (window.innerWidth <= 1100) {
@@ -55,6 +78,19 @@ searchIcon.addEventListener('click', () => {
     searchBar.classList.toggle('active');
     adjustLayout();
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 function setupArticleNavigation(row, leftButtonId, rightButtonId) {
     const leftButton = document.getElementById(leftButtonId);
@@ -96,6 +132,19 @@ function setupArticleNavigation(row, leftButtonId, rightButtonId) {
     showArticles();
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
 const userMenu = document.getElementById('user-side-menu');
 const burgerMenu = document.getElementById('side-menu');
 const burgerBtn = document.getElementById('burger-btn');
@@ -116,6 +165,19 @@ document.addEventListener('click', function (event) {
         burgerMenu.classList.remove('active');
     }
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 function addSwipeGesture(row) {
     let isDragging = false;
@@ -164,6 +226,24 @@ document.querySelectorAll('.row').forEach(row => {
     addSwipeGesture(row);
 });
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 function createArticle(title, imageUrl, bodyText) {
     const articleCard = document.createElement('div');
     articleCard.classList.add('article-card');
@@ -189,6 +269,19 @@ function createArticle(title, imageUrl, bodyText) {
     return articleCard;
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
 function addArticlesToSection(section, articlesData) {
     const row = section.querySelector('.row');
     articlesData.forEach(article => {
@@ -211,6 +304,20 @@ document.addEventListener('DOMContentLoaded', function() {
         })
         .catch(error => console.error('Erreur lors du chargement des articles:', error));
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 function initializeSlider() {
     const regionalRow = document.querySelectorAll('.row')[0];
