@@ -14,10 +14,10 @@ if (!isset($_SESSION['admin']) || $_SESSION['admin'] !== true) {
 //$username = 'lucas.revault';  // Remplacez par vos identifiants
 //$password = 'de408f2a';       // Remplacez par votre mot de passe
 
-$host = '127.0.0.1'; // Adresse locale (localhost)
+$host = '172.16.8.65'; // Adresse locale (localhost)
 $dbname = 'grp204_1'; // Nom de la base de données locale
-$username = 'root'; // Nom d'utilisateur MySQL par défaut sur XAMPP
-$password = ''; // Le mot de passe par défaut pour root est vide sur XAMPP
+$username = 'lucas.revault'; // Nom d'utilisateur MySQL par défaut sur XAMPP
+$password = 'de408f2a'; // Le mot de passe par défaut pour root est vide sur XAMPP
 
 
 
@@ -27,7 +27,7 @@ try {
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
     // Calcul des indicateurs à partir des données de la table `users3`
-    $stmt = $pdo->query("SELECT COUNT(*) AS total_users, AVG(age) AS average_age FROM users3");
+    $stmt = $pdo->query("SELECT COUNT(*) AS total_users, AVG(age) AS average_age FROM Utilisateur");
     $generalStats = $stmt->fetch(PDO::FETCH_ASSOC);
 
     $totalUsers = $generalStats['total_users'] ?? 0;
@@ -35,22 +35,22 @@ try {
 
 
     // Répartition des données
-    $regions = $pdo->query("SELECT region, COUNT(*) AS count FROM users3 GROUP BY region")
+    $regions = $pdo->query("SELECT region, COUNT(*) AS count FROM Utilisateur GROUP BY region")
         ->fetchAll(PDO::FETCH_KEY_PAIR);
 
-    $satisfaction = $pdo->query("SELECT lifeQuality, COUNT(*) AS count FROM users3 GROUP BY lifeQuality")
+    $satisfaction = $pdo->query("SELECT lifeQuality, COUNT(*) AS count FROM Utilisateur GROUP BY lifeQuality")
         ->fetchAll(PDO::FETCH_KEY_PAIR);
 
-    $environments = $pdo->query("SELECT environment, COUNT(*) AS count FROM users3 GROUP BY environment")
+    $environments = $pdo->query("SELECT environment, COUNT(*) AS count FROM Utilisateur GROUP BY environment")
         ->fetchAll(PDO::FETCH_KEY_PAIR);
 
-    $socialActivities = $pdo->query("SELECT socialActivities, COUNT(*) AS count FROM users3 GROUP BY socialActivities")
+    $socialActivities = $pdo->query("SELECT socialActivities, COUNT(*) AS count FROM Utilisateur GROUP BY socialActivities")
         ->fetchAll(PDO::FETCH_KEY_PAIR);
 
-    $healthIssues = $pdo->query("SELECT healthIssues, COUNT(*) AS count FROM users3 GROUP BY healthIssues")
+    $healthIssues = $pdo->query("SELECT healthIssues, COUNT(*) AS count FROM Utilisateur GROUP BY healthIssues")
         ->fetchAll(PDO::FETCH_KEY_PAIR);
 
-    $supportTypes = $pdo->query("SELECT supportType, COUNT(*) AS count FROM users3 GROUP BY supportType")
+    $supportTypes = $pdo->query("SELECT supportType, COUNT(*) AS count FROM Utilisateur GROUP BY supportType")
         ->fetchAll(PDO::FETCH_KEY_PAIR);
 
     // Retourner les indicateurs en JSON

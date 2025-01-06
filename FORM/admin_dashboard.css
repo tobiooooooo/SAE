@@ -1,37 +1,84 @@
+/* Style global amélioré */
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f0f8ff;
+    font-family: 'Poppins', sans-serif;
+    background: #eef2f3;
     margin: 0;
     padding: 0;
+    color: #333;
 }
 
 header {
-    background-color: #627a92;
+    background: linear-gradient(135deg, #627a92, #354f6b);
     color: white;
     text-align: center;
     padding: 20px;
-    font-size: 24px;
+    font-size: 28px;
     font-weight: bold;
 }
 
 main {
-    padding: 20px;
+    padding: 30px;
+    max-width: 1200px;
+    margin: auto;
 }
 
 section {
-    margin-bottom: 30px;
-    padding: 15px;
-    background-color: white;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
+    margin-bottom: 40px;
+    padding: 20px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+}
+
+section:hover {
+    transform: translateY(-5px);
 }
 
 section h2 {
-    font-size: 20px;
-    margin-bottom: 10px;
-    color: #333;
+    font-size: 22px;
+    color: #354f6b;
 }
 
-#chart-region, #chart-satisfaction, #chart-support {
+button {
+    padding: 12px 24px;
+    background: linear-gradient(135deg, #ff4b2b, #ff416c);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+button:hover {
+    background: linear-gradient(135deg, #ff416c, #ff4b2b);
+}
+
+/* Graphiques */
+#chart-region, #chart-satisfaction, #chart-support, #pie-environment, #pie-social {
     text-align: center;
+    padding-top: 20px;
+}
+
+svg {
+    border-radius: 12px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    header {
+        font-size: 24px;
+    }
+
+    main {
+        padding: 15px;
+    }
+
+    section {
+        padding: 15px;
+    }
+
+    button {
+        width: 100%;
+    }
 }

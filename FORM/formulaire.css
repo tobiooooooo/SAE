@@ -123,15 +123,21 @@ footer {
 
 /* Adaptation pour les écrans plus petits */
 @media (max-width: 768px) {
+    header {
+        max-width: 90%; /* Réduit la largeur uniquement sur mobile */
+        padding: 15px;
+    }
+
+    .logo-priartem {
+        max-width: 120px;  /* Image plus petite sur mobile */
+    }
+
     main {
         padding: 20px;
     }
 
-    .form-group {
-        gap: 15px;
-    }
-
-    button {
-        padding: 12px;
+    form {
+        width: 100%;
+        padding: 10px;
     }
 }
