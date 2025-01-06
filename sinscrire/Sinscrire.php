@@ -7,12 +7,10 @@
 
 session_start();
 
-
-$host = '127.0.0.1'; // Adresse locale (localhost)
+$host = '172.16.8.65'; // Adresse locale (localhost)
 $dbname = 'grp204_1'; // Nom de la base de données locale
-$username = 'root'; // Nom d'utilisateur MySQL par défaut sur XAMPP
-$password = ''; // Le mot de passe par défaut pour root est vide sur XAMPP
-
+$username = 'lucas.revault'; // Nom d'utilisateur MySQL par défaut sur XAMPP
+$password = 'de408f2a'; // Le mot de passe par défaut pour root est vide sur XAMPP
 
 try {
     // Connexion à la base de données
@@ -21,7 +19,6 @@ try {
 } catch (PDOException $e) {
     die("Erreur de connexion à la base de données : " . $e->getMessage());
 }
-
 
 // Vérification des données envoyées par le formulaire
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -46,7 +43,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         exit;
     }
 
-    // Hachage du mot de passe pour la sécurité
+    // Vérification si l'email existe déjà
+    $stmt = $pdo->prepare("SELECT * FROM Adherent WHERE email = :email");
+    $stmt->execute([':email' => $email]);
+    $existingUser = $stmt->fetch(PDO::FETCH_ASSOC);
+
+    if ($existingUser) {
+        echo "Cette adresse e-mail est déjà utilisée. Veuillez utiliser une autre adresse.";
+        exit;
+    }
+
+    // Hachage du mot de passe
     $mot_de_passe_hash = password_hash($mot_de_passe, PASSWORD_BCRYPT);
 
     try {
@@ -59,19 +66,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             ':mot_de_passe' => $mot_de_passe_hash
         ]);
         echo "Adhérent ajouté avec succès !";
+
+        // Stocker l'ID et le nom complet dans la session
+        $_SESSION['user_id'] = $pdo->lastInsertId();
+        $_SESSION['user_name'] = $prenom . ' ' . $nom;
+
+        header("Location: ../FORM/formulaire.html");
+        exit;
     } catch (PDOException $e) {
-        if ($e->getCode() === '23000') { // Violation de contrainte UNIQUE (e-mail déjà existant)
-            echo "L'adresse e-mail est déjà utilisée.";
-        } else {
-            echo "Erreur lors de l'ajout de l'adhérent : " . $e->getMessage();
-        }
+        echo "Erreur lors de l'ajout de l'adhérent : " . $e->getMessage();
     }
-
-    $_SESSION['user_id'] = $pdo->lastInsertId(); // ID de l'utilisateur ajouté
-    $_SESSION['user_name'] = $prenom . ' ' . $nom; // Nom complet
-
-
-        header("Location: ../FORM/formulaire.html"); // Rediriger vers le formulaire si non rempli
-
 }
 ?>

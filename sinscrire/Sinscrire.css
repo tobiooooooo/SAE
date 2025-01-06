@@ -342,3 +342,54 @@ nav ul li a:hover {
     transition: background-color 0.5s, color 0.5s;
 }
 
+/* Responsivité globale */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .form-container {
+        padding: 20px;
+        max-width: 90%;
+    }
+
+    .user-side-menu {
+        width: 100%;
+        right: 0;
+    }
+
+    .footer {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .form-container h2 {
+        font-size: 22px;
+    }
+
+    .form-container input {
+        font-size: 14px;
+        padding: 8px;
+    }
+
+    .submit-button {
+        padding: 10px;
+        font-size: 14px;
+    }
+
+    nav ul li a {
+        font-size: 16px;
+    }
+
+    .footer p {
+        font-size: 12px;
+    }
+}

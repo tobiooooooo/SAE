@@ -30,6 +30,7 @@ document.addEventListener("click", function() {
 
 
 
+
 const userBurgerMenu = document.querySelector('.auth-icon img');
 const userSideMenu = document.querySelector('.user-side-menu');
 
