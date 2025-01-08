@@ -31,7 +31,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // Vérification du mot de passe
         if ($user && password_verify($mot_de_passe, $user['mot_de_passe'])) {
             // Enregistrement des infos dans la session
-            $_SESSION['user_id'] = $user['id'];
+            $_SESSION['user_id'] = $user['id_adherent'];
             $_SESSION['user_name'] = $user['prenom'] . ' ' . $user['nom'];
             $_SESSION['formulaire_rempli'] = $user['formulaire_rempli'];
 

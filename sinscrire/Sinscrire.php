@@ -63,7 +63,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             ':prenom' => $prenom,
             ':nom' => $nom,
             ':email' => $email,
-            ':mot_de_passe' => $mot_de_passe_hash
+            ':mot_de_passe' => $mot_de_passe_hash,
         ]);
         echo "Adhérent ajouté avec succès !";
 

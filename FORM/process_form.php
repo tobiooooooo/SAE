@@ -1,16 +1,12 @@
 <?php
 // Configuration de la base de données
 session_start();
-//$host = '172.16.8.65';
-//$dbname = 'grp204_1';
-//$username = 'lucas.revault';
-//$password = 'de408f2a';
+$host = '172.16.8.65';
+$dbname = 'grp204_1';
+$username = 'lucas.revault';
+$password = 'de408f2a';
 
 
-$host = '127.0.0.1'; // Adresse locale (localhost)
-$dbname = 'grp204_1'; // Nom de la base de données locale
-$username = 'root'; // Nom d'utilisateur MySQL par défaut sur XAMPP
-$password = ''; // Le mot de passe par défaut pour root est vide sur XAMPP
 
 
 try {
@@ -39,7 +35,7 @@ try {
     echo '</pre>';
 
     // Insérer les données dans la table `users3`
-    $sql = "INSERT INTO users3 (name, age, region, environment, employment,
+    $sql = "INSERT INTO Utilisateur (name, age, region, environment, employment,
                                 socialActivities, lifeQuality, healthIssues, 
                                 supportType, dailyIssues, role) 
             VALUES (:name, :age, :region, :environment, :employment, :social_activities,
@@ -60,16 +56,18 @@ try {
     ]);
 
 
-    if (!isset($_SESSION['user_id'])) {
+    if (!isset($_SESSION['user_i    d'])) {
         echo "Erreur : utilisateur non identifié. Veuillez vous reconnecter.";
         header("Location: ../SeConnecter.html");
         exit;
     }
 
     // Mettre à jour la colonne formulaire_rempli
-    $stmt = $pdo->prepare("UPDATE Adherent SET formulaire_rempli = TRUE WHERE id = :id");
-    $stmt->execute([':id' => $_SESSION['user_id']]);
+    $stmt = $pdo->prepare("UPDATE Adherent SET formulaire_rempli = TRUE WHERE id_adherent = :id_adherent");
+    $stmt->execute([':id_adherent' => $_SESSION['user_id']]);
     echo "Données insérées avec succès !";
+    header("Location: ../accueil/Accueil.html");
+
 
 } catch (PDOException $e) {
     // Gérer les erreurs liées à la base de données
