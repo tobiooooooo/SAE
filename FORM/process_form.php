@@ -56,7 +56,7 @@ try {
     ]);
 
 
-    if (!isset($_SESSION['user_i    d'])) {
+    if (!isset($_SESSION['user_id'])) {
         echo "Erreur : utilisateur non identifié. Veuillez vous reconnecter.";
         header("Location: ../SeConnecter.html");
         exit;
