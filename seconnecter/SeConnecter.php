@@ -10,7 +10,7 @@ try {
     $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8", $username, $password);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 } catch (PDOException $e) {
-    die("Erreur de connexion à la base de données : " . $e->getMessage());
+    die("<script>alert('Erreur de connexion à la base de données : " . $e->getMessage() . "'); window.history.back();</script>");
 }
 
 // Traitement du formulaire de connexion
@@ -19,7 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $mot_de_passe = trim($_POST['mot_de_passe']);
 
     if (empty($email) || empty($mot_de_passe)) {
-        echo "Tous les champs sont obligatoires.";
+        echo "<script>alert('Tous les champs sont obligatoires.'); window.history.back();</script>";
         exit;
     }
 
@@ -30,23 +30,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         // Vérification du mot de passe
         if ($user && password_verify($mot_de_passe, $user['mot_de_passe'])) {
-            // Enregistrement des infos dans la session
             $_SESSION['user_id'] = $user['id_adherent'];
             $_SESSION['user_name'] = $user['prenom'] . ' ' . $user['nom'];
             $_SESSION['formulaire_rempli'] = $user['formulaire_rempli'];
 
-            // Redirections selon l'état du formulaire
             if ($user['formulaire_rempli']) {
-                header("Location: ../accueil/Accueil.html");
+                echo "<script>alert('Connexion réussie !'); window.location.href='../accueil/Accueil.html';</script>";
             } else {
-                header("Location: ../FORM/formulaire.html");
+                echo "<script>alert('Connexion réussie, veuillez compléter le formulaire.'); window.location.href='../FORM/formulaire.html';</script>";
             }
             exit;
         } else {
-            echo "Identifiants incorrects.";
+            echo "<script>alert('Identifiants incorrects.'); window.history.back();</script>";
         }
     } catch (PDOException $e) {
-        echo "Erreur lors de la connexion : " . $e->getMessage();
+        echo "<script>alert('Erreur lors de la connexion : " . $e->getMessage() . "'); window.history.back();</script>";
     }
+
 }
 ?>
